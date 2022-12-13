@@ -1,0 +1,67 @@
+.mymodal_5 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 10px;
+    outline: none;
+    padding: 35px;
+    text-align: left;
+    width: 824px;
+}
+
+.amenities_cnt {
+    border-bottom: 1px solid #e1e3ed;
+}
+
+.amenities_heading {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #4B5373;
+    margin-bottom: 0;
+    padding-bottom: 25px;
+}
+
+.amenities_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 22px;
+}
+
+.amenities_main {
+    padding-top: 27px;
+    padding-bottom: 4px;
+}
+
+.amenities_wrapper div span {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 28px;
+    color: #000000;
+    margin-bottom: 0;
+}
+
+@media screen and (max-width: 836px) {
+    .mymodal_5 {
+        top: 50%;
+        left: 0%;
+        transform: translate(20px, -50%);
+        width: calc(100% - 40px);
+        padding: 20px !important;
+
+    }
+
+    .amenities_heading {
+        font-size: 20px;
+        line-height: 24px;
+        padding-bottom: 10px;
+    }
+
+    .mymodal_5 .pd_about_sub_cnt div {
+        margin-top: 10px !important;
+    }
+}

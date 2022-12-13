@@ -1,0 +1,82 @@
+.mymodal_3 {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid #ccc;
+    background: #fff;
+    border-radius: 10px;
+    outline: none;
+    padding: 35px;
+    width: 671px;
+    text-align: center;
+}
+
+.installment_heading {
+    font-weight: 500;
+    font-size: 26px;
+    line-height: 31px;
+    color: #4B5373;
+    margin-bottom: 28px;
+    text-align: left;
+}
+
+.installment_para {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 27px;
+    color: #000000;
+    max-width: 511px;
+    margin-bottom: 41px;
+    text-align: left;
+}
+
+.installment_btn {
+    background: #117BE7;
+    border-radius: 30px;
+    padding: 19px 49px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: inline-block;
+    margin: 0 auto;
+}
+
+.installment_btn:hover {
+    filter: brightness(0.95);
+    color: #ffff;
+}
+
+
+@media screen and (max-width: 836px) {
+    .mymodal_3 {
+        top: 50%;
+        left: 0%;
+        transform: translate(20px, -50%);
+        width: calc(100% - 40px);
+        padding: 20px;
+        padding-bottom: 40px;
+    }
+
+    .installment_btn {
+        padding: 20px 0px;
+        width: 100%;
+    }
+
+    .installment_heading {
+        font-size: 20px;
+        line-height: 28px;
+        margin-bottom: 20px;
+        padding-right: 20px;
+    }
+
+    .installment_para {
+        font-size: 14px;
+        line-height: 24px;
+        max-width: none;
+        margin-bottom: 20px;
+    }
+}

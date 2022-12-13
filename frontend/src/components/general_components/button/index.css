@@ -1,0 +1,21 @@
+.theme_button {
+    display: inline-block;
+    text-decoration: none;
+    padding: 19px 56px;
+    border-radius: 30px;
+    background: #117BE7;
+    gap: 10px;
+    font-family: 'Inter';
+    font-style: normal;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 19px;
+    /* identical to box height, or 106% */
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+}
+.theme_button:hover{
+    color: #ffff;
+    filter: brightness(0.95);
+}

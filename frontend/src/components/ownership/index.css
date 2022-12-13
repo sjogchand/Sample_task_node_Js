@@ -1,0 +1,134 @@
+.ownership_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 95px;
+}
+
+.ownership_image_mobile {
+    display: none;
+}
+
+.ownership_content {
+    width: 50%;
+    padding-right: 40px;
+}
+
+.ownership_image {
+    width: 50%;
+    padding-left: 40px;
+}
+
+.ownership_image img {
+    width: 100%;
+}
+
+.ownership_content h2 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #117BE7;
+    margin-bottom: 11px;
+}
+
+.ownership_content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 55px;
+    color: #4B5373;
+    margin-bottom: 26px;
+}
+
+.ownership_content p {
+    max-width: 578px;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #4B5373;
+    margin-bottom: 27px;
+}
+
+.ow_btn {
+    margin-top: 3px;
+}
+
+@media screen and (max-width: 1140px) {
+
+    .ownership_content {
+        width: 50%;
+        padding-right: 10px;
+    }
+
+    .ownership_image {
+        width: 50%;
+        padding-left: 10px;
+    }
+
+    .ownership_image img {
+        width: 100%;
+    }
+
+    .ownership_content h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .ownership_content h1 {
+        font-size: 32px;
+        margin-bottom: 17px;
+    }
+
+    .ownership_content p {
+        font-size: 14px;
+        margin-bottom: 17px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .ownership_container {
+        display: block;
+        padding-top: 70px;
+    }
+
+    .ownership_image_mobile {
+        display: block;
+        width: 100%;
+        border-radius: 2px;
+        padding-bottom: 20px;
+    }
+
+    .ownership_image_mobile img {
+        width: 100%;
+    }
+
+    .ownership_content {
+        width: 100%;
+        padding-right: 0px;
+    }
+
+    .ownership_image {
+        display: none;
+    }
+
+    .ownership_content h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 6px;
+    }
+
+    .ownership_content h1 {
+        font-size: 25px;
+        line-height: 37px;
+        margin-bottom: 19px;
+    }
+
+    .ownership_content p {
+        max-width: none;
+        font-size: 15px;
+        line-height: 25px;
+    }
+}

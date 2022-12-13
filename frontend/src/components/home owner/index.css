@@ -1,0 +1,129 @@
+.homeowner_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding-top: 93px;
+}
+
+.homeowner_heading {
+    padding-bottom: 94px;
+}
+
+.homeowner_heading h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #4B5373;
+}
+
+.homeowner_content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.homeowner_sub_content div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 21px;
+
+}
+
+.homeowner_sub_content h1 {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 29px;
+    color: var(--theme-color);
+    margin-left: 18.2px;
+    margin-bottom: 0;
+}
+
+
+
+.homeowner_sub_content p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 25px;
+    color: #4B5373;
+    max-width: 385px;
+}
+
+.ho_button_wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1270px) {
+    .homeowner_sub_content {
+        padding-left: 30px;
+    }
+
+    .homeowner_sub_content:first-child {
+        padding-left: 0px;
+    }
+
+    .homeowner_sub_content p {
+        max-width: none;
+
+    }
+}
+
+@media screen and (max-width: 918px) {
+
+    .homeowner_heading {
+        padding-bottom: 60px;
+    }
+
+    .homeowner_sub_content h1 {
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 29px;
+        color: var(--theme-color);
+        margin-left: 18.2px;
+        margin-bottom: 0;
+    }
+
+    .homeowner_sub_content p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 25px;
+        color: #4B5373;
+        max-width: none;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .homeowner_container {
+        padding-top: 32px;
+    }
+
+    .homeowner_heading {
+        padding-bottom: 46px;
+    }
+
+    .homeowner_heading h1 {
+        font-size: 25px;
+        line-height: 37px;
+        text-align: left;
+    }
+
+    .homeowner_content {
+        display: block;
+    }
+
+    .homeowner_sub_content {
+        padding-left: 0px;
+    }
+
+    .homeowner_sub_content p {
+        max-width: none;
+    }
+
+    .ho_button_wrapper {
+        display: none;
+    }
+}

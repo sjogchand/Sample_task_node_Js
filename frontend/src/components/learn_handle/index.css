@@ -1,0 +1,126 @@
+.handle_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 179px;
+}
+
+.m_handle_image {
+    display: none;
+}
+
+.handle_content {
+    padding-top: 30px;
+    width: 50%;
+}
+
+.handle_image {
+    width: 50%;
+}
+
+.handle_image img {
+    width: 100%;
+}
+
+.handle_content_sub h2 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #117BE7;
+    margin-bottom: 11px;
+}
+
+.handle_content_sub h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 55px;
+    color: #4B5373;
+    margin-bottom: 26px;
+}
+
+.handle_content_sub p {
+    max-width: 537px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 31px;
+    color: #4B5373;
+    margin-bottom: 30px;
+}
+
+
+@media screen and (max-width: 1243px) {
+    .handle_content_sub h1 {
+        font-weight: 700;
+        font-size: 34px;
+        line-height: 55px;
+        color: #4B5373;
+        margin-bottom: 26px;
+    }
+
+    .handle_content_sub p {
+        max-width: 537px;
+        font-weight: 400;
+        font-size: 16px;
+        line-height: 31px;
+        color: #4B5373;
+        margin-bottom: 30px;
+    }
+
+    .handle_content {
+        padding-right: 10px;
+        
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .handle_container {
+        padding-top: 56px;
+    }
+
+    .m_handle_image {
+        width: 100%;
+        display: block;
+    }
+
+    .m_handle_image img {
+        width: 100%;
+    }
+
+    .handle_content {
+        padding-right: 0px;
+        padding-top: 0px;
+        width: 100%;
+    }
+
+    .handle_image {
+        display: none;
+    }
+
+    .handle_image img {
+        width: 100%;
+    }
+
+    .handle_content_sub h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 7px;
+    }
+
+    .handle_content_sub h1 {
+        font-size: 25px;
+        line-height: 37px;
+        margin-bottom: 22px;
+    }
+
+    .handle_content_sub p {
+        max-width: none;
+        font-size: 15px;
+        line-height: 25px;
+        margin-top: 30px;
+        margin-bottom: 22px;
+    }
+}

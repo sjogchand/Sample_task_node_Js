@@ -1,0 +1,228 @@
+.access_container_bg {
+    background: #0C2735;
+    padding-top: 129px;
+    padding-bottom: 81px;
+}
+
+.access_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    background: #0C2735;
+}
+
+.access_image {
+    width: 50%;
+    text-align: center;
+}
+
+.access_image img {
+    width: 100%;
+    max-width: 403px;
+}
+
+.access_content {
+    width: 50%;
+}
+
+.Access_sub_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.access_content h1 {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    color: #FFFFFF;
+    margin-bottom: 39px;
+}
+
+.access_content h3 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 55px;
+    color: #FFFFFF;
+    margin-bottom: 17px;
+}
+
+.access_content p {
+    max-width: 674px;
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 38px;
+    color: #FFFFFF;
+}
+
+.access_sub_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding-top: 77.33px;
+}
+
+.access_sub_wrapper_content div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    margin-bottom: 17px;
+
+}
+
+.access_sub_wrapper_content h1 {
+    font-weight: 700;
+    font-size: 24px;
+    line-height: 29px;
+    color: #FFFFFF;
+    margin-left: 18px;
+    margin-bottom: 0;
+}
+
+.access_sub_wrapper_content div {
+    padding-bottom: 15px;
+
+}
+
+.access_sub_wrapper_content p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #FFFFFF;
+    max-width: 366px;
+}
+
+.access_button_wrapper {
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media screen and (max-width: 1148px) {
+
+    .access_content {
+        width: 50%;
+        margin-right: 20px;
+    }
+
+    .access_content h1 {
+        font-weight: 700;
+        font-size: 42px;
+        line-height: 53px;
+        color: #FFFFFF;
+        margin-bottom: 39px;
+    }
+
+    .access_content h3 {
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 55px;
+        color: #FFFFFF;
+        margin-bottom: 17px;
+    }
+
+    .access_content p {
+        max-width: 674px;
+        font-weight: 400;
+        font-size: 22px;
+        line-height: 38px;
+        color: #FFFFFF;
+    }
+
+    .access_sub_wrapper_content {
+        margin-left: 10px;
+    }
+
+    .access_sub_wrapper_content:first-child {
+        margin-left: 0;
+    }
+
+    .access_sub_wrapper_content h1 {
+        font-weight: 700;
+        font-size: 22px;
+        line-height: 29px;
+        color: #FFFFFF;
+        margin-left: 18px;
+    }
+
+    .access_sub_wrapper_content p {
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 28px;
+        color: #FFFFFF;
+        max-width: 366px;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+
+    .Access_sub_container {
+        display: block;
+    }
+
+
+    .access_content h1 {
+        font-weight: 700;
+        font-size: 36px;
+        line-height: 48px;
+        color: #FFFFFF;
+        margin-bottom: 24px;
+    }
+
+    .access_content h3 {
+        font-weight: 700;
+        font-size: 30px;
+        line-height: 45px;
+        color: #FFFFFF;
+        margin-bottom: 13px;
+    }
+
+    .access_content p {
+        max-width: 674px;
+        font-weight: 400;
+        font-size: 20px;
+        line-height: 32px;
+        color: #FFFFFF;
+    }
+
+    .access_content {
+        width: 100%;
+    }
+
+    .access_image {
+        width: 81%;
+        margin: 0 auto;
+        padding-top: 20px;
+    }
+
+    .access_sub_wrapper {
+        display: block;
+    }
+
+    .access_sub_wrapper_content {
+        margin-left: 0px;
+        padding-bottom: 20px;
+    }
+
+    .access_sub_wrapper_content div {
+        padding-bottom: 5px;
+    }
+
+    .access_button_wrapper {
+        margin-top: 30px;
+    }
+
+    .access_sub_wrapper_content h1 {
+        font-size: 20px;
+        line-height: 29px;
+        margin-left: 18px;
+        margin-bottom: 0;
+    }
+
+    .access_sub_wrapper_content p {
+        font-size: 15px;
+        line-height: 25px;
+        max-width: none;
+    }
+
+}

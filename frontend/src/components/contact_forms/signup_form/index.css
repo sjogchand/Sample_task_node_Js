@@ -1,0 +1,44 @@
+.main_dropdown_payment {
+    color: #4B5373;
+    font-size: 15px;
+    line-height: 27px;
+    padding-top: 16px;
+}
+
+.main_dropdown_payment p {
+    margin: 0
+}
+
+.dropdown_payment {
+    display: flex;
+    margin: 0 !important;
+    padding-top: 12px;
+    line-height: 27px;
+}
+
+.dropdown_payment input {
+    width: fit-content !important;
+}
+
+.sub_dd {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.sub_dd input {
+    accent-color: #117BE7;
+    width: 18.3px;
+    height: 18.3px;
+}
+
+.sub_dd label {
+    margin-left: 10px;
+    margin-right: 20px;
+    font-size: 15px;
+    line-height: 1;
+    color: #4B5373;
+}
+
+
+@media screen and (max-width: 768px) {}

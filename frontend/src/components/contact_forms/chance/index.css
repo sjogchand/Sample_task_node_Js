@@ -1,0 +1,176 @@
+input[type="radio"]:checked, label{
+    cursor: pointer;
+}
+
+.Chance_container {
+    max-width: 762px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 170px;
+}
+
+.chance_content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 44px;
+    text-align: center;
+    color: #4B5373;
+}
+
+.chance_content p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 32px;
+    text-align: center;
+    margin: 0 auto;
+    color: #ABADB4;
+    max-width: 762px;
+    margin-top: 20px;
+}
+
+.email_input {
+    max-width: 596px;
+    margin: 0 auto;
+    margin-top: 75px;
+}
+
+.email_input input {
+    width: 100%;
+    background: #F5F5F5;
+    border: none;
+    border-bottom: 1px solid #CECECE;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #4B5373;
+    padding: 12px 0px;
+    outline: none;
+}
+
+.radio_button {
+    max-width: 596px;
+    margin: 0 auto;
+    margin-top: 40px;
+}
+
+.radio_button p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #4B5373;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.radio_wrapper {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.dd_conte {
+    display: flex;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+
+.dd_conte label {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 1;
+    color: #4B5373;
+    margin-right: 28.83px;
+    margin-left: 10px;
+}
+
+.dd_conte input {
+    accent-color: #117BE7;
+    width: 18.3px;
+    height: 18.3px;
+}
+
+.agree_wrapper {
+    max-width: 596px;
+    margin: 0 auto;
+    margin-top: 34px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.agree_wrapper input {
+    accent-color: #D0D0D0;
+    height: 15px;
+    width: 15px;
+}
+
+.agree_wrapper label {
+    font-weight: 400;
+    font-size: 12px;
+    line-height: 1;
+    color: #98A7B5;
+    margin-left: 11px;
+}
+
+.agree_wrapper label a {
+    color: #5DA6E6 !important;
+    line-height: 1;
+
+}
+
+.chance_button {
+    margin-top: 56px;
+    text-align: center;
+}
+
+@media screen and (max-width: 768px) {
+    .Chance_container {
+        padding: 0px;
+        padding-top: 45px;
+    }
+
+    .radio_wrapper {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        flex-wrap: wrap;
+    }
+    .dd_conte {
+        padding: 10px 0;
+    }
+    .chance_content h1 {
+        font-size: 25px;
+        line-height: 37px;
+        text-align: left;
+    }
+
+    .chance_content p {
+        font-size: 15px;
+        line-height: 25px;
+        text-align: left;
+        max-width: none;
+        margin-top: 14px;
+    }
+
+    .email_input {
+        max-width: none;
+        margin: 0 auto;
+        margin-top: 45px;
+    }
+
+    .radio_button {
+        max-width: none;
+    }
+
+    .agree_wrapper {
+        max-width: none;
+        margin: 0 auto;
+        margin-top: 34px;
+    }
+
+    .chance_button {
+        margin-top: 33px;
+        text-align: left;
+    }
+}

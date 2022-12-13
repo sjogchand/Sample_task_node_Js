@@ -1,0 +1,30 @@
+.tic_faq_container {
+    max-width: 748px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 86px;
+}
+
+.tic_faq_heading h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 55px;
+    text-align: center;
+    color: #4B5373;
+    margin-bottom: 36px;
+}
+
+@media screen and (max-width: 768px) {
+    .tic_faq_container {
+        margin-top: 0px;
+        margin-bottom: 0px;
+        padding-top: 74px;
+
+    }
+
+    .tic_faq_heading h1 {
+        font-size: 24px;
+        line-height: 37px;
+        margin-bottom: 22px;
+    }
+}

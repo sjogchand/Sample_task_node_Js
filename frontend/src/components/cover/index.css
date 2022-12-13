@@ -1,0 +1,267 @@
+.cover_container {
+    width: 100%;
+    margin: 0 auto;
+    position: relative;
+}
+
+.cover_image {
+    min-height: 100vh;
+    width: 100%;
+    overflow: hidden;
+}
+
+.cover_image video {
+    width: 100%;
+    filter: brightness(0.65);
+}
+
+.cover_content {
+    position: absolute;
+    top: 0%;
+    left: 50%;
+    transform: translate(-50%, 0%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100vh;
+}
+
+.cover_content_sub {
+    text-align: center;
+    max-width: 694px;
+}
+
+.cover_content h2 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    color: #FFFFFF;
+    margin-bottom: 15px;
+}
+
+.cover_content h1 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    color: #FFFFFF;
+    margin-bottom: 26px;
+}
+
+.cover_content p {
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    color: #DBDBDB;
+    margin-bottom: 37px;
+}
+
+@media screen and (max-width: 1160px) {
+
+
+    .cover_image {
+        min-height: auto;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .cover_image video {
+        height: 100%;
+        width: auto;
+    }
+
+    .cover_container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    .cover_content {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        padding: 0 20px;
+    }
+
+    .cover_content_sub {
+        text-align: left;
+    }
+
+    .cover_content h2 {
+        font-size: 20px;
+        line-height: 34px;
+        margin-bottom: 33px;
+    }
+
+    .cover_content h1 {
+        font-size: 45px;
+        line-height: 54px;
+        margin-bottom: 34px;
+    }
+
+    .cover_content p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+}
+
+@media (aspect-ratio: 2/1) {
+    .cover_image {
+        max-height: none;
+        width: 100%;
+        overflow: hidden;
+        display: none;
+    }
+
+    .cover_image video {
+        width: auto;
+        height: 100vh;
+    }
+
+    .cover_container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    .cover_content {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        padding: 0 20px;
+    }
+
+    .cover_content_sub {
+        text-align: left;
+    }
+
+    .cover_content h2 {
+        font-size: 20px;
+        line-height: 34px;
+        margin-bottom: 33px;
+    }
+
+    .cover_content h1 {
+        font-size: 45px;
+        line-height: 54px;
+        margin-bottom: 34px;
+    }
+
+    .cover_content p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+}
+
+@media (max-aspect-ratio: 8/5) {
+    .cover_image {
+        max-height: none;
+        width: 100%;
+        overflow: hidden;
+        /* display: none; */
+    }
+
+    .cover_image video {
+        width: auto;
+        height: 100vh;
+        /* verticall mobile */
+    }
+
+    .cover_container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    .cover_content {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        padding: 0 20px;
+    }
+
+    .cover_content_sub {
+        text-align: center;
+    }
+
+    .cover_content h2 {
+        font-size: 20px;
+        line-height: 34px;
+        margin-bottom: 33px;
+    }
+
+    .cover_content h1 {
+        font-size: 45px;
+        line-height: 54px;
+        margin-bottom: 34px;
+    }
+
+    .cover_content p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+
+}
+
+@media (min-aspect-ratio: 16/9)  {
+    .cover_image {
+        max-height: none;
+        height: auto;
+        min-height: auto;
+        width: 100%;
+        overflow: hidden;
+        /* display: none; */
+    }
+
+    .cover_image video {
+        width: 120%;
+        height: auto;
+        min-height: auto;
+    }
+
+}
+
+@media screen and (max-width: 768px) {
+    .cover_container {
+        width: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+
+
+    .cover_content {
+        position: absolute;
+        top: 50%;
+        left: 0%;
+        transform: translate(0%, -50%);
+        padding: 0 20px;
+    }
+
+    .cover_content_sub {
+        text-align: left;
+    }
+
+    .cover_content h2 {
+        font-size: 20px;
+        line-height: 34px;
+        margin-bottom: 33px;
+    }
+
+    .cover_content h1 {
+        font-size: 45px;
+        line-height: 54px;
+        margin-bottom: 34px;
+    }
+
+    .cover_content p {
+        font-size: 15px;
+        line-height: 26px;
+    }
+}

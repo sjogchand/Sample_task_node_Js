@@ -1,0 +1,132 @@
+.pd_about_container {
+    width: 100%;
+    max-width: 797px;
+}
+
+.pd_about_content h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4B5373;
+    border-bottom: 1px solid #E1E3ED;
+    padding-bottom: 17px;
+}
+
+.pd_about_content p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #4B5373;
+    padding-top: 17px;
+}
+
+.sub_about_heading h3 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4B5373;
+    border-bottom: 1px solid #E1E3ED;
+    padding-bottom: 17px;
+}
+
+.pd_about_sub_cnt {
+    padding-top: 22px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.pd_about_sub_cnt div:last-child {
+    margin-left: 90px;
+}
+
+.pd_about_sub_cnt div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.pd_about_sub_cnt span:first-child {
+    padding-right: 11px;
+}
+
+.pd_about_sub_cnt span {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #000000;
+}
+
+.about_pd_button button {
+    font-weight: 400;
+    font-size: 13px;
+    line-height: 28px;
+    color: #6C6C6C;
+    background: #FFFFFF;
+    border: 1px solid #E1E3ED;
+    border-radius: 42px;
+    padding: 5px 22px;
+    margin-top: 37px;
+}
+
+.tour_heading {
+    padding-top: 45px;
+}
+
+.tour_heading h1 {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    color: #4B5373;
+    border-bottom: 1px solid #E1E3ED;
+    padding-bottom: 17px;
+}
+
+.pd_video {
+    width: 100%;
+    max-width: 797px;
+    padding-top: 25px;
+}
+
+.pd_video video {
+    width: 100%;
+    border-radius: 6px;
+
+}
+
+
+@media screen and (max-width: 768px) {
+
+    .pd_about_container {
+        width: 100%;
+        max-width: none;
+    }
+
+    .pd_about_sub_cnt {
+        padding-top: 0px;
+        display: block;
+    }
+
+    .pd_about_sub_cnt div:last-child {
+        margin-left: 0px;
+    }
+
+    .pd_about_sub_cnt div {
+        margin-top: 20px;
+    }
+
+    .about_pd_button button {
+        margin-top: 30px;
+    }
+
+    .tour_heading {
+        padding-top: 45px;
+    }
+
+    .pd_video {
+        width: 100%;
+        max-width: none;
+        padding-top: 20px;
+    }
+
+}

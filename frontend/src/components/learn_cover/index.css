@@ -1,0 +1,66 @@
+.learn_container {
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 151px;
+}
+
+.learn_content {
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.learn_content h3 {
+    font-weight: 600;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    color: #4B5373;
+    margin-bottom: 15px;
+}
+
+.learn_content h1 {
+    font-weight: 700;
+    font-size: 48px;
+    line-height: 58px;
+    text-align: center;
+    color: #4B5373;
+    margin-bottom: 32px;
+}
+
+.learn_content p {
+    max-width: 654px;
+    font-weight: 400;
+    font-size: 18px;
+    line-height: 30px;
+    text-align: center;
+    color: #4B5373;
+    margin: 0 auto;
+    margin-bottom: 78px;
+}
+
+.learn_image{
+    width: 100%;
+}
+
+.learn_image img{
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .learn_content h3 {
+        font-size: 20px;
+        line-height: 34px;
+    }
+    
+    .learn_content h1 {
+        font-size: 46px;
+        line-height: 54px;
+    }
+    
+    .learn_content p {
+        padding: 0 10px;
+        max-width: none;
+        font-size: 15px;
+        line-height: 26px;
+    }
+}

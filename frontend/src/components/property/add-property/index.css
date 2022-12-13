@@ -1,0 +1,132 @@
+.signup_container_bg {
+    background-color: rgba(12, 39, 53, 1);
+    padding-top: 137px;
+    padding-bottom: 56px;
+}
+
+.signup_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+}
+
+.signup_content h1 {
+    font-weight: 700;
+    font-size: 44px;
+    line-height: 53px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 21px;
+}
+
+.signup_content p {
+    font-weight: 400;
+    font-size: 24px;
+    line-height: 29px;
+    text-align: center;
+    color: #FFFFFF;
+    padding-bottom: 20px;
+}
+
+.signup_button {
+    text-align: center;
+    padding-bottom: 85px;
+}
+
+
+
+.benefit_container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+
+}
+
+.benefit_wrapper {
+    border: 1px solid #305264;
+    border-radius: 4px;
+    padding-bottom: 48px;
+    padding-left: 35px;
+    padding-right: 35px;
+    margin: 0 auto;
+    max-width: 1136px;
+
+}
+
+.benefit_heading h2 {
+    font-weight: 700;
+    font-size: 22px;
+    line-height: 27px;
+    text-align: center;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.71);
+    transform: translateY(-50%);
+    background-color: rgba(12, 39, 53, 1);
+    width: fit-content;
+    margin: 0 auto;
+    margin-bottom: 65px;
+    padding: 0 32px;
+}
+
+
+.benefit_sub_container p {
+    max-width: 220px;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 32px;
+    text-align: center;
+    color: rgba(255, 255, 255, 0.71);
+    padding-top: 21px;
+}
+.get_started_container {
+    max-width: 1200px !important;
+}
+
+
+@media screen and (max-width: 768px) {
+    .signup_container_bg {
+        padding-top: 137px;
+        padding-bottom: 56px;
+    }
+
+    .signup_content h1 {
+        font-size: 36px;
+        line-height: 45px;
+    }
+
+    .signup_content p {
+        font-size: 22px;
+        line-height: 25px;
+    }
+
+    .signup_button {
+        text-align: center;
+        padding-bottom: 85px;
+    }
+
+    .benefit_container {
+        display: block;
+    }
+
+    .benefit_wrapper {
+        padding-bottom: 48px;
+        max-width: none;
+    }
+
+    .benefit_heading h2 {
+        margin-bottom: 50px;
+        padding: 0 32px;
+    }
+
+    .benefit_sub_container {
+        margin-top: 40px;
+    }
+
+    .benefit_sub_container p {
+        max-width: none;
+        font-size: 18px;
+        line-height: 25px;
+        padding-top: 21px;
+    }
+}

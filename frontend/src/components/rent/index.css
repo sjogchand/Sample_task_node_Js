@@ -1,0 +1,140 @@
+.rent_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 95px;
+}
+
+.rent_image_mobile {
+    display: none;
+}
+
+.rent_content {
+    width: 50%;
+    padding-left: 38px;
+}
+
+.rent_image {
+    width: 50%;
+    padding-right: 38px;
+}
+
+.rent_image img {
+    width: 100%;
+}
+
+.rent_content h2 {
+    font-weight: 500;
+    font-size: 22px;
+    line-height: 27px;
+    color: #117BE7;
+    margin-bottom: 11px;
+}
+
+.rent_content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 55px;
+    color: #4B5373;
+    margin-bottom: 26px;
+}
+
+.rent_content p {
+    max-width: 578px;
+    font-weight: 400;
+    font-size: 17px;
+    line-height: 31px;
+    color: #4B5373;
+    margin-bottom: 27px;
+}
+
+.ow_btn {
+    margin-top: 3px;
+}
+
+@media screen and (max-width: 1140px) {
+
+    .rent_content {
+        width: 50%;
+        padding-left: 10px;
+
+    }
+
+    .rent_image {
+        width: 50%;
+        padding-right: 10px;
+
+    }
+
+    .rent_image img {
+        width: 100%;
+    }
+
+    .rent_content h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .rent_content h1 {
+        font-size: 32px;
+        margin-bottom: 17px;
+    }
+
+    .rent_content p {
+        font-size: 14px;
+        margin-bottom: 17px;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .rent_container {
+        display: block;
+        padding-top: 66px;
+    }
+
+    .rent_image_mobile {
+        display: block;
+        width: 100%;
+        padding-bottom: 24px;
+    }
+
+    .rent_image_mobile img {
+        width: 100%;
+    }
+
+    .rent_content {
+        width: 100%;
+        padding-left: 0px;
+    }
+
+    .rent_image {
+        display: none;
+    }
+
+    .rent_image img {
+        width: 100%;
+    }
+
+    .rent_content h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 6px;
+    }
+
+    .rent_content h1 {
+        font-size: 25px;
+        line-height: 37px;
+        margin-bottom: 24px;
+    }
+
+    .rent_content p {
+        max-width: none;
+        font-size: 15px;
+        line-height: 25px;
+        margin-bottom: 24px;
+    }
+}

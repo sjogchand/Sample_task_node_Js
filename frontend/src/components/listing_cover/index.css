@@ -1,0 +1,420 @@
+/* Cover css Start */
+
+.sub_listing_container {
+    position: relative;
+    background-image: url('../../assets/images//listing_bg2.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    padding-top: 153px;
+    padding-bottom: 75px;
+}
+
+.listing_content {
+    width: 100%;
+}
+
+.listing_content_sub {
+    text-align: center;
+    margin: 0 auto;
+    max-width: 898px;
+}
+
+.listing_content h3 {
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 22px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-bottom: 0;
+
+}
+
+.listing_content h1 {
+    font-style: normal;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    text-align: center;
+    color: #FFFFFF;
+    margin-top: 17px;
+}
+
+.lasts_buttons {
+    max-width: 226px;
+    width: 100%;
+    display: flex;
+}
+
+.gps_btn_wrapper {
+    background-color: rgb(240, 140, 140);
+    padding: 0px;
+    width: 139px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+
+}
+
+.gps_btn {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 17px;
+    color: #8F9199;
+    height: 60px;
+    display: block;
+    background-color: #fff;
+    border: none;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+
+.search_btn {
+    background: #117BE7;
+    border-radius: 0px 2px 2px 0px;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 19px;
+    color: #FFFFFF;
+    border: none;
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 17px;
+    padding-right: 19px;
+}
+
+
+.search_btn:hover {
+    filter: brightness(0.95);
+}
+
+.search_btn img,
+.gps_btn img {
+    margin-right: 12px;
+}
+
+.search_row_wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    background: rgba(36, 40, 56, 0.3);
+    backdrop-filter: blur(4px);
+    border-radius: 5px;
+    padding: 36px 35px;
+    margin-top: 73px;
+}
+
+.dropdown-menu {
+    border: none;
+    border-radius: 0;
+    width: 100%;
+}
+
+.dropdown-menu a {
+    padding-bottom: 7px;
+}
+
+
+.input_box {
+    background-color: #FFFFFF;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 22px;
+    border-left: 1px solid #E3E3E3;
+    width: 100%;
+    height: 60px;
+}
+
+.search_input {
+    width: 100%;
+}
+
+.input_box input {
+    width: 100%;
+    height: 60px;
+    border: none;
+    outline: none;
+    margin-left: 15px;
+    padding: 16px 0;
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #6B6E77;
+}
+
+.input_box input:focus,
+.input_box input:active,
+.input_box input:hover {
+    border: none;
+    outline: none;
+    box-shadow: none
+}
+
+
+.input_box ::placeholder {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #98A7B5;
+    opacity: 1;
+}
+
+.input_box :-ms-input-placeholder {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #98A7B5;
+}
+
+.input_box ::-ms-input-placeholder {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #98A7B5;
+}
+
+/*  dropdown*/
+
+#dropdown-basic {
+    background-color: #fff;
+    color: black;
+    font-weight: 600;
+    font-size: 14px;
+    line-height: 27px;
+    font-style: normal;
+    color: #6B6E77;
+    height: 60px;
+    font-family: 'Inter', sans-serif !important;
+    background: #FFFFFF;
+    border: none;
+    border-radius: 0px;
+    width: 150px;
+    max-width: 150px;
+}
+
+/* Cover css End */
+
+
+/* Product Card container css Start */
+.card_container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    padding-top: 69px;
+}
+
+.card_heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 52px;
+}
+
+.card_heading div h1 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #4B5373;
+}
+
+.card_heading div img {
+    cursor: pointer;
+}
+
+/* Card grid  */
+
+.card_wrapper_main {
+    display: grid;
+    /* grid-template-columns: auto auto auto; */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    justify-content: center;
+    column-gap: 40px;
+    row-gap: 40px;
+
+}
+
+
+.card_button {
+    text-align: center;
+    padding-top: 92px;
+}
+
+.card_button button {
+    background: #515A7A;
+    border-radius: 30px;
+    padding: 19px 56px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: #FFFFFF;
+    border: none;
+    cursor: pointer;
+}
+
+.card_button button:hover {
+    filter: brightness(0.9);
+}
+
+/* Product Card container css End */
+
+
+@media screen and (max-width: 768px) {
+
+    .search_btn span,
+    .gps_btn span {
+        display: none;
+    }
+
+
+    .gps_btn {
+        padding: 0 20px;
+        height: auto;
+        height: 50px !important;
+        width: 50px;
+        justify-content: center;
+    }
+
+    .search_btn {
+        padding: 0px;
+        height: 50px !important;
+        width: 50px !important;
+        justify-content: center;
+    }
+
+    .search_btn img,
+    .gps_btn img {
+        margin-right: 0;
+    }
+
+    /* Cover css Start */
+
+    .sub_listing_container {
+        position: relative;
+        background-image: url('../../assets/images//listing_bg2.png');
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: center;
+        padding-top: 130px;
+        padding-bottom: 70px;
+    }
+
+    .listing_content_sub {
+        max-width: none;
+    }
+
+
+    .listing_content h3 {
+        font-size: 17px;
+        line-height: 20px;
+        padding: 0 20px;
+    }
+
+    .listing_content h1 {
+        font-style: normal;
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 38px;
+        margin-top: 10px;
+        padding: 0 20px;
+    }
+
+    .lasts_buttons {
+        max-width: none;
+        width: fit-content;
+        display: flex;
+    }
+
+    .gps_btn_wrapper {
+        width: fit-content;
+        display: flex;
+        align-items: center;
+        justify-content: flex-end;
+    }
+
+    .search_row_wrapper {
+        padding: 20px 20px;
+        margin-top: 30px;
+    }
+
+    .input_box {
+        height: 50px;
+        padding-left: 12px;
+    }
+
+    .input_box input {
+        height: 50px;
+        margin-left: 15px;
+        padding: 16px 0;
+        font-size: 15px;
+        line-height: 27px;
+    }
+
+    .input_box ::placeholder {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .input_box :-ms-input-placeholder {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    .input_box ::-ms-input-placeholder {
+        font-size: 12px;
+        line-height: 24px;
+    }
+
+    /*  dropdown*/
+    .location_dropdown {
+        display: none;
+    }
+
+    /* Cover css End */
+
+
+    /* Product Card container css Start */
+    .card_container {
+        max-width: none;
+        width: 100%;
+        padding-top: 50px;
+    }
+
+    .card_heading {
+        padding-bottom: 42px;
+    }
+
+    .card_heading div h1 {
+        font-weight: 700;
+        font-size: 28px;
+        line-height: 32px;
+        color: #4B5373;
+    }
+
+    .card_heading div img {
+        cursor: pointer;
+    }
+
+    /* Card grid  */
+
+    .card_wrapper_main {
+        display: block;
+    }
+
+    .card_wrapper_main>div {
+        margin-bottom: 40px;
+    }
+
+    .card_button {
+        text-align: center;
+        padding-top: 20px;
+    }
+
+
+    /* Product Card container css End */
+}

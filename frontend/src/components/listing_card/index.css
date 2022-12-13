@@ -1,0 +1,142 @@
+.card_wrapper {
+    width: 100%;
+    max-width: 400px;
+    background-color: white;
+    box-shadow: 0px 1px 4px rgba(0, 0, 0, 0.14);
+    border-radius: 0px 0px 6px 6px;
+    position: relative;
+    cursor: pointer;
+    border-radius: 6px;
+    margin: 0 auto;
+}
+
+.card_wrapper:hover {
+    webkit-filter: brightness(0.94);
+    filter: brightness(0.94);
+    transition: all 0.2s ease-in;
+    transform: translateY(-1px);
+    /* background-color: rgba(0, 0, 0, .02); */
+
+}
+
+.property_image img {
+    border-radius: 6px;
+    width: 100%;
+}
+
+.heart_top {
+    position: absolute;
+    right: 17px;
+    top: 17px;
+    background: #FFFFFF;
+    height: 42px;
+    width: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 100%;
+    cursor: pointer;
+}
+
+.heart_top img {
+    width: 18px;
+
+}
+
+.card_sub_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 22px 18px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid #E1E3ED;
+
+}
+
+.card_btn_wrapper {
+    background: #117BE7;
+    border-radius: 6px;
+    padding: 10px 15px;
+    cursor: pointer;
+}
+
+.card_sub_wrapper .buttonTopText {
+    font-weight: 700;
+    font-size: 15px;
+    line-height: 18px;
+    letter-spacing: 0.04em;
+    color: #FFFFFF;
+    border: none;
+}
+
+.card_sub_wrapper .buttonBottomText {
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 21px;
+    color: #FFFFFF;
+}
+
+
+
+.card_sub_wrapper h3 {
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 22px;
+    color: #4B5373;
+    margin-bottom: 0;
+}
+
+.card_sub_wrapper p {
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 21px;
+    color: #4B5373;
+    margin-bottom: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.card_sub_wrapper img {
+    margin-right: 5px;
+}
+
+.card_content_ {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    padding: 23px 22px;
+    padding-top: 18px;
+}
+
+.card_sub_content {
+    font-weight: 500;
+    font-size: 11px;
+    text-align: center;
+    color: #8C8D97;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.card_sub_content img {
+    margin-right: 6px;
+}
+
+@media screen and (max-width: 458px) {
+
+    .card_sub_wrapper {
+        padding: 22px 10px;
+    }
+
+    .card_btn_wrapper {
+        border-radius: 5px;
+        padding: 8px 10px;
+        cursor: pointer;
+    }
+
+    .card_content_ {
+        padding: 20px 10px;
+    }
+}

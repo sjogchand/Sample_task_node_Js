@@ -1,0 +1,139 @@
+.how_container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-top: 118px;
+
+}
+
+.m_how_image {
+    display: none;
+}
+
+.how_content {
+    width: 50%;
+}
+
+.how_image {
+    width: 50%;
+    padding-top: 21px;
+}
+
+.how_image img {
+    width: 100%;
+    max-width: 651px;
+}
+
+.how_content h1 {
+    font-weight: 700;
+    font-size: 36px;
+    line-height: 55px;
+    color: #4B5373;
+    margin-bottom: 26px;
+}
+
+.how_content p {
+    font-weight: 400;
+    font-size: 15px;
+    line-height: 27px;
+    color: #4B5373;
+    margin-bottom: 26px;
+}
+
+@media screen and (max-width: 1399px) {
+
+    .how_content {
+        width: 50%;
+        padding-left: 8px;
+
+    }
+
+    .how_image {
+        width: 50%;
+        padding-right: 8px;
+
+    }
+}
+
+@media screen and (max-width: 1140px) {
+
+    .how_content {
+        width: 50%;
+        padding-left: 10px;
+
+    }
+
+    .how_image {
+        width: 50%;
+        padding-right: 10px;
+
+    }
+
+    .how_image img {
+        width: 100%;
+    }
+
+    .how_content h2 {
+        font-size: 20px;
+        line-height: 24px;
+        margin-bottom: 8px;
+    }
+
+    .how_content h1 {
+        font-size: 32px;
+        margin-bottom: 17px;
+    }
+
+    .how_content p {
+        font-size: 14px;
+        margin-bottom: 17px;
+    }
+}
+
+
+
+@media screen and (max-width: 768px) {
+    .how_container {
+        padding-top: 70px;
+        display: block;
+    }
+
+    .m_how_image {
+        display: block;
+        padding-top: 10px;
+        padding-bottom: 20px;
+
+    }
+
+    .m_how_image img {
+        width: 100%;
+    }
+
+    .how_content {
+        padding-left: 0px;
+        width: 100%;
+        padding-top: 0px;
+    }
+
+    .how_image {
+        display: none;
+    }
+
+    .how_image img {
+        width: 100%;
+    }
+
+    .how_content h1 {
+        font-size: 23px;
+        line-height: 37px;
+        margin-bottom: 15px;
+    }
+
+    .how_content p {
+        font-size: 15px;
+        line-height: 25px;
+    }
+}

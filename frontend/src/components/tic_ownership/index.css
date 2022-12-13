@@ -1,0 +1,23 @@
+.tic_ownership_container {
+    max-width: 1440px;
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+    padding-top: 149px;
+}
+
+.tic_ownership_container h1 {
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 41px;
+    color: #4B5373;
+    margin-bottom: 18px;
+}
+
+.tic_ownership_container p {
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 28px;
+    color: #4B5373;
+    margin-bottom: 18px;
+}
