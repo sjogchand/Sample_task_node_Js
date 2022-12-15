@@ -13,12 +13,19 @@ export default function RightPd(props) {
   const [ownerShip, setOwnerShip] = useState('4')
   const [ownerShipPercent, setOwnerShipPercent] = useState('5')
   const [ownerShipPercentPrice, setOwnerShipPercentPrice] = useState('')
+  const [loanAmount, setLoanAmount] = useState('')
+  const [monthlyEmi, setMonthlyEmi] = useState('')
+  const [homeExpenses, setHomeExpenses] = useState('')
+  const [closingYear, setClosingYear] = useState('At Closing')
+  const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
+  const [newPropertyPrice, setNewPropertyPrice] = useState([])
 
   useEffect(() => {
     setPrice(props.price / parseInt(ownerShip))
     props.setOwnerShipProps(parseInt(ownerShip))
     props.setOwnerShipPrice(parseInt(props.price / parseInt(ownerShip)))
-  }, [props.price, ownerShip])
+    setLoanAmount(props.price - (props.price / 100) * ownerShipPercent)
+  }, [props.price, ownerShip, ownerShipPercent])
 
   useEffect(() => {
     setOwnerShipPercentPrice((price / 100) * parseInt(ownerShipPercent))
@@ -33,11 +40,56 @@ export default function RightPd(props) {
     setOwnerShipPercentPrice((price / 100) * parseInt(value))
   }
 
+  const onchange2 = (value) => {
+    setClosingYear(value)
+    value === 0
+      ? setNewPropertyPrice(newPropertyPriceArr[0])
+      : setNewPropertyPrice(
+          newPropertyPriceArr.filter(
+            (a, index) => parseInt(index) === parseInt(value),
+          ),
+        )
+  }
+
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
       style: 'currency',
       currency: 'USD',
     }).format(value)
+
+  useEffect(() => {
+    var P = loanAmount //principle / initial amount borrowed
+    var I = 4 / 100 / 12 //monthly interest rate
+    var N = 30 * 12 //number of payments months
+
+    var emi = (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
+    var realStateTax = (loanAmount * 0.015) / 12
+    var MhprogramFee = 104 * ownerShip
+
+    setMonthlyEmi(emi / ownerShip)
+    setHomeExpenses((realStateTax + MhprogramFee) / ownerShip)
+  }, [loanAmount, ownerShip])
+
+  useEffect(() => {
+    var perSq = Math.ceil(
+      props.propertyDetails.price / props.propertyDetails.area.area_of_property,
+    )
+
+    // console.log(perSq,"perSq")
+    var newPrice = parseInt(props.propertyDetails.area.area_of_property) + 1200
+    newPrice = Math.ceil(newPrice * perSq)
+    setNewPropertyPrice(newPrice)
+
+    var data = []
+    for (let i = 0; i <= 10; i++) {
+      i > 0
+        ? data.push(Math.ceil(data[i - 1] + (data[i - 1] / 100) * 3))
+        : data.push(newPrice)
+    }
+    setNewPropertyPriceArr(data)
+  }, [props.propertyDetails])
+
+  console.log(newPropertyPriceArr,"newPropertyPriceArr")
 
   return (
     <>
@@ -100,22 +152,22 @@ export default function RightPd(props) {
               <InstallmentModal />
             </div>
             <div>
-              <p>$1,890/mo.</p>
+              <p>{numberFormat(monthlyEmi)}/mo.</p>
             </div>
           </div>
           <div className="left_last_row">
             <div className="modal_img_wrapper">
               <span>Home expenses</span>
-              <ExpensesModal />
+              <ExpensesModal homeExpenses={homeExpenses} />
             </div>
             <div>
-              <p>$542/mo.</p>
+              <p>{numberFormat(homeExpenses)}/mo.</p>
             </div>
           </div>
         </div>
         <div className="last_pd_text">
           <h1>
-            $2,433/<span> month </span>
+            {numberFormat(monthlyEmi + homeExpenses)}/<span> month </span>
           </h1>
         </div>
       </div>
@@ -125,17 +177,26 @@ export default function RightPd(props) {
         <div className="dropdown_1">
           <Dropdown className="equity_dd">
             <Dropdown.Toggle variant="success" id="dropdown-basic">
-              At Closing
+              {closingYear > 0 ? parseInt(closingYear) : 'At Closing'}{' '}
+              {closingYear > 0 ? 'Year' : ''}
             </Dropdown.Toggle>
 
             <Dropdown.Menu>
-              <Dropdown.Item>At Closing</Dropdown.Item>
-              <Dropdown.Item>1 Year</Dropdown.Item>
-              <Dropdown.Item>5 Year</Dropdown.Item>
-              <Dropdown.Item>10 Year</Dropdown.Item>
+              <Dropdown.Item onClick={(e) => onchange2('0')}>
+                At Closing
+              </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => onchange2('1')}>
+                1 Year
+              </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => onchange2('5')}>
+                5 Year
+              </Dropdown.Item>
+              <Dropdown.Item onClick={(e) => onchange2('10')}>
+                10 Year
+              </Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
-          <h5> $153,137 </h5>
+          <h5> {numberFormat(newPropertyPrice)} </h5>
           <div className="home_ex_para">
             <span>Home expenses</span>
             <GainModal />{' '}

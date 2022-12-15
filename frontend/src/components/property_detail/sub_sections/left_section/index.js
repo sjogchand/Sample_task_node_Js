@@ -15,7 +15,17 @@ export default function AboutProperty({ propertyDetails }) {
         <h3>Top amenities</h3>
       </div>
       <div className="pd_about_sub">
-        <div className="pd_about_sub_cnt">
+        {propertyDetails?.amenities?.split(',').map((item, index) => (
+          <div className="pd_about_sub_cnt" key={index}>
+            <div>
+              <span>
+                <img src={arr} alt="" />
+              </span>
+              <span>{item}</span>
+            </div>
+          </div>
+        ))}
+        {/* <div className="pd_about_sub_cnt">
           <div>
             <span>
               <img src={arr} alt="" />
@@ -56,11 +66,11 @@ export default function AboutProperty({ propertyDetails }) {
             </span>
             <span>Professionally decorated</span>
           </div>
-        </div>
+        </div> */}
       </div>
       <div className="about_pd_button">
         {/* <button>View all amanities</button> */}
-        <AmenitiesModal />
+        <AmenitiesModal ameneties={propertyDetails?.amenities?.split(',')} />
       </div>
       <div className="tour_heading">
         <h1>Virtual 3D tour</h1>

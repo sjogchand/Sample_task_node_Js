@@ -61,47 +61,45 @@ export default function Property_Details() {
   const item_id = queryParams.get('item_id')
   const [ownerShipProps, setOwnerShipProps] = useState('')
   const [ownerShipPropsPrice, setOwnerShipPrice] = useState('')
-
-  const [propertyDetails, setPropertyDetails] = useState([
-    {
-      title: '',
-      price: '',
-      configuration: {
-        main_house_bed: '',
-        main_house_bath: '',
-        adu_bed: '',
-        adu_bath: '',
-      },
-      area: {
-        area_of_property: '',
-        area_of_main_home: '',
-        area_of_ADU: '',
-      },
-      kid_Safe: '',
-      parking: '',
-      top_amenities: '',
-      amenities: '',
-      description: '',
-      security: '',
-      address: '',
-      city: '',
-      country: '',
+ 
+  const [propertyDetails, setPropertyDetails] = useState({
+    title: '',
+    price: '',
+    configuration: {
+      main_house_bed: '',
+      main_house_bath: '',
+      adu_bed: '',
+      adu_bath: '',
     },
-  ])
+    area: {
+      area_of_property: '',
+      area_of_main_home: '',
+      area_of_ADU: '',
+    },
+    kid_Safe: '',
+    parking: '',
+    top_amenities: '',
+    amenities: '',
+    description: '',
+    security: '',
+    address: '',
+    city: '',
+    country: '',
+  })
 
   useEffect(() => {
-    axios.get(`http://localhost:1055/api/properties/list`).then((response) => {
-      if (response.data.status === 200) {
-        let data = response.data.data.map((item) => {
-          return {
-            ...item,
-            configuration: JSON.parse(item.configuration),
-            area: JSON.parse(item.area),
-          }
-        })
-        setPropertyDetails(data.filter((a) => a.id == item_id))
-      }
-    })
+    axios
+      .get(`http://localhost:1055/api/properties/${item_id}`)
+      .then((response) => {
+        if (response.data.status === 200) {
+          let data = response.data.data
+          setPropertyDetails({
+            ...data,
+            configuration: JSON.parse(data.configuration),
+            area: JSON.parse(data.area),
+          })
+        }
+      })
   }, [])
 
   const numberFormat = (value) =>
@@ -110,53 +108,55 @@ export default function Property_Details() {
       currency: 'USD',
     }).format(value)
 
-  //   console.log(propertyDetails, 'propertyDetails')
-
   return (
     <div className="property_details_container">
       <div className="pd_image_container">
-        <img
-          src={`http://localhost:1055/${propertyDetails[0].property_image}`}
-          style={{ width: '100%', height: '600px' }}
-          alt=""
-        />
+        {propertyDetails.property_image && (
+          <img
+            src={`http://localhost:1055/${propertyDetails.property_image}`}
+            style={{ width: '100%' }}
+            alt=""
+          />
+        )}
       </div>
       <div className="property_details_wrapper">
         <div className="top_row_wrapper">
           <div className="main_property_name_heading">
-            <h1>{propertyDetails[0].title}</h1>
+            <h1>{propertyDetails.title}</h1>
             <div>
               <img src={img0} alt="" />
-              <h3>{propertyDetails[0].address}</h3>
+              <h3>{propertyDetails.address}</h3>
             </div>
           </div>
 
           <div className="top_row_card top_row_card_1">
             <h3>Whole Property Price</h3>
-            <h2>{numberFormat(propertyDetails[0].price)}</h2>
+            <h2>{numberFormat(propertyDetails.price)}</h2>
           </div>
 
           <div className="top_row_card">
             <h3>Configuration</h3>
             <h2>
-              {propertyDetails[0].configuration.main_house_bed}{' '}
+              {propertyDetails.configuration.main_house_bed}{' '}
               <img src={img2} alt="" />{' '}
-              {propertyDetails[0].configuration.main_house_bath}
+              {propertyDetails.configuration.main_house_bath}
               <img src={img1} alt="" />
             </h2>
             <h2>
-              {propertyDetails[0].configuration.adu_bed && (
+              {propertyDetails.configuration.adu_bed}
+              {propertyDetails.configuration.adu_bed && (
                 <img src={img2} alt="" />
               )}
-              {propertyDetails[0].configuration.adu_bed && (
+              {propertyDetails.configuration.adu_bath}
+              {propertyDetails.configuration.adu_bath && (
                 <img src={img1} alt="" />
               )}
             </h2>
           </div>
 
           <div className="top_row_card">
-            <h3>{propertyDetails[0].area.area_of_property} sq.ft.</h3>
-            <h2>{propertyDetails[0].area.area_of_property} sq.ft.</h2>
+            <h3>{propertyDetails.area.area_of_property} sq.ft.</h3>
+            <h2>{propertyDetails.area.area_of_property} sq.ft.</h2>
           </div>
 
           <div className="top_row_card with_button">
@@ -178,13 +178,13 @@ export default function Property_Details() {
           <div className="second_row_overview">
             <div className="overview_heading">
               <h1>Overview</h1>
-              <h3>{propertyDetails[0].title} Overview</h3>
+              <h3>{propertyDetails.title} Overview</h3>
             </div>
             <div className="details_container">
               <div className="details_sub_child">
                 {data.map((v, i) => {
                   return (
-                    <div className="overview_list_item">
+                    <div className="overview_list_item" key={i}>
                       <div>
                         <img src={v.img} alt="" />
                       </div>
@@ -198,12 +198,13 @@ export default function Property_Details() {
                   )
                 })}
               </div>
-              <AboutProperty propertyDetails={propertyDetails[0]} />
+              <AboutProperty propertyDetails={propertyDetails} />
             </div>
           </div>
           <div className="pd_right_columns">
             <LeftPd
-              price={propertyDetails[0].price}
+              price={propertyDetails.price}
+              propertyDetails={propertyDetails}
               setOwnerShipPrice={setOwnerShipPrice}
               setOwnerShipProps={setOwnerShipProps}
             />

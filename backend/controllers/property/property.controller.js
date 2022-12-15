@@ -49,6 +49,65 @@ const saveProperty = async (req, res) => {
   })
 }
 
+const getPropertyById = async (req, res) => {
+  const property_id = req.params.id
+  const property = await db.properties
+    .findOne({
+      where: {
+        id: {
+          [Op.eq]: property_id,
+        },
+        status: {
+          [Op.or]: {
+            [Op.eq]: 1,
+            [Op.is]: null,
+          },
+        },
+      },
+      attributes: [
+        'id',
+        'title',
+        'description',
+        'property_image',
+        'price',
+        'area',
+        'configuration',
+        'year_built',
+        'security',
+        'kid_safe',
+        'parking',
+        'top_amenities',
+        'amenities',
+        'address',
+        'city',
+        'country',
+        'status',
+        [
+          db.Sequelize.fn(
+            'date_format',
+            db.Sequelize.col('properties.created_at'),
+            '%m/%d/%Y',
+          ),
+          'created_at',
+        ],
+        [
+          db.Sequelize.fn(
+            'date_format',
+            db.Sequelize.col('properties.updated_at'),
+            '%m/%d/%Y',
+          ),
+          'updated_at',
+        ],
+      ],
+    })
+    .catch((e) => {
+      console.log(e)
+    })
+  if (!property)
+    return res.send({ status: 422, message: "Property doesn't Exist" })
+  res.send({ status: 200, data: property })
+}
+
 const listProperty = async (req, res) => {
   const propertyList = await db.properties
     .findAll({
@@ -108,4 +167,5 @@ const listProperty = async (req, res) => {
 module.exports = {
   saveProperty,
   listProperty,
+  getPropertyById,
 }
