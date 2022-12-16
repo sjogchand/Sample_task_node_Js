@@ -3,8 +3,15 @@ import ReactPlayer from 'react-player'
 import arr from '../../../../assets/images/arrow.png'
 import video from '../../../../assets/images/cover_video.mp4'
 import AmenitiesModal from '../../../all_modals/amenities_modal'
+import { useEffect, useState } from 'react'
 
 export default function AboutProperty({ propertyDetails }) {
+  const [ameneties, setAmenities] = useState([])
+
+  useEffect(() => {
+    setAmenities(propertyDetails?.amenities?.split(','))
+  }, [propertyDetails])
+
   return (
     <div className="pd_about_container">
       <div className="pd_about_content">
@@ -15,15 +22,15 @@ export default function AboutProperty({ propertyDetails }) {
         <h3>Top amenities</h3>
       </div>
       <div className="pd_about_sub">
-        {propertyDetails?.amenities?.split(',').map((item, index) => (
-          <div className="pd_about_sub_cnt" key={index}>
-            <div>
+        {ameneties.map((item, index) => (
+          // <div className="pd_about_sub_cnt" key={index}>
+            <div className='flex_wrap'>
               <span>
                 <img src={arr} alt="" />
               </span>
-              <span>{item}</span>
+              <span> {item}</span>
             </div>
-          </div>
+          // </div>
         ))}
         {/* <div className="pd_about_sub_cnt">
           <div>

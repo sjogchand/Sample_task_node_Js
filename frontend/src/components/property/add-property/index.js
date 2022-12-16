@@ -11,6 +11,7 @@ import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
+import Autocomplete from '@mui/material/Autocomplete'
 
 // export default function AddPropertyForm({ pt, pb }) {
 export default function AddPropertyForm({ pt, pb }) {
@@ -18,6 +19,8 @@ export default function AddPropertyForm({ pt, pb }) {
   const [success, setSuccess] = useState(false)
   const [yearBuilt, setYearBuilt] = useState(new Date())
   const [imgErr, setImgErr] = useState('')
+  // const [amenities, setAmenities] = useState([])
+  // const [topAmenities, setTopAmenities] = useState([])
 
   const initialValues = {
     title: '',
@@ -30,9 +33,9 @@ export default function AddPropertyForm({ pt, pb }) {
     area_of_main_home: '',
     area_of_ADU: '',
     kid_Safe: '',
-    parking: '',
     top_amenities: '',
     amenities: '',
+    parking: '',
     description: '',
     security: '',
     address: '',
@@ -181,11 +184,11 @@ export default function AddPropertyForm({ pt, pb }) {
   const enteredPriceIsValid = values.price.trim() !== ''
   const enteredBedForMainHouseIsValid = values.bed_main_house.trim() !== ''
   const enteredBathForMainHouseIsValid = values.bath_main_house.trim() !== ''
-  const enteredBathForADUIsValid = values.bed_ADU.trim() !== ''
-  //   const enteredBedForADUIsValid = values.bath_ADU.trim() !== ''
+  const enteredBathForADUIsValid = values.bath_ADU.trim() !== ''
+  const enteredBedForADUIsValid = values.bed_ADU.trim() !== ''
   const enteredAreaForPropertyIsValid = values.area_of_property.trim() !== ''
-  //   const enteredAreaForMainHouseisValid = values.area_of_main_home.trim() !== ''
-  //   const enteredAreaForADUIsValid = values.area_of_ADU.trim() !== ''
+  const enteredAreaForMainHouseisValid = values.area_of_main_home.trim() !== ''
+  const enteredAreaForADUIsValid = values.area_of_ADU.trim() !== ''
   const enteredBuidYearIsValid = yearBuilt !== ''
   //   const enteredKidSafeIsValid = values.kid_Safe.trim() !== ''
   //   const enteredParkingIsValid = values.parking.trim() !== ''
@@ -254,20 +257,26 @@ export default function AddPropertyForm({ pt, pb }) {
     (!enteredBathForMainHouseIsValid && touched.city) ||
     (!enteredBathForMainHouseIsValid && touched.country)
 
-  //   const bedADUInputIsInvalid =
-  //     (!enteredBedForADUIsValid && touched.bed_ADU) ||
-  //     (touched.bath_ADU && !enteredBedForADUIsValid) ||
-  //     (touched.area_of_property && !enteredBathForADUIsValid) ||
-  //     (touched.area_of_main_home && !enteredBathForADUIsValid) ||
-  //     (touched.area_of_ADU && !enteredBathForADUIsValid) ||
-  //     (touched.yearBuilt && !enteredBathForADUIsValid)
+  const bedADUInputIsInvalid =
+    (!enteredBedForADUIsValid && touched.bed_ADU) ||
+    (touched.bath_ADU && !enteredBedForADUIsValid) ||
+    (touched.area_of_property && !enteredBedForADUIsValid) ||
+    (touched.area_of_main_home && !enteredBedForADUIsValid) ||
+    (touched.area_of_ADU && !enteredBedForADUIsValid) ||
+    (touched.yearBuilt && !enteredBedForADUIsValid) ||
+    (!enteredBedForADUIsValid && touched.address) ||
+    (!enteredBedForADUIsValid && touched.city) ||
+    (!enteredBedForADUIsValid && touched.country)
 
-  //   const bathADUInputIsInvalid =
-  //     (!enteredBathForADUIsValid && touched.bath_ADU) ||
-  //     (touched.area_of_property && !enteredBathForADUIsValid) ||
-  //     (touched.area_of_main_home && !enteredBathForADUIsValid) ||
-  //     (touched.area_of_ADU && !enteredBathForADUIsValid) ||
-  //     (touched.yearBuilt && !enteredBathForADUIsValid)
+  const bathADUInputIsInvalid =
+    (!enteredBathForADUIsValid && touched.bath_ADU) ||
+    (touched.area_of_property && !enteredBathForADUIsValid) ||
+    (touched.area_of_main_home && !enteredBathForADUIsValid) ||
+    (touched.area_of_ADU && !enteredBathForADUIsValid) ||
+    (touched.yearBuilt && !enteredBathForADUIsValid) ||
+    (!enteredBathForADUIsValid && touched.address) ||
+    (!enteredBathForADUIsValid && touched.city) ||
+    (!enteredBathForADUIsValid && touched.country)
 
   const areaPropertyInputIsInvalid =
     (!enteredAreaForPropertyIsValid && touched.area_of_property) ||
@@ -278,14 +287,21 @@ export default function AddPropertyForm({ pt, pb }) {
     (!enteredAreaForPropertyIsValid && touched.city) ||
     (!enteredAreaForPropertyIsValid && touched.country)
 
-  //   const areaMainHoouseInputIsInvalid =
-  //     (!enteredAreaForMainHouseisValid && touched.area_of_main_home) ||
-  //     (touched.area_of_ADU && !enteredAreaForMainHouseisValid) ||
-  //     (touched.yearBuilt && !enteredAreaForMainHouseisValid)
+  const areaMainHoouseInputIsInvalid =
+    (!enteredAreaForMainHouseisValid && touched.area_of_main_home) ||
+    (touched.area_of_ADU && !enteredAreaForMainHouseisValid) ||
+    (touched.yearBuilt && !enteredAreaForMainHouseisValid) ||
+    (!enteredAreaForMainHouseisValid && touched.address) ||
+    (!enteredAreaForMainHouseisValid && touched.city) ||
+    (!enteredAreaForMainHouseisValid && touched.country)
 
-  //   const areaADUInputIsInvalid =
-  //     (!enteredAreaForADUIsValid && touched.area_of_ADU) ||
-  //     (touched.yearBuilt && !enteredAreaForADUIsValid)
+  const areaADUInputIsInvalid =
+    (!enteredAreaForADUIsValid && touched.area_of_ADU) ||
+    (touched.yearBuilt && !enteredAreaForADUIsValid) ||
+    (!enteredAreaForADUIsValid && touched.address) ||
+    (!enteredAreaForADUIsValid && touched.city) ||
+    (!enteredAreaForADUIsValid && touched.country)
+
   const yearBuildInputIsInvalid =
     (!enteredBuidYearIsValid && touched.yearBuilt) ||
     (!enteredBuidYearIsValid && touched.address) ||
@@ -381,7 +397,11 @@ export default function AddPropertyForm({ pt, pb }) {
       !enteredPriceIsValid ||
       !enteredBedForMainHouseIsValid ||
       !enteredBathForMainHouseIsValid ||
+      !enteredBedForADUIsValid ||
+      !enteredBathForADUIsValid ||
       !enteredAreaForPropertyIsValid ||
+      !enteredAreaForMainHouseisValid ||
+      !enteredAreaForADUIsValid ||
       !enteredAddressIsValid ||
       !enteredCityIsValid ||
       !enteredCountyIsValid
@@ -410,9 +430,9 @@ export default function AddPropertyForm({ pt, pb }) {
     formData.append('security', values.security)
     formData.append('kid_safe', values.kid_Safe)
     formData.append('parking', values.parking)
-    formData.append('image_path', values.top_amenities)
     formData.append('top_amenities', values.top_amenities)
     formData.append('amenities', values.amenities)
+
     formData.append('address', values.address)
     formData.append('city', values.city)
     formData.append('country', values.country)
@@ -431,7 +451,6 @@ export default function AddPropertyForm({ pt, pb }) {
     axios
       .post('http://localhost:1055/api/properties/save', formData, config)
       .then((response) => {
-        // console.log(response)
         if (response.data.status === 200) {
           setSuccess(true)
           setValues(initialValues)
@@ -440,7 +459,7 @@ export default function AddPropertyForm({ pt, pb }) {
           setPreviewUrl(undefined)
         } else if (response.data.status === 422) {
           setIsError(response.data.message)
-          setValues(initialValues)
+          // setValues(initialValues)
           setTouched(defaultState)
           setYearBuilt(new Date())
           setPreviewUrl(undefined)
@@ -565,13 +584,13 @@ export default function AddPropertyForm({ pt, pb }) {
                 name="bed_ADU"
                 label="Beds for ADU"
                 variant="outlined"
-                // onBlur={handleFocus5}
-                // error={bathForMainHouseInputIsInvalid}
-                // helperText={
-                //   bathForMainHouseInputIsInvalid
-                //     ? 'Please enter a bath for main house'
-                //     : ' '
-                // }
+                onBlur={handleFocus5}
+                error={bedADUInputIsInvalid}
+                helperText={
+                  bedADUInputIsInvalid
+                    ? 'Please enter a bath for main house'
+                    : ' '
+                }
               />
               <TextField
                 id="outlined-basic"
@@ -581,13 +600,13 @@ export default function AddPropertyForm({ pt, pb }) {
                 name="bath_ADU"
                 label="Bath for ADU"
                 variant="outlined"
-                // onBlur={handleFocus6}
-                // error={bathForMainHouseInputIsInvalid}
-                // helperText={
-                //   bathForMainHouseInputIsInvalid
-                //     ? 'Please enter a bath for main house'
-                //     : ' '
-                // }
+                onBlur={handleFocus6}
+                error={bathADUInputIsInvalid}
+                helperText={
+                  bathADUInputIsInvalid
+                    ? 'Please enter a bath for main house'
+                    : ' '
+                }
               />
             </Box>
             <Box
@@ -601,6 +620,7 @@ export default function AddPropertyForm({ pt, pb }) {
             >
               <TextField
                 id="outlined-basic"
+                type="number"
                 onChange={handleinputchange}
                 value={values.area_of_property}
                 name="area_of_property"
@@ -616,33 +636,33 @@ export default function AddPropertyForm({ pt, pb }) {
               />
               <TextField
                 id="outlined-basic"
+                type="number"
                 onChange={handleinputchange}
                 value={values.area_of_main_home}
                 name="area_of_main_home"
                 label="Area of Main home"
                 variant="outlined"
-                //  onBlur={handleFocus8}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
+                onBlur={handleFocus8}
+                error={areaMainHoouseInputIsInvalid}
+                helperText={
+                  areaMainHoouseInputIsInvalid
+                    ? 'Please enter property area'
+                    : ' '
+                }
               />
               <TextField
                 id="outlined-basic"
+                type="number"
                 onChange={handleinputchange}
                 value={values.area_of_ADU}
                 name="area_of_ADU"
                 label="Area of ADU"
                 variant="outlined"
-                //  onBlur={handleFocus9}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
+                onBlur={handleFocus9}
+                error={areaADUInputIsInvalid}
+                helperText={
+                  areaADUInputIsInvalid ? 'Please enter property area' : ' '
+                }
               />
               <LocalizationProvider dateAdapter={AdapterDayjs}>
                 <DatePicker
@@ -710,12 +730,36 @@ export default function AddPropertyForm({ pt, pb }) {
                 //     : ' '
                 // }
               />
+              {/* <Autocomplete
+                className="tag_input"
+                multiple
+                id="tags-filled"
+                options={[]}
+                defaultValue={topAmenities}
+                value={topAmenities}
+                freeSolo
+                onChange={(e) =>
+                  setTopAmenities([...topAmenities, e.target.value])
+                }
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    // variant="filled"
+                    // label="freeSolo"
+                    // placeholder="Favorites"
+                    name="top_amenities"
+                    label="Top amenities"
+                    variant="outlined"
+                    // value={topAmenities}
+                  />
+                )}
+              /> */}
               <TextField
                 id="outlined-basic"
                 onChange={handleinputchange}
                 value={values.top_amenities}
                 name="top_amenities"
-                label="Top amenities"
+                label="Top amenities(comma seperated value)"
                 variant="outlined"
                 //  onBlur={handleFocus13}
                 // error={areaPropertyInputIsInvalid}
@@ -725,12 +769,32 @@ export default function AddPropertyForm({ pt, pb }) {
                 //     : ' '
                 // }
               />
+              {/* <Autocomplete
+                multiple
+                className="tag_input"
+                id="tags-filled"
+                options={[]}
+                defaultValue={amenities}
+                freeSolo
+                onChange={(e) => setAmenities([...amenities, e.target.value])}
+                renderInput={(params) => (
+                  <TextField
+                    {...params}
+                    // variant="filled"
+                    // label="freeSolo"
+                    // placeholder="Favorites"
+                    name="amenities"
+                    label="Amenities"
+                    variant="outlined"
+                  />
+                )}
+              /> */}
               <TextField
                 id="outlined-basic"
                 onChange={handleinputchange}
                 value={values.amenities}
                 name="amenities"
-                label="Amenities"
+                label="Amenities(comma seperated value)"
                 variant="outlined"
                 //  onBlur={handleFocus14}
                 // error={areaPropertyInputIsInvalid}

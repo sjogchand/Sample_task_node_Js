@@ -61,7 +61,7 @@ export default function Property_Details() {
   const item_id = queryParams.get('item_id')
   const [ownerShipProps, setOwnerShipProps] = useState('')
   const [ownerShipPropsPrice, setOwnerShipPrice] = useState('')
- 
+
   const [propertyDetails, setPropertyDetails] = useState({
     title: '',
     price: '',
@@ -92,12 +92,39 @@ export default function Property_Details() {
       .get(`http://localhost:1055/api/properties/${item_id}`)
       .then((response) => {
         if (response.data.status === 200) {
-          let data = response.data.data
-          setPropertyDetails({
-            ...data,
-            configuration: JSON.parse(data.configuration),
-            area: JSON.parse(data.area),
-          })
+          let details = response.data.data
+          details = {
+            ...details,
+            configuration: JSON.parse(details.configuration),
+            area: JSON.parse(details.area),
+          }
+          setPropertyDetails(details)
+
+          for (let index = 0; index < data.length; index++) {
+            if (data[index]['head'] === 'Property Area')
+              data[index]['text'] = [
+                `Area of property: ${details.area.area_of_property} sq.ft.`,
+                `Area of Main home: ${details.area.area_of_main_home} sq.ft.`,
+                `Area of ADU: ${details.area.area_of_ADU} sq.ft.`,
+              ]
+            else if (data[index]['head'] === 'Configuration')
+              data[index]['text'] = [
+                `Main House - ${details.configuration.main_house_bed} Beds, ${details.configuration.main_house_bath} Baths`,
+                `ADU - ${details.configuration.adu_bed} Beds, ${details.configuration.adu_bath} Baths.`,
+              ]
+            else if (data[index]['head'] === 'Year Built')
+              data[index]['text'] = [
+                details.year_built
+                  ? new Date(details.year_built).getUTCFullYear()
+                  : '2015',
+              ]
+            else if (data[index]['head'] === 'Security')
+              data[index]['text'] = [details.security]
+            else if (data[index]['head'] === 'Kid Safe')
+              data[index]['text'] = [details.kid_safe]
+            else if (data[index]['head'] === 'Parking')
+              data[index]['text'] = [details.parking]
+          }
         }
       })
   }, [])

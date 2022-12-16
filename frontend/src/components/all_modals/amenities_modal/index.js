@@ -31,13 +31,11 @@ export default function AmenitiesModal(props) {
         </div>
         <div className="pd_about_sub">
           {props.ameneties.map((item, index) => (
-            <div className="pd_about_sub_cnt" key={index}>
-              <div>
-                <span>
-                  <img src={arr} alt="" />
-                </span>
-                <span>{item}</span>
-              </div>
+            <div className="flex_wrap" key={index}>
+              <span>
+                <img src={arr} alt="" />
+              </span>
+              <span> {item}</span>
             </div>
           ))}
           {/* <div className='pd_about_sub_cnt'>

@@ -37,10 +37,10 @@ export default function ListingCard({ city }) {
   }, [city])
 
   const numberFormat = (value) =>
-  new Intl.NumberFormat('en-US', {
-    style: 'currency',
-    currency: 'USD'
-  }).format(value);
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(value)
 
   return (
     <div className="card_wrapper_main">
@@ -71,7 +71,10 @@ export default function ListingCard({ city }) {
             </div>
             <div className="card_btn_wrapper">
               {' '}
-              <span className="buttonTopText">{numberFormat(item.price)}</span> <br />
+              <span className="buttonTopText">
+                {numberFormat(item.price / 4)}
+              </span>{' '}
+              <br />
               <span className="buttonBottomText">per share</span>{' '}
             </div>
           </div>
@@ -80,14 +83,32 @@ export default function ListingCard({ city }) {
               <span>
                 <img src={img2} alt="" />
               </span>
-              <span>{item.configuration.main_house_bed} BD, {item.configuration.main_house_bath} BA</span>
-            </div>
-            {/* <div className="card_sub_content">
               <span>
+                {item.configuration.main_house_bed} BD,{' '}
+                {item.configuration.main_house_bath} BA
+              </span>
+            </div>
+            <div className="card_sub_content">
+              {item.configuration.adu_bed ? (
+                <span>
+                  <img src={img2} alt="" />
+                </span>
+              ) : (
+                ''
+              )}
+              <span>
+                {item.configuration.adu_bed
+                  ? `${item.configuration.adu_bed} BD, `
+                  : ''}
+                {item.configuration.adu_bath
+                  ? `${item.configuration.adu_bath} BA (ADU)`
+                  : ''}
+              </span>
+              {/* <span>
                 <img src={img2} alt="" />
               </span>
-              <span>2 BD, 3 BA (ADU)</span>
-            </div> */}
+              <span>{item.configuration.adu_bed ? `${item.configuration.adu_bed} BD` :''}, {item.configuration.adu_bath} BA (ADU)</span> */}
+            </div>
             <div className="card_sub_content">
               <span>
                 <img src={img3} alt="" />

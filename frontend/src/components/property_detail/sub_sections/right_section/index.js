@@ -72,10 +72,9 @@ export default function RightPd(props) {
 
   useEffect(() => {
     var perSq = Math.ceil(
-      props.propertyDetails.price / props.propertyDetails.area.area_of_property,
+      parseInt(props.propertyDetails.price) / parseInt(props.propertyDetails.area.area_of_property.replace(/\,/g,'')),
     )
-
-    // console.log(perSq,"perSq")
+    
     var newPrice = parseInt(props.propertyDetails.area.area_of_property) + 1200
     newPrice = Math.ceil(newPrice * perSq)
     setNewPropertyPrice(newPrice)
@@ -89,7 +88,6 @@ export default function RightPd(props) {
     setNewPropertyPriceArr(data)
   }, [props.propertyDetails])
 
-  console.log(newPropertyPriceArr,"newPropertyPriceArr")
 
   return (
     <>

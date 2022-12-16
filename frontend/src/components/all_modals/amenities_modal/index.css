@@ -45,6 +45,16 @@
     margin-bottom: 0;
 }
 
+.flex_wrap {
+    width: calc(100% / 3);
+    padding: 7px 0px;
+}
+
+.pd_about_sub {
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @media screen and (max-width: 836px) {
     .mymodal_5 {
         top: 50%;

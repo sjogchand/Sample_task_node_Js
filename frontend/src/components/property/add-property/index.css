@@ -82,7 +82,9 @@
 .get_started_container {
     max-width: 1200px !important;
 }
-
+.tag_input {
+    display: inline-block;
+}
 
 @media screen and (max-width: 768px) {
     .signup_container_bg {

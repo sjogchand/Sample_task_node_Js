@@ -94,6 +94,16 @@
 
 }
 
+.flex_wrap {
+    width: 50%;
+    padding: 7px 0px;
+}
+
+.pd_about_sub{
+    display: flex;
+    flex-wrap: wrap;
+}
+
 
 @media screen and (max-width: 768px) {
 
