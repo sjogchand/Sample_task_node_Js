@@ -63,6 +63,7 @@ export default function RightPd(props) {
     var N = 30 * 12 //number of payments months
 
     var emi = (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
+    console.log(emi,'emi')
     var realStateTax = (loanAmount * 0.015) / 12
     var MhprogramFee = 104 * ownerShip
 
@@ -70,14 +71,9 @@ export default function RightPd(props) {
     setHomeExpenses((realStateTax + MhprogramFee) / ownerShip)
   }, [loanAmount, ownerShip])
 
-  useEffect(() => {
-    var perSq = Math.ceil(
-      parseInt(props.propertyDetails.price) / parseInt(props.propertyDetails.area.area_of_property.replace(/\,/g,'')),
-    )
-    
-    var newPrice = parseInt(props.propertyDetails.area.area_of_property) + 1200
-    newPrice = Math.ceil(newPrice * perSq)
-    setNewPropertyPrice(newPrice)
+  useEffect(() => {    
+    var newPrice = parseInt(props.propertyDetails.newEstimatedValue)
+    setNewPropertyPrice(props.propertyDetails.newEstimatedValue)
 
     var data = []
     for (let i = 0; i <= 10; i++) {

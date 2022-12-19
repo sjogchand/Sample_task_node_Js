@@ -5,7 +5,7 @@ import { useEffect } from 'react'
 import img from '../../../assets/images/modal_check.png'
 import { HashLink } from 'react-router-hash-link'
 
-export default function SpecialModal() {
+export default function SpecialModal(props) {
   const [isOpen, setIsOpen] = useState(true)
 
   function toggleModal(state) {
@@ -38,7 +38,7 @@ export default function SpecialModal() {
           onClick={(e) => {
             setIsOpen(false)
           }}
-          to="/add-property"
+          to={`/${props.redirect}`}
         >
           OK
         </HashLink>

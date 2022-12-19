@@ -1,0 +1,10 @@
+{
+    "mailer_username": "sachinjogchand007@gmail.com",
+    "mailer_password": "gfezsyulugczimnu",
+    "admin_official_email": "mileniumhaus@gmail.com",
+    "reminderMailDuedays": 10,
+    "reminderMailCronJobMinute": "59",
+    "reminderMailCronJobHour": "23",
+    "time_zone": "Asia/Calcutta",
+    "time_zone1": "America/Los_Angeles"
+}

@@ -30,6 +30,7 @@ app.use(bodyParser.urlencoded({ limit: '5mb', extended: true }))
 //APIs Routes
 app.use('/', indexRouter)
 app.use('/api/properties', require('./routes/propertyRoutes'))
+app.use('/api/contact', require('./routes/contactRoute'))
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {

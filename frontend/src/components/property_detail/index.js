@@ -13,7 +13,7 @@ import img10 from '../../assets/images/pd_kid.png'
 import img11 from '../../assets/images/pd_parking.png'
 
 import AboutProperty from './sub_sections/left_section'
-import LeftPd from './sub_sections/right_section'
+import RightPd from './sub_sections/right_section'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
 
@@ -65,6 +65,8 @@ export default function Property_Details() {
   const [propertyDetails, setPropertyDetails] = useState({
     title: '',
     price: '',
+    wholePrice: '',
+    newEstimatedValue: '',
     configuration: {
       main_house_bed: '',
       main_house_bath: '',
@@ -98,6 +100,20 @@ export default function Property_Details() {
             configuration: JSON.parse(details.configuration),
             area: JSON.parse(details.area),
           }
+
+          let pricePerSq = details.price / details.area.area_of_property
+          let aduPrice = 1200 * 350
+          let newSize = 1200 + parseInt(details.area.area_of_property)
+          let newEstimatedValue = Math.ceil(newSize * pricePerSq)
+          let mhServicesFee = Math.ceil((newEstimatedValue / 100) * 10)
+
+          details = {
+            ...details,
+            wholePrice:
+              mhServicesFee + aduPrice + parseInt(propertyDetails.price),
+            newEstimatedValue: newEstimatedValue,
+          }
+
           setPropertyDetails(details)
 
           for (let index = 0; index < data.length; index++) {
@@ -158,7 +174,7 @@ export default function Property_Details() {
 
           <div className="top_row_card top_row_card_1">
             <h3>Whole Property Price</h3>
-            <h2>{numberFormat(propertyDetails.price)}</h2>
+            <h2>{numberFormat(propertyDetails.wholePrice)}</h2>
           </div>
 
           <div className="top_row_card">
@@ -229,8 +245,8 @@ export default function Property_Details() {
             </div>
           </div>
           <div className="pd_right_columns">
-            <LeftPd
-              price={propertyDetails.price}
+            <RightPd
+              price={propertyDetails.wholePrice}
               propertyDetails={propertyDetails}
               setOwnerShipPrice={setOwnerShipPrice}
               setOwnerShipProps={setOwnerShipProps}

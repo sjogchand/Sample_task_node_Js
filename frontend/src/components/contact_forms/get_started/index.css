@@ -140,6 +140,11 @@
     filter: brightness(0.95);
 }
 
+.e-message{
+    color: red;
+    font-size: 13px;
+}
+
 @media screen and (max-width: 768px) {
     .get_started_inputs_row {
         display: block;

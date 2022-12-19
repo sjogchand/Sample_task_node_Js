@@ -972,7 +972,7 @@ export default function AddPropertyForm({ pt, pb }) {
               <Button onClick={onSubmitHandler} variant="contained">
                 Add Property
               </Button>
-              {success ? <SpecialModal /> : null}
+              {success ? <SpecialModal redirect={"add-property"} /> : null}
             </Box>
           </form>
         </div>
