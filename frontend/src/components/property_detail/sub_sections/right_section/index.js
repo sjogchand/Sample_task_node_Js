@@ -19,6 +19,7 @@ export default function RightPd(props) {
   const [closingYear, setClosingYear] = useState('At Closing')
   const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
+  const [totalEquity, setTotalEquity] = useState('')
 
   useEffect(() => {
     setPrice(props.price / parseInt(ownerShip))
@@ -42,13 +43,28 @@ export default function RightPd(props) {
 
   const onchange2 = (value) => {
     setClosingYear(value)
-    value === 0
-      ? setNewPropertyPrice(newPropertyPriceArr[0])
-      : setNewPropertyPrice(
-          newPropertyPriceArr.filter(
-            (a, index) => parseInt(index) === parseInt(value),
-          ),
-        )
+    let newClosingPrice = ''
+    if (value === 0) newClosingPrice = newPropertyPriceArr[0]
+    else
+      newClosingPrice = newPropertyPriceArr.filter(
+        (a, index) => parseInt(index) === parseInt(value),
+      )
+
+    let t1 =
+      (totalEquity +
+        (newClosingPrice[0] - props.propertyDetails.newEstimatedValue)) /
+      parseInt(ownerShip)
+    setNewPropertyPrice(parseInt(t1))
+
+    // console.log(totalEquity,newClosingPrice[0], props.propertyDetails.newEstimatedValue, ownerShip, 'newClosingPrice',t1)
+
+    // value === 0
+    //   ? setNewPropertyPrice(newPropertyPriceArr[0])
+    //   : setNewPropertyPrice(
+    //       newPropertyPriceArr.filter(
+    //         (a, index) => parseInt(index) === parseInt(value),
+    //       ),
+    //     )
   }
 
   const numberFormat = (value) =>
@@ -63,7 +79,6 @@ export default function RightPd(props) {
     var N = 30 * 12 //number of payments months
 
     var emi = (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
-    console.log(emi,'emi')
     var realStateTax = (loanAmount * 0.015) / 12
     var MhprogramFee = 104 * ownerShip
 
@@ -71,9 +86,22 @@ export default function RightPd(props) {
     setHomeExpenses((realStateTax + MhprogramFee) / ownerShip)
   }, [loanAmount, ownerShip])
 
-  useEffect(() => {    
+  useEffect(() => {
+    let equityIncrease =
+      parseInt(props.propertyDetails.newEstimatedValue) -
+      parseInt(props.propertyDetails.wholePrice)
+
+    let totalEquaity =
+      equityIncrease +
+      (props.propertyDetails.wholePrice / 100) * parseInt(ownerShipPercent)
+
+    setTotalEquity(totalEquaity)
+
     var newPrice = parseInt(props.propertyDetails.newEstimatedValue)
-    setNewPropertyPrice(props.propertyDetails.newEstimatedValue)
+    let t1 =
+      (totalEquity + (newPrice - props.propertyDetails.newEstimatedValue)) /
+      parseInt(ownerShip)
+    setNewPropertyPrice(parseInt(t1 !== NaN ? t1 : 0))
 
     var data = []
     for (let i = 0; i <= 10; i++) {
@@ -82,8 +110,7 @@ export default function RightPd(props) {
         : data.push(newPrice)
     }
     setNewPropertyPriceArr(data)
-  }, [props.propertyDetails])
-
+  }, [props.propertyDetails, ownerShipPercent, ownerShip])
 
   return (
     <>

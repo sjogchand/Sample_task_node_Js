@@ -101,7 +101,7 @@ export default function Property_Details() {
             area: JSON.parse(details.area),
           }
 
-          let pricePerSq = details.price / details.area.area_of_property
+          let pricePerSq = details.price / parseInt(details.area.area_of_property)
           let aduPrice = 1200 * 350
           let newSize = 1200 + parseInt(details.area.area_of_property)
           let newEstimatedValue = Math.ceil(newSize * pricePerSq)
@@ -110,7 +110,7 @@ export default function Property_Details() {
           details = {
             ...details,
             wholePrice:
-              mhServicesFee + aduPrice + parseInt(propertyDetails.price),
+              mhServicesFee + aduPrice + parseInt(response.data.data.price),
             newEstimatedValue: newEstimatedValue,
           }
 
