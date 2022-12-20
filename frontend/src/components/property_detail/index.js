@@ -103,10 +103,10 @@ export default function Property_Details() {
 
           let pricePerSq =
             response?.data?.data?.price /
-            parseInt(details.area.area_of_property)
+            parseInt(details.area.area_of_main_home)
 
           let aduPrice = 1200 * 350
-          let newSize = 1200 + parseInt(details.area.area_of_property)
+          let newSize = 1200 + parseInt(details.area.area_of_main_home)
           let newEstimatedValue = Math.ceil(newSize * pricePerSq)
           let mhServicesFee = Math.ceil((newEstimatedValue / 100) * 10)
 

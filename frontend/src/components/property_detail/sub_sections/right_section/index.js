@@ -16,10 +16,9 @@ export default function RightPd(props) {
   const [loanAmount, setLoanAmount] = useState('')
   const [monthlyEmi, setMonthlyEmi] = useState('')
   const [homeExpenses, setHomeExpenses] = useState('')
-  const [closingYear, setClosingYear] = useState('At Closing')
+  const [closingYear, setClosingYear] = useState('0')
   const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
-  const [totalEquity, setTotalEquity] = useState('')
 
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
@@ -37,18 +36,6 @@ export default function RightPd(props) {
 
   const onchange2 = (value) => {
     setClosingYear(value)
-    let newClosingPrice = ''
-    if (value === 0) newClosingPrice = newPropertyPriceArr[0]
-    else
-      newClosingPrice = newPropertyPriceArr.filter(
-        (a, index) => parseInt(index) === parseInt(value),
-      )
-
-    let t1 =
-      (totalEquity +
-        (newClosingPrice[0] - props.propertyDetails.newEstimatedValue)) /
-      parseInt(ownerShip)
-    setNewPropertyPrice(parseInt(t1))
   }
 
   useEffect(() => {
@@ -87,11 +74,9 @@ export default function RightPd(props) {
         parseInt(props.propertyDetails.newEstimatedValue) -
         parseInt(props.propertyDetails.wholePrice)
 
-      let totalEquaity =
+      let totalEquity =
         equityIncrease +
         (props.propertyDetails.wholePrice / 100) * parseInt(ownerShipPercent)
-
-      setTotalEquity(totalEquaity)
 
       var newPrice = parseInt(props.propertyDetails.newEstimatedValue)
       let t1 =
@@ -108,7 +93,35 @@ export default function RightPd(props) {
       }
       setNewPropertyPriceArr(data)
     }
-  }, [props.propertyDetails, price, ownerShipPercent, ownerShip])
+  }, [props.propertyDetails, price])
+
+  useEffect(() => {
+    if (
+      props.propertyDetails.newEstimatedValue !== '' &&
+      props.propertyDetails.newEstimatedValue !== NaN
+    ) {
+      let newClosingPrice = ''
+      let equityIncrease =
+        parseInt(props.propertyDetails.newEstimatedValue) -
+        parseInt(props.propertyDetails.wholePrice)
+
+      let totalEquity =
+        equityIncrease +
+        (props.propertyDetails.wholePrice / 100) * parseInt(ownerShipPercent)
+
+      if (closingYear === 0) newClosingPrice = newPropertyPriceArr[0]
+      else
+        newClosingPrice = newPropertyPriceArr.filter(
+          (a, index) => parseInt(index) === parseInt(closingYear),
+        )
+
+      let t1 =
+        (totalEquity +
+          (newClosingPrice[0] - props.propertyDetails.newEstimatedValue)) /
+        parseInt(ownerShip)
+      setNewPropertyPrice(parseInt(t1))
+    }
+  }, [closingYear, ownerShipPercent, ownerShip])
 
   return (
     <>
