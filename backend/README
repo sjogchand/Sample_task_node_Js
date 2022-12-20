@@ -1,1 +1,44 @@
-sequelize migration:create --name create-properties
+# Penumbra_Node
+
+This project is an independent back-end for Sample task. Created completely in NodeJS with Express framework.
+
+#### Instructions for running this project
+
+1. Clone the repository over your system,
+2. Run `npm install` to install all the required dependencies
+3. Run `npm start` to start a development server
+4. can also install nodemon to avoid restarting the server
+
+> Tested with `node v14.17.5`
+
+#### Database, Migration and Seeds Data set up
+
+1. As we used mysql2 and sequelize and some other dependency in our project so we need to install globally all of this.
+2. Run these commands :-
+   npm install -g sequelize
+   npm i -g sequelize-cli
+   npm install -g mysql2 --save
+   npm install cors --save
+3. Create MySQL user, password and sample_project database in local machine.(Try to put same credentails and database name (same as `test` in `config.js` file) in your local so every time don't need to change database credentials after pulling your code).
+4. Go to \_./config/config.js file in sample project backend
+5. Replace username, password and database (which created eariler) in `test` json.
+6. Replace `NODE_ENV` from `development` to `test` in \_./env file to connect with local MySQL database.
+7. Now for execute migrations do `npx sequelize db:migrate`
+
+> Note- Usually dont need to add npx in sequelize (in linux OS) command but got some issue like `scripts is disabled` in windows, so to avoid this error used npx.
+
+#### Development & contribution instructions
+
+1. Use `StandardJs` and `EsLint`.
+2. Code needs to be distributed over small functions each carrying out not more than `1 functionality`.
+3. Always use proper and concise commit messages that clearly define the purpose of a commit.
+4. Always use dev branche for implementing new features.
+5. Make sure your code is easily readable and documented properly with the use of comments.
+6. Resolve all merge conflicts at your end, make sure you've verified that nothing else breaks that works properly,
+   and only then create a pull request.
+7. Use `snake_case` for column names & table names.
+8. Never touch migration files directly.If need to update or delete in migrations, always use sequelize migration commands.
+9. whenever pull your code from `dev` then check package.json, if any change in this file do `npm update`.
+10. Also check if any new migrations are present by using `npx sequelize db:migrate:status` this command and if any migration is showing in down stage then please run `npx sequelize db:migrate` this command in project directory terminal.
+
+> Code quality is as much important as the intended functionality
