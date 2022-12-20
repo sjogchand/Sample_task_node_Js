@@ -24,7 +24,7 @@ export default function AboutProperty({ propertyDetails }) {
       <div className="pd_about_sub">
         {ameneties.map((item, index) => (
           // <div className="pd_about_sub_cnt" key={index}>
-            <div className='flex_wrap'>
+            <div className='flex_wrap' key={index}>
               <span>
                 <img src={arr} alt="" />
               </span>

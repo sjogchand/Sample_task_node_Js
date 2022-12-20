@@ -145,6 +145,10 @@
     font-size: 13px;
 }
 
+.react-tel-input {
+    margin-left: 0 !important;
+}
+
 @media screen and (max-width: 768px) {
     .get_started_inputs_row {
         display: block;

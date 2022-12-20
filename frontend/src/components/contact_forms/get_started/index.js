@@ -5,11 +5,13 @@ import SpecialModal from '../../all_modals/icontact_from'
 import axios from 'axios'
 import Button from '@mui/material/Button'
 import Typography from '@mui/material/Typography'
+import PhoneInput from 'react-phone-input-2'
 
 export default function Get_Started({ pt, pb }) {
   const [isError, setIsError] = useState(false)
   const [success, setSuccess] = useState(false)
   const [checked, setChecked] = useState(false)
+  const [phone, setPhone] = useState('')
   const [isErrorMsg, setIsErrorMsg] = useState('')
 
   const initialValues = {
@@ -71,7 +73,7 @@ export default function Get_Started({ pt, pb }) {
 
   const enteredFullNameIsValid = values.fullName.trim() !== ''
   const enteredEmailIsValid = values.email.trim() !== ''
-  const enteredPhoneIsValid = values.phone.trim() !== ''
+  const enteredPhoneIsValid = phone.trim() !== ''
   const enteredAreaIsValid = values.area.trim() !== ''
   const enteredCheckedIsValid = checked !== false
 
@@ -122,7 +124,7 @@ export default function Get_Started({ pt, pb }) {
     let data = {
       fullName: values.fullName,
       email: values.email,
-      phone: values.phone,
+      phone: phone,
       area: values.area,
     }
 
@@ -134,6 +136,7 @@ export default function Get_Started({ pt, pb }) {
           setValues(initialValues)
           setTouched(defaultState)
           setChecked(false)
+          setPhone('')
         } else if (response.data.status === 422) {
           setIsError(response.data.message)
           setChecked(false)
@@ -208,7 +211,7 @@ export default function Get_Started({ pt, pb }) {
 
             <div className="get_started_inputs_row">
               <div>
-                <input
+                {/* <input
                   type="number"
                   name={'phone'}
                   onChange={handleinputchange}
@@ -216,6 +219,16 @@ export default function Get_Started({ pt, pb }) {
                   onBlur={handleFocus3}
                   placeholder="Phone*"
                   required
+                /> */}
+                <PhoneInput
+                  country={'us'}
+                  onChange={(e) => {
+                    setPhone(e)
+                  }}
+                  name={'phone'}
+                  value={phone}
+                  onBlur={handleFocus3}
+                  placeholder="Phone*"
                 />
                 {phoneInputIsInvalid && (
                   <p className="e-message">Please enter a valid Phone</p>
@@ -257,7 +270,7 @@ export default function Get_Started({ pt, pb }) {
               </label>
             </div>
             {checkedInputIsInvalid && (
-              <p className="e-message">Please enter a Ideal Location</p>
+              <p className="e-message">Please check the terms and condition</p>
             )}
             <div className="gs_btn">
               <Button onClick={onSubmitHandler} variant="contained">

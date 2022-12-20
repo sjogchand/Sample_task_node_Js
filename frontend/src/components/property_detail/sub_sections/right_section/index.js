@@ -21,16 +21,11 @@ export default function RightPd(props) {
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
   const [totalEquity, setTotalEquity] = useState('')
 
-  useEffect(() => {
-    setPrice(props.price / parseInt(ownerShip))
-    props.setOwnerShipProps(parseInt(ownerShip))
-    props.setOwnerShipPrice(parseInt(props.price / parseInt(ownerShip)))
-    setLoanAmount(props.price - (props.price / 100) * ownerShipPercent)
-  }, [props.price, ownerShip, ownerShipPercent])
-
-  useEffect(() => {
-    setOwnerShipPercentPrice((price / 100) * parseInt(ownerShipPercent))
-  }, [price])
+  const numberFormat = (value) =>
+    new Intl.NumberFormat('en-US', {
+      style: 'currency',
+      currency: 'USD',
+    }).format(value)
 
   const onchange = (value) => {
     setOwnerShip(value)
@@ -38,7 +33,6 @@ export default function RightPd(props) {
 
   const onchange1 = (value) => {
     setOwnerShipPercent(value)
-    setOwnerShipPercentPrice((price / 100) * parseInt(value))
   }
 
   const onchange2 = (value) => {
@@ -55,23 +49,21 @@ export default function RightPd(props) {
         (newClosingPrice[0] - props.propertyDetails.newEstimatedValue)) /
       parseInt(ownerShip)
     setNewPropertyPrice(parseInt(t1))
-
-    // console.log(totalEquity,newClosingPrice[0], props.propertyDetails.newEstimatedValue, ownerShip, 'newClosingPrice',t1)
-
-    // value === 0
-    //   ? setNewPropertyPrice(newPropertyPriceArr[0])
-    //   : setNewPropertyPrice(
-    //       newPropertyPriceArr.filter(
-    //         (a, index) => parseInt(index) === parseInt(value),
-    //       ),
-    //     )
   }
 
-  const numberFormat = (value) =>
-    new Intl.NumberFormat('en-US', {
-      style: 'currency',
-      currency: 'USD',
-    }).format(value)
+  useEffect(() => {
+    let price = props.propertyDetails.wholePrice / parseInt(ownerShip)
+    setPrice(price)
+    props.setOwnerShipProps(parseInt(ownerShip))
+    props.setOwnerShipPrice(
+      parseInt(props.propertyDetails.wholePrice / parseInt(ownerShip)),
+    )
+    setLoanAmount(
+      props.propertyDetails.wholePrice -
+        (props.propertyDetails.wholePrice / 100) * ownerShipPercent,
+    )
+    setOwnerShipPercentPrice((price / 100) * parseInt(ownerShipPercent))
+  }, [props.propertyDetails, ownerShip, ownerShipPercent])
 
   useEffect(() => {
     var P = loanAmount //principle / initial amount borrowed
@@ -87,30 +79,36 @@ export default function RightPd(props) {
   }, [loanAmount, ownerShip])
 
   useEffect(() => {
-    let equityIncrease =
-      parseInt(props.propertyDetails.newEstimatedValue) -
-      parseInt(props.propertyDetails.wholePrice)
+    if (
+      props.propertyDetails.newEstimatedValue !== '' &&
+      props.propertyDetails.newEstimatedValue !== NaN
+    ) {
+      let equityIncrease =
+        parseInt(props.propertyDetails.newEstimatedValue) -
+        parseInt(props.propertyDetails.wholePrice)
 
-    let totalEquaity =
-      equityIncrease +
-      (props.propertyDetails.wholePrice / 100) * parseInt(ownerShipPercent)
+      let totalEquaity =
+        equityIncrease +
+        (props.propertyDetails.wholePrice / 100) * parseInt(ownerShipPercent)
 
-    setTotalEquity(totalEquaity)
+      setTotalEquity(totalEquaity)
 
-    var newPrice = parseInt(props.propertyDetails.newEstimatedValue)
-    let t1 =
-      (totalEquity + (newPrice - props.propertyDetails.newEstimatedValue)) /
-      parseInt(ownerShip)
-    setNewPropertyPrice(parseInt(t1 !== NaN ? t1 : 0))
+      var newPrice = parseInt(props.propertyDetails.newEstimatedValue)
+      let t1 =
+        (totalEquity + (newPrice - props.propertyDetails.newEstimatedValue)) /
+        parseInt(ownerShip)
 
-    var data = []
-    for (let i = 0; i <= 10; i++) {
-      i > 0
-        ? data.push(Math.ceil(data[i - 1] + (data[i - 1] / 100) * 3))
-        : data.push(newPrice)
+      setNewPropertyPrice(parseInt(t1 !== NaN ? t1 : 0))
+
+      var data = []
+      for (let i = 0; i <= 10; i++) {
+        i > 0
+          ? data.push(Math.ceil(data[i - 1] + (data[i - 1] / 100) * 3))
+          : data.push(newPrice)
+      }
+      setNewPropertyPriceArr(data)
     }
-    setNewPropertyPriceArr(data)
-  }, [props.propertyDetails, ownerShipPercent, ownerShip])
+  }, [props.propertyDetails, price, ownerShipPercent, ownerShip])
 
   return (
     <>

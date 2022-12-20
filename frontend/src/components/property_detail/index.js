@@ -101,7 +101,10 @@ export default function Property_Details() {
             area: JSON.parse(details.area),
           }
 
-          let pricePerSq = details.price / parseInt(details.area.area_of_property)
+          let pricePerSq =
+            response?.data?.data?.price /
+            parseInt(details.area.area_of_property)
+
           let aduPrice = 1200 * 350
           let newSize = 1200 + parseInt(details.area.area_of_property)
           let newEstimatedValue = Math.ceil(newSize * pricePerSq)
@@ -246,7 +249,6 @@ export default function Property_Details() {
           </div>
           <div className="pd_right_columns">
             <RightPd
-              price={propertyDetails.wholePrice}
               propertyDetails={propertyDetails}
               setOwnerShipPrice={setOwnerShipPrice}
               setOwnerShipProps={setOwnerShipProps}
