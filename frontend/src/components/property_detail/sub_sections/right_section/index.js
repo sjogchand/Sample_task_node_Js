@@ -7,6 +7,7 @@ import ExpensesModal from '../../../all_modals/expenses_modal'
 import GainModal from '../../../all_modals/gain_modal'
 import InstallmentModal from '../../../all_modals/installment_modal'
 import { useEffect, useState } from 'react'
+import MapContainer from '../map_section'
 
 export default function RightPd(props) {
   const [price, setPrice] = useState('')
@@ -235,10 +236,15 @@ export default function RightPd(props) {
           </div>
         </div>
       </div>
-      <h1 className="right_main_heading">View property on map</h1>
-      <div className="map_container">
-        <img src={map} alt="" />
-      </div>
+      {/* <h1 className="right_main_heading">View property on map</h1> */}
+      {/* <div className="map_container"> */}
+        {/* <MapContainer
+          address={props.propertyDetails.address}
+          city={props.propertyDetails.city}
+          country={props.propertyDetails.country}
+        /> */}
+        {/* <img src={map} alt="" /> */}
+      {/* </div> */}
     </>
   )
 }

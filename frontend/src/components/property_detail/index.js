@@ -16,6 +16,7 @@ import AboutProperty from './sub_sections/left_section'
 import RightPd from './sub_sections/right_section'
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import MapContainer from './sub_sections/map_section'
 
 // import Theme_Buttom from "../general_components/button"
 
@@ -157,13 +158,22 @@ export default function Property_Details() {
   return (
     <div className="property_details_container">
       <div className="pd_image_container">
-        {propertyDetails.property_image && (
-          <img
-            src={`http://localhost:1055/${propertyDetails.property_image}`}
-            style={{ width: '100%' }}
-            alt=""
+        <div className="image">
+          {propertyDetails.property_image && (
+            <img
+              src={`http://localhost:1055/${propertyDetails.property_image}`}
+              style={{ width: '100%', height: '68vh' }}
+              alt=""
+            />
+          )}
+        </div>
+        <div className="map">
+          <MapContainer
+            address={propertyDetails.address}
+            city={propertyDetails.city}
+            country={propertyDetails.country}
           />
-        )}
+        </div>
       </div>
       <div className="property_details_wrapper">
         <div className="top_row_wrapper">
