@@ -194,12 +194,15 @@ export default function RightPd(props) {
               onChange={(e) => {
                 setPercentage(e.target.value)
               }}
+              min={4}
             />
             <Button
               variant="contained"
               onClick={(e) => {
                 setPercentage(
-                  parseFloat(parseFloat(percentage) - 0.1).toFixed(1),
+                  percentage <= 4
+                    ? 4
+                    : parseFloat(parseFloat(percentage) - 0.1).toFixed(1),
                 )
               }}
             >
