@@ -19,8 +19,36 @@ export default function ListingCard({ city }) {
     axios.get(`http://localhost:1055/api/properties/list`).then((response) => {
       if (response.data.status === 200) {
         let data = response.data.data.map((item) => {
-          return { ...item, configuration: JSON.parse(item.configuration) }
+          return {
+            ...item,
+            configuration: JSON.parse(item.configuration),
+            area: JSON.parse(item.area),
+          }
         })
+
+        data = data.map((item) => {
+          let pricePerSq = item.price / parseInt(item.area.area_of_main_home)
+          let aduPrice = 1200 * 350
+          let newSize = 1200 + parseInt(item.area.area_of_main_home)
+          let newEstimatedValue = Math.ceil(newSize * pricePerSq)
+          let mhServicesFee = Math.ceil((newEstimatedValue / 100) * 10)
+          let wholePrice = mhServicesFee + aduPrice + parseInt(item.price)
+          return {
+            ...item,
+            wholePrice: wholePrice,
+          }
+        })
+
+        // let data = response.data.data
+        // details = {
+        //   ...details,
+        //   configuration: JSON.parse(details.configuration),
+        //   area: JSON.parse(details.area),
+        // }
+
+        // let data =
+        //   response?.data?.data?.price / parseInt(details.area.area_of_main_home)
+
         setPropertyList(
           data.filter((a) => a.city.toLowerCase() === city.toLowerCase()),
         )
@@ -72,7 +100,7 @@ export default function ListingCard({ city }) {
             <div className="card_btn_wrapper">
               {' '}
               <span className="buttonTopText">
-                {numberFormat(item.price / 4)}
+                {numberFormat(item.wholePrice / 4)}
               </span>{' '}
               <br />
               <span className="buttonBottomText">per share</span>{' '}

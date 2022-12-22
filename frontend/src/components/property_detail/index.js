@@ -160,11 +160,14 @@ export default function Property_Details() {
       <div className="pd_image_container">
         <div className="image">
           {propertyDetails.property_image && (
-            <img
-              src={`http://localhost:1055/${propertyDetails.property_image}`}
-              style={{ width: '100%', height: '68vh' }}
-              alt=""
-            />
+            <div className="parent_div_top">
+              <img
+                src={`http://localhost:1055/${propertyDetails.property_image}`}
+                style={{ width: '100%', height: '68vh' }}
+                alt=""
+              />
+              <div className="banner"></div>
+            </div>
           )}
         </div>
         <div className="map">

@@ -7,7 +7,10 @@ import ExpensesModal from '../../../all_modals/expenses_modal'
 import GainModal from '../../../all_modals/gain_modal'
 import InstallmentModal from '../../../all_modals/installment_modal'
 import { useEffect, useState } from 'react'
-import MapContainer from '../map_section'
+import Box from '@mui/material/Box'
+import Slider from '@mui/material/Slider'
+import Button from '@mui/material/Button'
+import Stack from '@mui/material/Stack'
 
 export default function RightPd(props) {
   const [price, setPrice] = useState('')
@@ -20,6 +23,7 @@ export default function RightPd(props) {
   const [closingYear, setClosingYear] = useState('0')
   const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
+  const [percentage, setPercentage] = useState(4)
 
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
@@ -55,7 +59,7 @@ export default function RightPd(props) {
 
   useEffect(() => {
     var P = loanAmount //principle / initial amount borrowed
-    var I = 4 / 100 / 12 //monthly interest rate
+    var I = percentage / 100 / 12 //monthly interest rate
     var N = 30 * 12 //number of payments months
 
     var emi = (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
@@ -64,7 +68,7 @@ export default function RightPd(props) {
 
     setMonthlyEmi(emi / ownerShip)
     setHomeExpenses((realStateTax + MhprogramFee) / ownerShip)
-  }, [loanAmount, ownerShip])
+  }, [loanAmount, ownerShip, percentage])
 
   useEffect(() => {
     if (
@@ -178,6 +182,42 @@ export default function RightPd(props) {
             <h5>{numberFormat(ownerShipPercentPrice)}</h5>
           </div>
         </div>
+        <Box sx={{ pt: '40px' }}>
+          <span>INTEREST RATE</span>
+          <Stack spacing={2} direction="row">
+            <Slider
+              defaultValue={4}
+              step={0.1}
+              aria-label="Default"
+              valueLabelDisplay="auto"
+              value={percentage}
+              onChange={(e) => {
+                setPercentage(e.target.value)
+              }}
+            />
+            <Button
+              variant="contained"
+              onClick={(e) => {
+                setPercentage(
+                  parseFloat(parseFloat(percentage) - 0.1).toFixed(1),
+                )
+              }}
+            >
+              -
+            </Button>
+            <Button
+              variant="contained"
+              onClick={(e) => {
+                setPercentage(
+                  parseFloat(parseFloat(percentage) + 0.1).toFixed(1),
+                )
+              }}
+            >
+              +
+            </Button>
+          </Stack>
+          {percentage}%
+        </Box>
         <div className="left_last_cnt">
           <div className="left_last_row">
             <div className="modal_img_wrapper">
@@ -236,15 +276,6 @@ export default function RightPd(props) {
           </div>
         </div>
       </div>
-      {/* <h1 className="right_main_heading">View property on map</h1> */}
-      {/* <div className="map_container"> */}
-        {/* <MapContainer
-          address={props.propertyDetails.address}
-          city={props.propertyDetails.city}
-          country={props.propertyDetails.country}
-        /> */}
-        {/* <img src={map} alt="" /> */}
-      {/* </div> */}
     </>
   )
 }

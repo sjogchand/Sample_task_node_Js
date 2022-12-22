@@ -77,7 +77,7 @@ const MapContainer = (props) => {
       //   onLoad={onLoad}
       //   onUnmount={onUnmount}
       //   onLoad={handleOnLoad}
-      mapContainerStyle={{ width: '49vw', height: '68vh' }}
+      mapContainerStyle={{ width: '48.9vw', height: '68vh' }}
       zoom={14}
       center={{
         lat: latitude,

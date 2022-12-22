@@ -200,13 +200,26 @@
 
 .image {
     width: 50%;
+    padding-right: 7px;
 }
 
 .map{
     grid-column: span 3/span 3;
-        position: relative;
-        height: 100%;
+    position: relative;
+    height: 100%;
+    padding-left: 7px;
 }
+.parent_div_top{
+    position: relative;
+}
+.banner{
+        background-color: #6d707ac7;
+            height: 60px;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+}
+
 /* .navbar_container_wrapper {
       background: #0C2735;
 } */
