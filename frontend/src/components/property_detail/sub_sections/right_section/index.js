@@ -195,8 +195,10 @@ export default function RightPd(props) {
                 setPercentage(e.target.value)
               }}
               min={4}
+              max={10}
             />
             <Button
+              className="slider_button"
               variant="contained"
               onClick={(e) => {
                 setPercentage(
@@ -209,10 +211,13 @@ export default function RightPd(props) {
               -
             </Button>
             <Button
+             className="slider_button"
               variant="contained"
               onClick={(e) => {
                 setPercentage(
-                  parseFloat(parseFloat(percentage) + 0.1).toFixed(1),
+                  percentage >= 10
+                    ? 10
+                    : parseFloat(parseFloat(percentage) + 0.1).toFixed(1),
                 )
               }}
             >

@@ -1,0 +1,40 @@
+.slider {
+    position: relative;
+}
+
+.navigation {
+    position: absolute;
+    right: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #6d707ac7;
+      top: 10px;
+    border-radius: 28px;
+    -webkit-transition: none !important;
+        -moz-transition: none !important;
+        -o-transition: none !important;
+        transition: none !important;
+}
+
+.navigation svg {
+    padding: 0 0.125rem;
+    width: 13px;
+    fill: #fff;
+}
+
+.navigation .items-center {
+    color: #fff;
+    vertical-align: middle;
+    text-align: center;
+    justify-content: center !important;
+    align-items: center;
+    display: flex;
+}
+
+.type-body-sm.flex.items-center {
+    color: #fff;
+}
+
+.slider button {
+    background: transparent;
+}

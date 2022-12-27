@@ -14,7 +14,6 @@ export default function Chance() {
 
     const onSubmitHandler = (event) => {
         event.preventDefault();
-        console.log(refEmail.current.value)
         if (refEmail.current.value == '') {
             setIsError(true)
         }

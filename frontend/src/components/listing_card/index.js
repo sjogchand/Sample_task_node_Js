@@ -15,6 +15,15 @@ export default function ListingCard({ city }) {
   const [propertyList, setPropertyList] = useState([])
   const [propertyArr, setPropertyArr] = useState([])
 
+  function isJsonString(str) {
+    try {
+      JSON.parse(str)
+    } catch (e) {
+      return false
+    }
+    return true
+  }
+
   useEffect(() => {
     axios.get(`http://localhost:1055/api/properties/list`).then((response) => {
       if (response.data.status === 200) {
@@ -23,8 +32,13 @@ export default function ListingCard({ city }) {
             ...item,
             configuration: JSON.parse(item.configuration),
             area: JSON.parse(item.area),
+            property_image: isJsonString(item.property_image)
+              ? JSON.parse(item.property_image)[0]
+              : item.property_image,
           }
         })
+
+        console.log(data)
 
         data = data.map((item) => {
           let pricePerSq = item.price / parseInt(item.area.area_of_main_home)
@@ -58,7 +72,6 @@ export default function ListingCard({ city }) {
   }, [])
 
   useEffect(() => {
-    console.log('city', city)
     setPropertyList(
       propertyArr.filter((a) => a.city.toLowerCase() === city.toLowerCase()),
     )

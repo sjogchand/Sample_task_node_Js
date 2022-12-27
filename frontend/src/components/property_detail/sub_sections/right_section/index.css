@@ -1,288 +1,288 @@
 .right_pd_cnt {
-    width: 100%;
-    max-width: none;
-    background: #FFFFFF;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.11);
-    border-radius: 6px;
-    padding-top: 50px;
-    padding-left: 32px;
-    padding-right: 30px;
-    padding-bottom: 31px;
+  width: 100%;
+  max-width: none;
+  background: #ffffff;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+  padding-top: 50px;
+  padding-left: 32px;
+  padding-right: 30px;
+  padding-bottom: 31px;
 }
 
 .right_pd_cnt h3 {
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 17px;
-    text-transform: uppercase;
-    color: #8C8D97;
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-transform: uppercase;
+  color: #8c8d97;
 }
 
 .overview_column {
-    width: 100%;
-    max-width: 488px;
-    margin-top: 33px;
+  width: 100%;
+  max-width: 488px;
+  margin-top: 33px;
 }
 
 .overview_column p {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #4B5373;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4b5373;
 }
 
 .dropdown_row {
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    column-gap: 26px;
-    margin-top: 17px;
-
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  column-gap: 26px;
+  margin-top: 17px;
 }
 
-.dropdown_row>div {
-    width: 100%;
-    /* border: 1px solid #E1E3ED; */
-    /* border-radius: 4px */
+.dropdown_row > div {
+  width: 100%;
+  /* border: 1px solid #E1E3ED; */
+  /* border-radius: 4px */
 }
 
 .left_last_cnt {
-    margin-top: 51px;
-    padding-top: 31px;
-    border-top: 1px solid #E1E3ED;
-    padding-bottom: 31px;
+  margin-top: 51px;
+  padding-top: 31px;
+  border-top: 1px solid #e1e3ed;
+  padding-bottom: 31px;
 
-    border-bottom: 1px solid #E1E3ED;
+  border-bottom: 1px solid #e1e3ed;
 }
 
 .left_last_row {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .left_last_row span {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    color: #8C8D97;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  color: #8c8d97;
 }
 
 .left_last_row span img {
-    margin-left: 7px;
+  margin-left: 7px;
 }
 
 .left_last_row p {
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 19px;
-    text-align: right;
-    color: #8C8D97;
-    margin-top: 13px;
-    margin-bottom: 0;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 19px;
+  text-align: right;
+  color: #8c8d97;
+  margin-top: 13px;
+  margin-bottom: 0;
 }
 
 .last_pd_text {
-    padding-top: 25px;
+  padding-top: 25px;
 }
 
 .last_pd_text h1 {
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 29px;
-    text-align: center;
-    color: #4B5373;
-    margin-bottom: 0;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 29px;
+  text-align: center;
+  color: #4b5373;
+  margin-bottom: 0;
 }
 
 .last_pd_text h1 span {
-    font-size: 16px;
-    font-weight: 500;
-
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .fraction_dd {
-    border: 1px solid #E1E3ED;
-    border-radius: 4px;
-    position: relative;
+  border: 1px solid #e1e3ed;
+  border-radius: 4px;
+  position: relative;
 }
 
 .fraction_dd_content {
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
 }
 
 .fraction_dd_content img {
-    margin-left: 7px;
+  margin-left: 7px;
 }
 
 .percentage_dd {
-    border: 1px solid #E1E3ED;
-    border-radius: 4px;
-    position: relative;
-
+  border: 1px solid #e1e3ed;
+  border-radius: 4px;
+  position: relative;
 }
 
 .dropdown_1 h5 {
-    font-weight: 500;
-    font-size: 14px;
-    line-height: 17px;
-    /* line-height: 1; */
-    color: #4B5373;
-    margin-bottom: 0;
-    padding-top: 10px;
+  font-weight: 500;
+  font-size: 14px;
+  line-height: 17px;
+  /* line-height: 1; */
+  color: #4b5373;
+  margin-bottom: 0;
+  padding-top: 10px;
 }
 
 /* bottom container estimaete you equity gain */
 
 .bottom_dd_wrapper {
-    background: #FFFFFF;
-    box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.11);
-    border-radius: 6px;
-    padding-top: 37px;
-    padding-left: 64px;
-    padding-bottom: 27px;
-    padding-right: 20px;
+  background: #ffffff;
+  box-shadow: 0px 0px 7px rgba(0, 0, 0, 0.11);
+  border-radius: 6px;
+  padding-top: 37px;
+  padding-left: 64px;
+  padding-bottom: 27px;
+  padding-right: 20px;
 }
 
 .right_main_heading {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    margin-bottom: 20px;
-    color: #4B5373;
-    margin-top: 27px;
-
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  margin-bottom: 20px;
+  color: #4b5373;
+  margin-top: 27px;
 }
 
 .bottom_dd_wrapper h5 {
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 24px;
-    color: #4B5373;
-    margin-bottom: 0;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 24px;
+  color: #4b5373;
+  margin-bottom: 0;
 }
 
 .home_ex_para {
-    margin-top: 13px;
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
+  margin-top: 13px;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
 }
 
 .home_ex_para img {
-    margin-left: 7px;
+  margin-left: 7px;
 }
 
 .equity_dd {
-    width: 100%;
-    max-width: 301px;
-    border: 1px solid #E1E3ED;
-    border-radius: 4px;
-    margin-bottom: 18px;
-    position: relative;
+  width: 100%;
+  max-width: 301px;
+  border: 1px solid #e1e3ed;
+  border-radius: 4px;
+  margin-bottom: 18px;
+  position: relative;
 }
 
 .equity_dd #dropdown-basic,
 .percentage_dd #dropdown-basic,
 .fraction_dd #dropdown-basic {
-    width: initial !important;
-    padding-left: 16px !important;
-    /* max-width: 100%  !important; */
+  width: initial !important;
+  padding-left: 16px !important;
+  /* max-width: 100%  !important; */
 }
 
 .dropdown_1 .dropdown-toggle::after {
-    position: absolute;
-    right: 30px;
-    top: 50%;
-    transform: translateY(-50%);
-    transform: scale(1.3);
+  position: absolute;
+  right: 30px;
+  top: 50%;
+  transform: translateY(-50%);
+  transform: scale(1.3);
 }
 
-
 .map_container {
-    max-width: 488px;
-    width: 100%;
+  max-width: 488px;
+  width: 100%;
 }
 
 .map_container img {
-    width: 100%;
+  width: 100%;
 }
 
 .modal_img_wrapper {
-    display: flex;
-    align-items: baseline;
-    justify-content: flex-start;
+  display: flex;
+  align-items: baseline;
+  justify-content: flex-start;
+}
+
+.slider_button {
+  background: transparent !important;
+  color: #1565c0 !important;
+  border-radius: 8px !important;
+  border: 1px solid #1868c5 !important;
+  padding: 10px 10px !important;
+  width: 50px !important;
+  top: -10px;
+  position: relative;
 }
 
 @media screen and (max-width: 968px) {
-    .bottom_dd_wrapper {
-        padding: 20px;
-        padding-bottom: 40px;
-    }
+  .bottom_dd_wrapper {
+    padding: 20px;
+    padding-bottom: 40px;
+  }
 }
 
-
 @media screen and (max-width: 768px) {
+  .right_pd_cnt {
+    width: 100%;
+    max-width: none;
+    padding: 20px;
+  }
 
-    .right_pd_cnt {
-        width: 100%;
-        max-width: none;
-        padding: 20px;
-    }
+  .overview_column {
+    max-width: none;
+    margin-bottom: 20px;
+  }
 
-    .overview_column {
-        max-width: none;
-        margin-bottom: 20px;
-    }
+  .dropdown_row {
+    column-gap: 20px;
+    margin-top: 15px;
+  }
 
+  .left_last_cnt {
+    margin-top: 31px;
+    padding-top: 21px;
+    padding-bottom: 21px;
+  }
 
-    .dropdown_row {
-        column-gap: 20px;
-        margin-top: 15px;
-    }
+  .last_pd_text {
+    padding-top: 20px;
+  }
 
-    .left_last_cnt {
-        margin-top: 31px;
-        padding-top: 21px;
-        padding-bottom: 21px;
-    }
+  /* bottom container estimaete you equity gain */
 
+  .bottom_dd_wrapper {
+    padding: 20px;
+  }
 
+  .right_main_heading {
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 24px;
+    margin-bottom: 20px;
+    color: #4b5373;
+    margin-top: 20px;
+  }
 
-    .last_pd_text {
-        padding-top: 20px;
-    }
+  .equity_dd {
+    width: 100%;
+    max-width: none;
+    margin-bottom: 15px;
+  }
 
-    /* bottom container estimaete you equity gain */
+  .map_container {
+    max-width: none;
+    width: 100%;
+  }
 
-    .bottom_dd_wrapper {
-        padding: 20px;
-
-    }
-
-    .right_main_heading {
-        font-weight: 500;
-        font-size: 20px;
-        line-height: 24px;
-        margin-bottom: 20px;
-        color: #4B5373;
-        margin-top: 20px;
-    }
-
-    .equity_dd {
-        width: 100%;
-        max-width: none;
-        margin-bottom: 15px;
-    }
-
-    .map_container {
-        max-width: none;
-        width: 100%;
-    }
-
-    .map_container img {
-        width: 100%;
-    }
+  .map_container img {
+    width: 100%;
+  }
 }

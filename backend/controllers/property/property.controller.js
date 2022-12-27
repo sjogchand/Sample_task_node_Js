@@ -2,6 +2,7 @@ const Op = require('sequelize').Op
 const db = require('../../models')
 
 const saveProperty = async (req, res) => {
+  var properties_Images = req.files.map((a) => 'uploads/' + a.filename)
   const propertyParams = req.body
   const checkProperty = await db.properties
     .findOne({
@@ -23,7 +24,7 @@ const saveProperty = async (req, res) => {
     .create({
       title: propertyParams.title,
       description: propertyParams.description,
-      property_image: 'uploads/' + req.file.filename,
+      property_image: JSON.stringify(properties_Images),
       price: propertyParams.price,
       area: propertyParams.area,
       configuration: propertyParams.configuration,

@@ -7,11 +7,10 @@ import Input from '@mui/material/Input'
 import axios from 'axios'
 import Typography from '@mui/material/Typography'
 import { TextField, Box } from '@mui/material'
-import AttachFileIcon from '@mui/icons-material/AttachFile'
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
-import Autocomplete from '@mui/material/Autocomplete'
+import { set, useForm } from 'react-hook-form'
 
 // export default function AddPropertyForm({ pt, pb }) {
 export default function AddPropertyForm({ pt, pb }) {
@@ -19,8 +18,16 @@ export default function AddPropertyForm({ pt, pb }) {
   const [success, setSuccess] = useState(false)
   const [yearBuilt, setYearBuilt] = useState(new Date())
   const [imgErr, setImgErr] = useState('')
-  // const [amenities, setAmenities] = useState([])
-  // const [topAmenities, setTopAmenities] = useState([])
+  const [multipleImages, setMultipleImages] = useState([])
+  const [images, setImages] = useState([])
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState,
+    formState: { errors },
+  } = useForm()
 
   const initialValues = {
     title: '',
@@ -352,7 +359,6 @@ export default function AddPropertyForm({ pt, pb }) {
     e.preventDefault()
     e.stopPropagation()
     setImgErr('')
-    // setPreviewUrl(URL.createObjectURL(imageFile));
   }
   const handleDrop = (e) => {
     e.preventDefault()
@@ -363,9 +369,8 @@ export default function AddPropertyForm({ pt, pb }) {
   }
 
   const removeImage = (e) => {
-    e.preventDefault()
-    setPreviewUrl(undefined)
-    setImgErr('please select property image.')
+    setImages(Array.from(images).filter((a) => a.name !== e))
+    if (images.length === 0) setImgErr('please select property image.')
   }
 
   const onSubmitHandler = (event) => {
@@ -406,7 +411,7 @@ export default function AddPropertyForm({ pt, pb }) {
       !enteredCityIsValid ||
       !enteredCountyIsValid
     ) {
-      return
+      // return
     }
 
     let area = {
@@ -437,16 +442,15 @@ export default function AddPropertyForm({ pt, pb }) {
     formData.append('city', values.city)
     formData.append('country', values.country)
 
-    if (
-      fileInput.current.files.length < 1 ||
-      previewUrl === '' ||
-      previewUrl === undefined
-    ) {
+    if (images.length < 1) {
       setImgErr('please select property image.')
       return false
     } else {
-      formData.append('properties_image', fileInput.current.files[0])
+      Array.from(images).forEach((item) => {
+        formData.append('properties_image', item)
+      })
     }
+    console.log('sss')
     const config = { headers: { 'content-type': 'multipart/form-data' } }
     axios
       .post('http://localhost:1055/api/properties/save', formData, config)
@@ -456,10 +460,10 @@ export default function AddPropertyForm({ pt, pb }) {
           setValues(initialValues)
           setTouched(defaultState)
           setYearBuilt(new Date())
+          setImages([])
           setPreviewUrl(undefined)
         } else if (response.data.status === 422) {
           setIsError(response.data.message)
-          // setValues(initialValues)
           setTouched(defaultState)
           setYearBuilt(new Date())
           setPreviewUrl(undefined)
@@ -497,7 +501,8 @@ export default function AddPropertyForm({ pt, pb }) {
             {isError}
             {imgErr}
           </Typography>
-          <form onSubmit={onSubmitHandler}>
+
+          <form onSubmit={onSubmitHandler} encType="multipart/form-data">
             <Box
               sx={{
                 '& > :not(style)': {
@@ -890,7 +895,7 @@ export default function AddPropertyForm({ pt, pb }) {
                 helperText={countryInputIsInvalid ? 'Please enter city' : ' '}
               />
             </Box>
-            <Box
+            {/* <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -967,12 +972,83 @@ export default function AddPropertyForm({ pt, pb }) {
                   </Box>
                 </div>
               </section>
+            </Box> */}
+            {/* {multipleImages && (
+              <Button onClick={(e) => removeImage(e)}>Remove</Button>
+            )}
+            {previewUrl && <img src={previewUrl} height={80} alt="profile" />} */}
+            <Typography
+              sx={{
+                fontSize: '0.9rem',
+                textAlign: 'center',
+                color: 'red',
+              }}
+            >
+              {imgErr}
+            </Typography>
+            <Box
+              className="image_section"
+              sx={{
+                display: 'flex',
+                backgroundColor: '#F1F1F1',
+                p: 2,
+              }}
+            >
+              {Array.from(images).map((image, index) => (
+                <div className="image_parent_div" key={index}>
+                  <div className="image_div">
+                    <Button onClick={(e) => removeImage(image.name)}>
+                      Remove
+                    </Button>
+                    <img
+                      className="image"
+                      src={image ? URL.createObjectURL(image) : null}
+                      height={80}
+                      alt="profile"
+                      key={image}
+                    />
+                  </div>
+                </div>
+              ))}
             </Box>
+
+            <Box
+              sx={{
+                display: 'flex',
+                backgroundColor: '#F1F1F1',
+                justifyContent: 'center',
+                p: 2,
+                mt: 1,
+                color: '#A7A7A7',
+                textAlign: 'center',
+              }}
+            >
+              <input
+                onChange={(e) => {
+                  setImages(e.target.files)
+                }}
+                type="file"
+                name="file"
+                className="image_input"
+                accept="image/*"
+                multiple
+              />
+              {/* <input
+                type="file"
+                name="file"
+                className="image_input"
+                accept="image/*"
+                multiple
+                {...register('file', { required: true })}
+                onChange={changeMultipleFiles}
+              /> */}
+            </Box>
+
             <Box sx={{ mt: 1, color: '#A7A7A7', textAlign: 'center' }}>
               <Button onClick={onSubmitHandler} variant="contained">
                 Add Property
               </Button>
-              {success ? <SpecialModal redirect={"add-property"} /> : null}
+              {success ? <SpecialModal redirect={'add-property'} /> : null}
             </Box>
           </form>
         </div>

@@ -7,7 +7,7 @@ router.get('/list', propertyRoutes.listProperty)
 router.get('/:id', propertyRoutes.getPropertyById)
 router.post(
   '/save',
-  upload.single('properties_image'),
+  upload.array('properties_image', 30),
   propertyRoutes.saveProperty,
 )
 
