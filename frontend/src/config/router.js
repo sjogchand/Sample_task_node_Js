@@ -9,11 +9,13 @@ import Contact from '../pages/contact'
 import Sign from '../pages/signup'
 import Listing from '../pages/listing'
 import Owner from '../pages/tic_ownership'
-import PropertyDetails from '../pages/property-detail'
+import PropertyDetails from '../pages/property_detail'
 import Response from '../pages/post_response'
-import AddProperty from '../pages/add-property'
+import AddProperty from '../pages/add_property'
 import PrivacyPolicy from '../pages/privacy_policy'
 import TermsAndCondition from '../pages/terms_and_condition'
+import ManageProperties from '../pages/manage_properties'
+import EditProperty from '../pages/edit_property'
 
 function AppRouter() {
   return (
@@ -32,6 +34,8 @@ function AppRouter() {
         <Route path="/property-detail" element={<PropertyDetails />} />
         <Route path="/privacy-policy" element={<PrivacyPolicy />} />
         <Route path="/terms-and-conditions" element={<TermsAndCondition />} />
+        <Route path="/manage-property" element={<ManageProperties />} />
+        <Route path="/edit-property" element={<EditProperty />} />
       </Routes>
     </Router>
   )

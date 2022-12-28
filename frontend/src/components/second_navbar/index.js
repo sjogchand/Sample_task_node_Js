@@ -43,6 +43,11 @@ export default function Navbar() {
               Add Property
             </HashLink>
           </span>
+          <span>
+            <HashLink smooth to={'/manage-property'}>
+              Manage Property
+            </HashLink>
+          </span>
           <span className="menu_icon_desktop">
             <HiMenu />
           </span>

@@ -10,5 +10,10 @@ router.post(
   upload.array('properties_image', 30),
   propertyRoutes.saveProperty,
 )
+router.post(
+  '/update',
+  upload.array('properties_image', 30),
+  propertyRoutes.updateProperty,
+)
 
 module.exports = router

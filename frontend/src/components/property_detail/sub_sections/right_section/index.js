@@ -62,7 +62,10 @@ export default function RightPd(props) {
     var I = percentage / 100 / 12 //monthly interest rate
     var N = 30 * 12 //number of payments months
 
-    var emi = (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
+    var emi =
+      I === 0
+        ? loanAmount / N
+        : (P * I * Math.pow(1 + I, N)) / (Math.pow(1 + I, N) - 1)
     var realStateTax = (loanAmount * 0.015) / 12
     var MhprogramFee = 104 * ownerShip
 
@@ -194,7 +197,7 @@ export default function RightPd(props) {
               onChange={(e) => {
                 setPercentage(e.target.value)
               }}
-              min={4}
+              min={0}
               max={10}
             />
             <Button
@@ -202,8 +205,8 @@ export default function RightPd(props) {
               variant="contained"
               onClick={(e) => {
                 setPercentage(
-                  percentage <= 4
-                    ? 4
+                  parseFloat(percentage) <= 0.1
+                    ? 0
                     : parseFloat(parseFloat(percentage) - 0.1).toFixed(1),
                 )
               }}
@@ -211,7 +214,7 @@ export default function RightPd(props) {
               -
             </Button>
             <Button
-             className="slider_button"
+              className="slider_button"
               variant="contained"
               onClick={(e) => {
                 setPercentage(

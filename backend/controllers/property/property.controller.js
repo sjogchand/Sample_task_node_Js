@@ -165,8 +165,69 @@ const listProperty = async (req, res) => {
   res.send({ status: 200, data: propertyList })
 }
 
+const updateProperty = async (req, res) => {
+  var properties_Images = req.files.map((a) => 'uploads/' + a.filename)
+  const propertyParams = req.body
+  // const checkProperty = await db.properties
+  //   .findOne({
+  //     where: {
+  //       title: {
+  //         [Op.eq]: propertyParams.title,
+  //       },
+  //       status: { [Op.eq]: 1 },
+  //     },
+  //   })
+  //   .catch((e) => {
+  //     console.log(e)
+  //     res.status(422).json({ error: 'Duplicate property' }).send()
+  //   })
+  // if (checkProperty.title !== propertyParams.title)
+  //   return res.send({
+  //     status: 422,
+  //     message: 'Duplicate Property Name',
+  //     data: checkProperty,
+  //   })
+
+  const PropertyData = await db.properties
+    .update(
+      {
+        title: propertyParams.title,
+        description: propertyParams.description,
+        property_image: JSON.stringify(properties_Images),
+        price: propertyParams.price,
+        area: propertyParams.area,
+        configuration: propertyParams.configuration,
+        year_built: propertyParams.year_built,
+        security: propertyParams.security,
+        kid_safe: propertyParams.kid_safe,
+        parking: propertyParams.parking,
+        top_amenities: propertyParams.top_amenities,
+        amenities: propertyParams.amenities,
+        address: propertyParams.address,
+        city: propertyParams.city,
+        country: propertyParams.country,
+        status: 1,
+      },
+      {
+        where: {
+          id: { [Op.eq]: propertyParams.id },
+        },
+      },
+    )
+    .catch((e) => {
+      console.log(e)
+      res.send({ status: 402, message: "Property data couldn't save" })
+    })
+  res.send({
+    status: 200,
+    message: 'Property data saved successfully',
+    json: PropertyData,
+  })
+}
+
 module.exports = {
   saveProperty,
   listProperty,
   getPropertyById,
+  updateProperty,
 }
