@@ -23,7 +23,7 @@ export default function RightPd(props) {
   const [closingYear, setClosingYear] = useState('0')
   const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
-  const [percentage, setPercentage] = useState(4)
+  const [percentage, setPercentage] = useState(0)
 
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
@@ -189,7 +189,7 @@ export default function RightPd(props) {
           <span>INTEREST RATE</span>
           <Stack spacing={2} direction="row">
             <Slider
-              defaultValue={4}
+              defaultValue={0}
               step={0.1}
               aria-label="Default"
               valueLabelDisplay="auto"
