@@ -23,7 +23,7 @@ export default function RightPd(props) {
   const [closingYear, setClosingYear] = useState('0')
   const [newPropertyPriceArr, setNewPropertyPriceArr] = useState([])
   const [newPropertyPrice, setNewPropertyPrice] = useState([])
-  const [percentage, setPercentage] = useState(0)
+  const [percentage, setPercentage] = useState(4)
 
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
