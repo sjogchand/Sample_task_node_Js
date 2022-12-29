@@ -16,4 +16,6 @@ router.post(
   propertyRoutes.updateProperty,
 )
 
+router.post('/delete', propertyRoutes.deleteProperty)
+
 module.exports = router

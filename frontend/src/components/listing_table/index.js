@@ -5,11 +5,13 @@ import DeleteIcon from '@mui/icons-material/Delete'
 import EditIcon from '@mui/icons-material/Edit'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import DeleteProperty from '../property/delete_property'
 
 export default function ListingTable() {
   const [rowsPerPage, setRowsPerPage] = useState([])
   const [pageSize, setPageSize] = useState(10)
   const [tableRows, setTableRows] = useState([])
+  const [deleteSuccess, setDeleteSuccess] = useState(false)
   const navigate = useNavigate()
 
   function isJsonString(str) {
@@ -60,32 +62,23 @@ export default function ListingTable() {
               : '2015',
           }
         })
+        setDeleteSuccess(false)
         setTableRows(data)
       }
     })
   }
 
   useEffect(() => {
-    if (tableRows.length < 1) {
+    if (tableRows.length < 1 || deleteSuccess) {
       getProperties()
     }
-  }, [tableRows.length])
+  }, [tableRows.length, deleteSuccess])
 
-  const deleteProperty = React.useCallback(
-    (id) => () => {
-      // setDeleteID(id)
-      // setOpenDeletePopup(true)
-    },
-    [],
-  )
+  const [deleteId, setDeleteId] = useState(null)
 
-  const editProperty = React.useCallback(
-    (id) => () => {
-      // setEditID(id)
-      // setOpenEditPopup(true)
-    },
-    [],
-  )
+  const deleteClick = (userId) => {
+    setDeleteId(userId)
+  }
 
   const columns = [
     {
@@ -180,6 +173,11 @@ export default function ListingTable() {
           icon={<DeleteIcon sx={{ color: '#B7345C' }} />}
           label="Delete"
           sx={{ color: '#B7345C' }}
+          data-bs-toggle="modal"
+          data-bs-target="#exampleModalToggle7"
+          onClick={() => {
+            deleteClick(params.id)
+          }}
           // onClick={deleteBanner(params.id)}
           showInMenu
         />,
@@ -194,32 +192,42 @@ export default function ListingTable() {
   ]
 
   return (
-    <div className="listing_container manage_property_div">
-      {tableRows && tableRows.length > 0 && (
-        <DataGrid
-          // rowHeight={150}
-          getRowHeight={() => 'auto'}
-          sx={{
-            '&.MuiDataGrid-root--densityCompact .MuiDataGrid-cell': {
-              py: '8px',
-            },
-            '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {
-              py: '15px',
-            },
-            '&.MuiDataGrid-root--densityComfortable .MuiDataGrid-cell': {
-              py: '22px',
-            },
-          }}
-          rows={tableRows}
-          columns={columns}
-          getRowClassName={(params) => `table-row--${params.row.active_status}`}
-          onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
-          pageSize={pageSize}
-          rowsPerPageOptions={rowsPerPage}
-          disableColumnSelector
-          sortingOrder={['asc', 'desc']}
-        />
-      )}
-    </div>
+    <>
+      <DeleteProperty
+        modalId={'exampleModalToggle7'}
+        modalLabel={'exampleModalToggleLabel7'}
+        deleteId={deleteId}
+        setDeleteSuccess={setDeleteSuccess}
+      />
+      <div className="listing_container manage_property_div">
+        {tableRows && tableRows.length > 0 && (
+          <DataGrid
+            // rowHeight={150}
+            getRowHeight={() => 'auto'}
+            sx={{
+              '&.MuiDataGrid-root--densityCompact .MuiDataGrid-cell': {
+                py: '8px',
+              },
+              '&.MuiDataGrid-root--densityStandard .MuiDataGrid-cell': {
+                py: '15px',
+              },
+              '&.MuiDataGrid-root--densityComfortable .MuiDataGrid-cell': {
+                py: '22px',
+              },
+            }}
+            rows={tableRows}
+            columns={columns}
+            getRowClassName={(params) =>
+              `table-row--${params.row.active_status}`
+            }
+            onPageSizeChange={(newPageSize) => setPageSize(newPageSize)}
+            pageSize={pageSize}
+            rowsPerPageOptions={rowsPerPage}
+            disableColumnSelector
+            sortingOrder={['asc', 'desc']}
+          />
+        )}
+      </div>
+    </>
   )
 }

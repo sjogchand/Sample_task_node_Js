@@ -168,26 +168,6 @@ const listProperty = async (req, res) => {
 const updateProperty = async (req, res) => {
   var properties_Images = req.files.map((a) => 'uploads/' + a.filename)
   const propertyParams = req.body
-  // const checkProperty = await db.properties
-  //   .findOne({
-  //     where: {
-  //       title: {
-  //         [Op.eq]: propertyParams.title,
-  //       },
-  //       status: { [Op.eq]: 1 },
-  //     },
-  //   })
-  //   .catch((e) => {
-  //     console.log(e)
-  //     res.status(422).json({ error: 'Duplicate property' }).send()
-  //   })
-  // if (checkProperty.title !== propertyParams.title)
-  //   return res.send({
-  //     status: 422,
-  //     message: 'Duplicate Property Name',
-  //     data: checkProperty,
-  //   })
-
   const PropertyData = await db.properties
     .update(
       {
@@ -225,9 +205,27 @@ const updateProperty = async (req, res) => {
   })
 }
 
+const deleteProperty = async (req, res) => {
+  const propertyParams = req.body
+  await db.properties
+    .update(
+      { status: 0 },
+      {
+        where: {
+          id: { [Op.eq]: propertyParams.id },
+        },
+      },
+    )
+    .catch((e) => {
+      console.log(e)
+    })
+  res.send({ status: 200, message: 'Property deleted successfully' })
+}
+
 module.exports = {
   saveProperty,
   listProperty,
   getPropertyById,
   updateProperty,
+  deleteProperty,
 }
