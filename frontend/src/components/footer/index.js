@@ -2,8 +2,16 @@ import './index.css'
 import logo from '../../assets/images/2.png'
 import icon from '../../assets/images/icon.png'
 import { HashLink } from 'react-router-hash-link'
+import { useSelector } from 'react-redux'
+import { setLoginData } from './../../actions/loginAction'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function Footer() {
+  const loginData = useSelector((state) => state.loginReducer.loginData)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
   return (
     <div className="footer_container_bg theme_container">
       <div className="footer_container">
@@ -40,14 +48,47 @@ export default function Footer() {
           </div>
           <div className="footer_sub_wrapper">
             <h3>Property</h3>
-            <p>
-              <span>
-                <img src={icon} alt="" />
-              </span>
-              <HashLink smooth to={'/signup'}>
-                Sign up
-              </HashLink>
-            </p>
+            {!loginData?.access_token && (
+              <p>
+                <span>
+                  <img src={icon} alt="" />
+                </span>
+                <HashLink smooth to={'/sign-up'}>
+                  Sign up
+                </HashLink>
+              </p>
+            )}
+            {!loginData?.access_token && (
+              <p style={{ margin: '15px 0' }}>
+                <span>
+                  <img src={icon} alt="" />
+                </span>
+                <HashLink smooth to={'/sign-in'}>
+                  Sign In
+                </HashLink>
+              </p>
+            )}
+            {loginData?.access_token && (
+              <p style={{ margin: '15px 0' }}>
+                <span>
+                  <img src={icon} alt="" />
+                </span>
+                <button
+                  onClick={() => {
+                    navigate('/')
+                    window.localStorage.removeItem('access_token')
+                    dispatch(setLoginData([]))
+                  }}
+                  style={{
+                    background: 'transparent',
+                    border: 'none',
+                    color: '#b8d6d9',
+                  }}
+                >
+                  Sing Out
+                </button>
+              </p>
+            )}
             <p>
               <span>
                 <img src={icon} alt="" />
@@ -75,7 +116,7 @@ export default function Footer() {
                 Contact
               </HashLink>
             </p>
-             <p style={{ margin: '15px 0' }}>
+            <p style={{ margin: '15px 0' }}>
               <span>
                 <img src={icon} alt="" />
               </span>

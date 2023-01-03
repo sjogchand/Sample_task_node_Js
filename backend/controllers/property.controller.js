@@ -1,5 +1,5 @@
 const Op = require('sequelize').Op
-const db = require('../../models')
+const db = require('../models')
 
 const saveProperty = async (req, res) => {
   var properties_Images = req.files.map((a) => 'uploads/' + a.filename)

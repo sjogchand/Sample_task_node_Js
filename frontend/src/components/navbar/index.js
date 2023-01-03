@@ -5,10 +5,17 @@ import { HiMenu } from 'react-icons/hi'
 import { HashLink } from 'react-router-hash-link'
 import { useState, useEffect } from 'react'
 import { IoClose } from 'react-icons/io5'
+import { useSelector } from 'react-redux'
+import { setLoginData } from './../../actions/loginAction'
+import { useDispatch } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
 
 export default function Navbar() {
   const [click, setClick] = useState(true)
   const handleClick = () => setClick(!click)
+  const loginData = useSelector((state) => state.loginReducer.loginData)
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
 
   useEffect(() => {
     window.addEventListener('scroll', isSticky)
@@ -56,16 +63,53 @@ export default function Navbar() {
               contact
             </HashLink>
           </span>
-          <span>
-            <HashLink smooth to={'/add-property'}>
-              Add Property
-            </HashLink>
-          </span>
-          <span>
-            <HashLink smooth to={'/manage-property'}>
-              Manage Property
-            </HashLink>
-          </span>
+          {loginData?.role === 1 && (
+            <span>
+              <HashLink smooth to={'/add-property'}>
+                Add Property
+              </HashLink>
+            </span>
+          )}
+          {loginData?.role === 1 && (
+            <span>
+              <HashLink smooth to={'/manage-property'}>
+                Manage Property
+              </HashLink>
+            </span>
+          )}
+          {!loginData?.access_token && (
+            <span>
+              <HashLink smooth to={'/sign-up'}>
+                Sign Up
+              </HashLink>
+            </span>
+          )}
+          {loginData?.access_token && (
+            <span>
+              <button
+                onClick={() => {
+                  navigate('/')
+                  window.localStorage.removeItem('access_token')
+                  dispatch(setLoginData([]))
+                }}
+                style={{
+                  background: 'transparent',
+                  border: 'none',
+                  color: '#b8d6d9',
+                  fontWeight: '600',
+                  fontSize: '15px',
+                  lineHeight: '18px',
+                  textAlign: 'right',
+                  textTransform: 'uppercase',
+                  color: '#FFFFFF',
+                  // marginRight: '76px',
+                  cursor: 'pointer',
+                }}
+              >
+                Sing Out
+              </button>
+            </span>
+          )}
           <span className="menu_icon_desktop">
             <HiMenu />
           </span>
