@@ -42,17 +42,55 @@ export default function ListingCover() {
                 </Dropdown.Toggle>
 
                 <Dropdown.Menu>
-                  {cityArr.map((item, index) => (
-                    <Dropdown.Item key={index}>
-                      <input
-                        type="checkbox"
-                        value={item}
-                        onChange={onChange}
-                        checked={city == item ? true : false}
-                      />
-                      {item}
-                    </Dropdown.Item>
-                  ))}
+                  <Dropdown.Item>
+                    <input
+                      type="checkbox"
+                      checked={
+                        city.toLocaleLowerCase() ===
+                        'Silicon Valley'.toLocaleLowerCase()
+                          ? true
+                          : false
+                      }
+                      value={'Silicon Valley'}
+                      onChange={onChange}
+                      name="group"
+                      className="form-check-input"
+                    />
+                    Silicon Valley
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <input
+                      type="checkbox"
+                      checked={
+                        city.toLocaleLowerCase() ===
+                        'Los Angeles'.toLocaleLowerCase()
+                          ? true
+                          : false
+                      }
+                      value={'Los Angeles'}
+                      onChange={onChange}
+                      name="group"
+                      className="form-check-input"
+                    />
+                    Los Angeles
+                  </Dropdown.Item>
+                  <Dropdown.Item>
+                    <input
+                      type="checkbox"
+                      checked={
+                        city.toLocaleLowerCase() ===
+                        'Toronto'.toLocaleLowerCase()
+                          ? true
+                          : false
+                      }
+                      value={'Toronto'}
+                      onChange={onChange}
+                      name="group"
+                      className="form-check-input"
+                    />
+                    Toronto
+                  </Dropdown.Item>
+                  {/* ))} */}
                 </Dropdown.Menu>
               </Dropdown>
 

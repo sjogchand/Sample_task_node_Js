@@ -13,13 +13,13 @@ export default function TermsAndCondition() {
           }}
           className="get_started_container"
         >
-          <section class="relative pt-3-1/2 pb-6-3/8 sm:pb-9 bg-tan-100">
+          <section className="relative pt-3-1/2 pb-6-3/8 sm:pb-9 bg-tan-100">
             <div
-              class="relative z-0 scroll-margin-top mx-1-1/2 sm:mx-9 md:mx-12-5/8 xl:mx-18-3/4 xxl:max-w-4xl xxl:mx-auto"
+              className="relative z-0 scroll-margin-top mx-1-1/2 sm:mx-9 md:mx-12-5/8 xl:mx-18-3/4 xxl:max-w-4xl xxl:mx-auto"
               id="Milenium Haus-terms-of-use"
             >
-              <h2 class="mb-1-1/4 sm:mb-2"> Milenium Haus Terms of Use</h2>
-              <p class="my-3/4">
+              <h2 className="mb-1-1/4 sm:mb-2"> Milenium Haus Terms of Use</h2>
+              <p className="my-3/4">
                 These Terms of Use (“Terms”) govern your access to and use of
                 the milenium.haus website (the “Website”), the Milenium Haus
                 Platform and the Milenium Haus mobile applications and Services
@@ -35,7 +35,7 @@ export default function TermsAndCondition() {
                 bound by the Agreement.
               </p>
               <h3>1. Basic Terms</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Milenium Haus provides a marketplace that connects real estate
                 buyers with the opportunity to purchase a portion or entirety of
                 a property through a qualified LLC. The terms of any real estate
@@ -81,7 +81,7 @@ export default function TermsAndCondition() {
                 others.
               </p>
               <h3>2. Privacy</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Any information that you provide to Milenium Haus is subject to
                 our Privacy Policy, which governs our collection and use of your
                 information. You understand that through your use of the
@@ -96,7 +96,7 @@ export default function TermsAndCondition() {
                 may not be able to opt-out from receiving.
               </p>
               <h3>3. Passwords</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 You are responsible for safeguarding the password or credentials
                 that you use to access the Services and for any activities or
                 actions under your account. We encourage you to use “strong”
@@ -114,7 +114,7 @@ export default function TermsAndCondition() {
                 obscene.
               </p>
               <h3>4. Mobile Application Requirements</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 In order to use the Milenium Haus mobile app (the “App”), you
                 must have a compatible mobile device. You are responsible for
                 verifying that the App is compatible with your mobile device,
@@ -135,7 +135,7 @@ export default function TermsAndCondition() {
                 open source license.
               </p>
               <h3>5. Content on the Services</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Please be aware that Milenium Haus does not verify the accuracy
                 any information available on the Services. Any use or reliance
                 on any information you obtained through the Services is at your
@@ -147,7 +147,7 @@ export default function TermsAndCondition() {
                 for any content posted, emailed, transmitted or otherwise made
                 available via the Services or broadcast elsewhere.&nbsp;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 If you register on the Website (and then become a “Registrant”),
                 you will have access to enhanced information about Milenium Haus
                 Homes and Prospects displayed on the Website (the “Exclusive
@@ -159,27 +159,27 @@ export default function TermsAndCondition() {
                 Haus determines LLC membership interest prices and how Milenium
                 Haus provides services to LLC owners.&nbsp;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 By registering to access the Exclusive Content, Registrant
                 hereby accepts and agrees to be bound by the following:
               </p>
-              <ol class="list-decimal list-inside pb-1/2">
-                <li class="list-outside ml-1 py-1/8">
+              <ol className="list-decimal list-inside pb-1/2">
+                <li className="list-outside ml-1 py-1/8">
                   that all data obtained from the Exclusive Content is intended
                   only for the Registrant’s personal, non-commercial use;
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   that the Registrant has a bona fide interest in the purchase,
                   sale, or lease of real estate of the type being offered
                   through the Exclusive Content;
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   that the Registrant will not copy, redistribute, or retransmit
                   any of the data or information provided, except in connection
                   with the Registrant’s consideration of the purchase or sale of
                   an individual property; and
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   that the Registrant acknowledges the applicable MLS’ ownership
                   of and the validity of the applicable MLS’ copyright in the
                   applicable MLS database of the homes displayed in the
@@ -187,7 +187,7 @@ export default function TermsAndCondition() {
                 </li>
               </ol>
               <h3>6. Milenium Haus Rights</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 All rights, title, and interest in and to the Services and any
                 content available on the Services are and will remain the
                 exclusive property of Milenium Haus and its licensors. The
@@ -200,10 +200,10 @@ export default function TermsAndCondition() {
                 feedback, comments or suggestions as we see fit and without any
                 obligation to you.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <u>COPYRIGHT INFRINGEMENT</u>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We take copyright violations very seriously. We may remove
                 material from the Website or Services that appear in our sole
                 discretion to infringe upon the copyright or other intellectual
@@ -214,46 +214,46 @@ export default function TermsAndCondition() {
                 you may notify our copyright agent as provided below, and
                 provide the following information:
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (a) a physical or electronic signature of the person authorized
                 to act on behalf of the copyright owner;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (b) identification of the copyrighted work or works claimed to
                 have been infringed, or mistakenly removed;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (c) a detailed description of the material you claim is
                 infringing, or has been mistakenly removed, together with
                 information sufficient to enable us to locate it, including the
                 URL where the infringing material appears;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (d) your name, mailing address, telephone number, and e-mail
                 address;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (e) a statement by you that you believe in good faith that the
                 copyrighted material identified is being used in a manner that
                 is not authorized by the copyright owner, its agent or the law,
                 or has been mistakenly removed; and
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (f) a statement by you that the above information is accurate
                 and, under penalty of perjury, that you are authorized to act on
                 behalf of the owner of the copyright allegedly infringed.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 To notify Milenium Haus of claimed copyright infringement, or to
                 file a counter-notice in response to a takedown, please contact
                 us at:{' '}
               </p>
-              <p class="my-3/4"> Milenium Haus Inc.&nbsp;</p>
-              <p class="my-3/4">929 Berryessa Rd, San Jose, CA 95133</p>
-              <p class="my-3/4">
+              <p className="my-3/4"> Milenium Haus Inc.&nbsp;</p>
+              <p className="my-3/4">929 Berryessa Rd, San Jose, CA 95133</p>
+              <p className="my-3/4">
                 Email address:&nbsp;
                 <a
-                  class="StyledLink_inline-underline__jIAnx"
+                  className="StyledLink_inline-underline__jIAnx"
                   target="_blank"
                   href="mailto:support@milenium.haus"
                 >
@@ -261,7 +261,7 @@ export default function TermsAndCondition() {
                 </a>
               </p>
               <h3>7. Restrictions On Use Of The Services</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We reserve the right at all times (but will not have an
                 obligation) to suspend and or terminate users or reclaim
                 usernames without liability to you. You may not do any of the
@@ -289,14 +289,14 @@ export default function TermsAndCondition() {
                 interfere with or create an undue burden on the Services.
               </p>
               <h3>8. Ending These Terms</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The Terms will continue to apply until terminated by either you
                 or Milenium Haus as follows. You may end your legal agreement
                 with Milenium Haus at any time for any reason by deactivating
                 your accounts and discontinuing your use of the Services. In
                 order to deactivate your account, please contact us at{' '}
                 <a
-                  class="StyledLink_inline-underline__jIAnx"
+                  className="StyledLink_inline-underline__jIAnx"
                   target="_blank"
                   href="mailto:support@milenium.haus"
                 >
@@ -318,7 +318,7 @@ export default function TermsAndCondition() {
                 the Services without prior notice, as provided above.
               </p>
               <h3>9. Disclaimers, Limitations of Liability and Indemnity</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Please read this section carefully since it limits the liability
                 of Milenium Haus and its parents, subsidiaries, affiliates,
                 related companies, officers, directors, employees, agents,
@@ -331,7 +331,7 @@ export default function TermsAndCondition() {
                 Nothing in this section is intended to limit any rights you may
                 have which may not be lawfully limited.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 A. <b>The Services are Available “AS-IS”</b>: Your access to and
                 use of the Services are at your own risk. You understand and
                 agree that the Services are provided to you on an “AS-IS” and
@@ -340,7 +340,7 @@ export default function TermsAndCondition() {
                 WHETHER EXPRESS OR IMPLIED, OF MERCHANTABILITY, FITNESS FOR A
                 PARTICULAR PURPOSE, OR NON-INFRINGEMENT.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Except as expressly provided in any purchase agreements or other
                 agreements you have with Milenium Haus, the Milenium Haus
                 Entities make no warranty and disclaim all responsibility and
@@ -360,7 +360,7 @@ export default function TermsAndCondition() {
                 written, obtained from the Milenium Haus Entities or through the
                 Services, will create any warranty not expressly made herein.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 B. <b>Links</b>: The Services may contain links to third-party
                 services or resources. You acknowledge and agree that we are not
                 responsible or liable for: (i) the availability or accuracy of
@@ -373,7 +373,7 @@ export default function TermsAndCondition() {
                 all risk arising from your use of any such services or
                 resources.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 C. <b>Limitation of Liability</b>: TO THE MAXIMUM EXTENT
                 PERMITTED BY APPLICABLE LAW, THE Milenium Haus ENTITIES SHALL
                 NOT BE LIABLE FOR ANY INDIRECT, INCIDENTAL, SPECIAL,
@@ -388,14 +388,14 @@ export default function TermsAndCondition() {
                 UNAUTHORIZED ACCESS, USE OR ALTERATION OF YOUR TRANSMISSIONS OR
                 CONTENT.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 IN NO EVENT SHALL THE AGGREGATE LIABILITY OF THE Milenium Haus
                 ENTITIES EXCEED THE GREATER OF ONE HUNDRED U.S. DOLLARS (U.S.
                 $100.00) OR THE AMOUNT YOU PAID Milenium Haus, IF ANY, IN THE
                 PAST SIX MONTHS FOR ACCESS TO THE SERVICES GIVING RISE TO THE
                 CLAIM.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 THE LIMITATIONS OF THIS SUBSECTION SHALL APPLY TO ANY THEORY OF
                 LIABILITY, WHETHER BASED ON WARRANTY, CONTRACT, STATUTE, TORT
                 (INCLUDING NEGLIGENCE) OR OTHERWISE, AND WHETHER OR NOT THE
@@ -403,7 +403,7 @@ export default function TermsAndCondition() {
                 ANY SUCH DAMAGE, AND EVEN IF A REMEDY SET FORTH HEREIN IS FOUND
                 TO HAVE FAILED OF ITS ESSENTIAL PURPOSE.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 D. <b>Indemnification</b>: To the extent not prohibited by law,
                 you expressly agree to indemnify and hold harmless the Milenium
                 Haus Entities from and against any and all liabilities,
@@ -414,7 +414,7 @@ export default function TermsAndCondition() {
                 in which you engage on or through the Services.
               </p>
               <h3>10. GENERAL TERMS. Waiver and Severability</h3>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The failure of Milenium Haus to enforce any right or provision
                 of these Terms will not be deemed a waiver of such right or
                 provision. In the event that any provision of these Terms is
@@ -423,7 +423,7 @@ export default function TermsAndCondition() {
                 remaining provisions of these Terms will remain in full force
                 and effect.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 A. <b>Controlling Law and Jurisdiction</b>: These Terms and any
                 action related thereto will be governed by the laws of the state
                 of Delaware without regard to or application of its conflict of
@@ -438,7 +438,7 @@ export default function TermsAndCondition() {
                 member in any purported class or representative action or
                 proceeding.&nbsp;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 B. <b>Entire Agreement</b>: These Terms and our Privacy Policy
                 are the entire and exclusive agreement between Milenium Haus and
                 you regarding the Services (excluding any service for which you
@@ -447,11 +447,11 @@ export default function TermsAndCondition() {
                 supersede and replace any prior agreements between Milenium Haus
                 and you regarding the Services.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We may revise these Terms from time to time, the most current
                 version will always be at{' '}
                 <a
-                  class="StyledLink_inline-underline__jIAnx"
+                  className="StyledLink_inline-underline__jIAnx"
                   target="_blank"
                   href="https://www.milenium.haus/terms-and-conditions"
                 >
@@ -465,11 +465,11 @@ export default function TermsAndCondition() {
                 or use the Services after those revisions become effective, you
                 agree to be bound by the revised Terms.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 If you have any questions about these Terms, please contact us.
               </p>
-              <p class="my-3/4">Effective: 10/01/2023</p>
-              <p class="my-3/4"></p>
+              <p className="my-3/4">Effective: 10/01/2023</p>
+              <p className="my-3/4"></p>
             </div>
           </section>
         </div>

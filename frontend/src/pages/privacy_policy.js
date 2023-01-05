@@ -13,13 +13,13 @@ export default function PrivacyPolicy() {
           }}
           className="get_started_container"
         >
-          <section class="relative pt-3-1/2 pb-6-3/8 sm:pb-9 bg-tan-100">
+          <section className="relative pt-3-1/2 pb-6-3/8 sm:pb-9 bg-tan-100">
             <div
-              class="relative z-0 scroll-margin-top mx-1-1/2 sm:mx-9 md:mx-12-5/8 xl:mx-18-3/4 xxl:max-w-4xl xxl:mx-auto"
+              className="relative z-0 scroll-margin-top mx-1-1/2 sm:mx-9 md:mx-12-5/8 xl:mx-18-3/4 xxl:max-w-4xl xxl:mx-auto"
               id="effective-date-september-13-2021"
             >
-              <h2 class="mb-1-1/4 sm:mb-2">Updated January 1, 2023</h2>
-              <p class="my-3/4">
+              <h2 className="mb-1-1/4 sm:mb-2">Updated January 1, 2023</h2>
+              <p className="my-3/4">
                 Effective Date: January 1, 2023 Thank you for visiting the
                 Milenium Haus Inc. d/b/a Milenium Haus website
                 (www.milenium.haus) (the “Site”), contacting Milenium Haus,
@@ -33,7 +33,7 @@ export default function PrivacyPolicy() {
                 information. By accessing and using the Services, you agree to
                 this Privacy Notice and our Terms of Use.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 BY VISITING OR USING THE SERVICES, YOU EXPRESSLY CONSENT TO THE
                 PROCESSING OF YOUR PERSONAL INFORMATION ACCORDING TO THIS
                 PRIVACY POLICY. IF YOU DO NOT AGREE WITH OUR POLICIES AND
@@ -46,10 +46,10 @@ export default function PrivacyPolicy() {
                 YOU HAVE THE RIGHT TO TRANSFER SUCH INFORMATION OUTSIDE YOUR
                 COUNTRY AND INTO THE UNITED STATES.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Children’s Privacy</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The Milenium Haus website and Services are not intended for
                 children under the age of 18 and Milenium Haus does not
                 knowingly collect any information from children under 18 years
@@ -61,17 +61,17 @@ export default function PrivacyPolicy() {
                 information about a child under 18 in retrievable form in its
                 files, we will delete that information from our existing files.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <u>
                   <b>
                     What Information does Pacaso Collect and How is it Used?
                   </b>
                 </u>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Registration Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 When you register to create an account, subscribe to a
                 newsletter, or contact us with a question or comment you may
                 voluntarily provide us with certain information, such as your
@@ -79,10 +79,10 @@ export default function PrivacyPolicy() {
                 We will use this information to administer your account and to
                 respond to or fulfill any request or inquiry you may make
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Purchase Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 If you apply to purchase a home using the Services, you will be
                 required to provide certain information that Milenium Haus will
                 use to verify your identity and to complete and administer the
@@ -97,10 +97,10 @@ export default function PrivacyPolicy() {
                 check or otherwise consider your eligibility to receive a loan
                 or other financing.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Financing Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 At this time, Milenium Haus may provide a link to a third-party
                 loan provider, for users to apply for and receive a mortgage or
                 other financing options. Milenium Haus provides this link for
@@ -113,10 +113,10 @@ export default function PrivacyPolicy() {
                 with or links to any specific third-party provider, Milenium
                 Haus will update this policy
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Public Posting</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 You may also choose to post or upload additional information,
                 such as videos, photos or other content (“User Content”) to
                 publicly available portions of the Services. User Content you
@@ -135,10 +135,10 @@ export default function PrivacyPolicy() {
                 and we recommend you carefully consider the information you
                 choose to make publicly available.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Non-Personal Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Like most website operators, Milenium Haus collects
                 non-personally-identifying information of the sort that web
                 browsers and servers typically make available, such as the
@@ -159,7 +159,7 @@ export default function PrivacyPolicy() {
                 activities over time and across third-party websites or other
                 online services (behavioral tracking).
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 In addition to log data, we may also collect information about
                 the device you’re using to access the Services, including the
                 type of device, the operating system, device settings, device
@@ -169,130 +169,132 @@ export default function PrivacyPolicy() {
                 device makes available to us, please review the policies of your
                 device manufacturer or software provider.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We do not collect personal information automatically, but we may
                 tie this information to personal information about you that we
                 collect from other sources or you provide to us.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 In addition, we may use third party services such as Google
                 Analytics that collect, monitor and analyze this type of
                 information in order to increase the Services’ functionality.
                 These third-party service providers have their own privacy
                 policies addressing how they use such information.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <u>
                   <b>How we use your information</b>
                 </u>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We use the information we collect to provide you full access and
                 functionality of the Services. Accordingly, your information may
                 be used for the following purposes:
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (i)&nbsp; &nbsp; &nbsp; &nbsp; to provide and improve our
                 services, features and content;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (ii) &nbsp; &nbsp; &nbsp; to research, analyze and predict
                 trends and improve our financial projections;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (iii)&nbsp; &nbsp; &nbsp; to administer your use of our services
                 and accounts and to verify or authenticate information or
                 identification provided by you;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (iv)&nbsp; &nbsp; &nbsp; to enable users to enjoy and easily
                 navigate the Services;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (v) &nbsp; &nbsp; &nbsp; to better understand your needs and
                 interests and personalize your experience;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (vi)&nbsp; &nbsp; &nbsp; to fulfill requests or to respond to
                 questions or comments you may make;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (vii) &nbsp; &nbsp; to conduct checks against databases and
                 other information sources, including background or police
                 checks, to the extent permitted by applicable laws and with your
                 consent where required,
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (viii)&nbsp; &nbsp; to provide you with announcements,
                 notifications and advertisements related to your interests and
                 use of the Services and other communications such as electronic
                 newsletters, promotional e-mails or similar messaging;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (ix)&nbsp; &nbsp; &nbsp; to provide service announcements;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (x) &nbsp; &nbsp; &nbsp; to detect and prevent fraud, spam,
                 abuse, security incidents, and other harmful activity, conduct
                 security investigations and risk assessments and protect against
                 users seeking to hack into the Services;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (xi)&nbsp; &nbsp; &nbsp; to assess the level of general interest
                 in the Services;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (xii) &nbsp; &nbsp; to resolve disputes between any of our
                 members and to enforce our agreements with third parties;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (xiii)&nbsp; &nbsp; to enforce our Terms of Service and other
                 policies and to comply with our legal obligations; and
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 (xiv)&nbsp; &nbsp; for any other purpose with your consent.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 In connection with the activities above, we may conduct
                 profiling based on your interactions with the Milenium Haus
                 Services, your profile information and other content you submit
                 to the Milenium Haus Services, and information obtained from
                 third parties
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We process this personal information for these purposes given
                 our legitimate interest in protecting the Milenium Haus
                 Services, to measure the adequate performance of our contract
                 with you, and to comply with applicable laws.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <u>
                   <b>With Whom Do We Share Your Information?</b>
                 </u>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Personal Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Milenium Haus may share Personal Information with certain third
                 parties such as our agents, service providers and other
                 representatives acting on our behalf. For example, we may share
                 Personal Information with third parties to perform services on
                 our behalf such as:
               </p>
-              <ul class="list-disc list-inside pb-1/2">
-                <li class="list-outside ml-1 py-1/8">managing properties;</li>
-                <li class="list-outside ml-1 py-1/8">
+              <ul className="list-disc list-inside pb-1/2">
+                <li className="list-outside ml-1 py-1/8">
+                  managing properties;
+                </li>
+                <li className="list-outside ml-1 py-1/8">
                   procuring and maintaining insurance coverage;
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   processing payments or dues; and
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   conducting other business activities as needed.
                 </li>
               </ul>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The third parties with whom we conduct business are authorized
                 to use your information only to perform the service for which
                 they are hired. They are required to abide by the terms of our
@@ -306,14 +308,14 @@ export default function PrivacyPolicy() {
                 third parties to sell your Personal Information to other third
                 parties.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Other Ways We May Share your Personal Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We may disclose non-personally identifiable aggregated
                 information about our users without restriction.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Other than to its employees, contractors and affiliated
                 organizations or as described above, we disclose
                 personally-identifying only when required to do so by law, or
@@ -325,7 +327,7 @@ export default function PrivacyPolicy() {
                 order to help us clarify or respond to your request or to help
                 us support other users.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 In addition, in some cases we may choose to buy or sell assets.
                 In these types of transactions, user information is typically
                 one of the business assets that is transferred. Moreover, if
@@ -340,23 +342,23 @@ export default function PrivacyPolicy() {
                 personally-identifying and personally-identifying information to
                 anyone.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We may also disclose your personally-identifying information if
                 you expressly consent to the disclosure.&nbsp;
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Security</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We are committed to protecting your Personal Information. We
                 regularly test our facilities and use a variety of security
                 technologies and procedures to help protect your personal
                 information from unauthorized access, use or disclosure.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>We Do Not Sell Your Personal Information</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Milenium Haus does not, to the best of our knowledge, sell or
                 rent personal information that we have collected or retain about
                 you to any other third-party for any purpose. Accordingly, we do
@@ -364,10 +366,10 @@ export default function PrivacyPolicy() {
                 renting of personal information because we do not engage in
                 those practices.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Our Data Retention Criteria</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The period during which we store your personal information
                 varies depending on the purpose for the processing. For example,
                 we store personal information needed to provide you with
@@ -381,10 +383,10 @@ export default function PrivacyPolicy() {
                 Statement, following which time it is either anonymized (where
                 permitted by applicable law), deleted or destroyed.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Our Use of Cookies and Analytical Tools</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Cookies are text files containing small amounts of information
                 which are downloaded to your hard disk or to your browser's
                 memory when you visit one of our Sites. Cookies are useful
@@ -404,8 +406,8 @@ export default function PrivacyPolicy() {
                 Preference cookies, Statistic cookies, Marketing cookies, and
                 Miscellaneous cookies.
               </p>
-              <ul class="list-disc list-inside pb-1/2">
-                <li class="list-outside ml-1 py-1/8">
+              <ul className="list-disc list-inside pb-1/2">
+                <li className="list-outside ml-1 py-1/8">
                   <b>Necessary cookies</b>. These cookies are essential for
                   basic functionalities of the Sites, and they enable you to
                   move around our Sites and use their features, particularly in
@@ -425,7 +427,7 @@ export default function PrivacyPolicy() {
                   abuses of the Sites. These types of cookies are regularly
                   stored only as long as required for their purpose.
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   <b>Preference cookies</b>. These cookies allow our Sites to
                   store information that you provide like your preferences, and
                   to store technical information useful for your interactions
@@ -449,7 +451,7 @@ export default function PrivacyPolicy() {
                   about the banner and any other Milenium Haus sites with the
                   same domain or the same top-level domain.
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   <b>Statistic cookies</b>. These cookies collect information
                   about how you use our Sites, for example which pages you go to
                   most often and if you get any error messages from certain
@@ -461,7 +463,7 @@ export default function PrivacyPolicy() {
                   cookies from Google and Adobe Analytics (see further
                   discussion below).
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   <b>Marketing cookies</b>. These cookies or similar
                   technologies may be used to deliver advertisements that are
                   more relevant to you and your interests. They may also be used
@@ -472,28 +474,28 @@ export default function PrivacyPolicy() {
                   encounter from Milenium Haus and from our third-party partners
                   and providers will be less relevant to you and your interests.
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   <b>Miscellaneous cookies</b>. Miscellaneous cookies are
                   unclassified, and help with the overall functionality,
                   targeting and performance of our Sites.
                 </li>
               </ul>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Setting your cookie preferences</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 For users in the European Union and United Kingdom, you may
                 select the cookies you want to keep. For more information and to
                 update your preferences, click the “Cookie Settings” link on our
                 website.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 For any users in California, you may choose to accept cookies
                 other than Necessary cookies. For more information and to update
                 your preferences, click the “Cookie Settings” link on our
                 website.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 You can usually modify your browser settings to decline cookies
                 and you can withdraw your consent at any time by modifying the
                 settings of your browser to reject or disable cookies or by
@@ -502,17 +504,17 @@ export default function PrivacyPolicy() {
                 may not be able to fully experience the features of the Sites
                 that you visit.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Milenium Haus's use of web analytics</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 As part of our use of cookies, we may also use different
                 analytic tools which serve the purpose of measuring, analyzing
                 and optimizing our marketing measures and provide you with
                 customized advertisements that could be of particular interest
                 to you.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 For users in the European Union and United Kingdom, we cannot
                 run these web analytic tools without your consent. If you choose
                 not to provide consent, these analytic tools will not be run on
@@ -520,9 +522,11 @@ export default function PrivacyPolicy() {
                 update your preferences by clicking the “Cookie Settings” link
                 on our website.
               </p>
-              <p class="my-3/4">Analytic tools may include the following:</p>
-              <ul class="list-disc list-inside pb-1/2">
-                <li class="list-outside ml-1 py-1/8">
+              <p className="my-3/4">
+                Analytic tools may include the following:
+              </p>
+              <ul className="list-disc list-inside pb-1/2">
+                <li className="list-outside ml-1 py-1/8">
                   Google Analytics and Heap use cookies which enable an analysis
                   of your use of the Sites. The information collected (IP
                   address, browsing activities and other data linked to your
@@ -533,7 +537,7 @@ export default function PrivacyPolicy() {
                   how you can opt-out of certain features, visit the Google
                   Analytics’s{' '}
                   <a
-                    class="StyledLink_inline-underline__jIAnx"
+                    className="StyledLink_inline-underline__jIAnx"
                     target="_blank"
                     href="https://support.google.com/analytics/answer/181881"
                   >
@@ -541,7 +545,7 @@ export default function PrivacyPolicy() {
                   </a>{' '}
                   and Heap’s{' '}
                   <a
-                    class="StyledLink_inline-underline__jIAnx"
+                    className="StyledLink_inline-underline__jIAnx"
                     target="_blank"
                     href="https://heap.io/privacy"
                   >
@@ -549,13 +553,13 @@ export default function PrivacyPolicy() {
                   </a>
                   .
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   Google Tag Manager helps to manage website tags through a
                   single interface. The tool itself (implementing the tags)
                   triggers other tags that may themselves collect (personal)
                   data. However, Google Tag Manager does not access this data.
                 </li>
-                <li class="list-outside ml-1 py-1/8">
+                <li className="list-outside ml-1 py-1/8">
                   The LinkedIn Insight Tag is a lightweight JavaScript tag that
                   powers conversion tracking, website audiences, and website
                   demographics for LinkedIn ad campaigns. The Insight Tag is
@@ -563,7 +567,7 @@ export default function PrivacyPolicy() {
                   these LinkedIn features. To see how you can opt-out of certain
                   LinkedIn features, visit their{' '}
                   <a
-                    class="StyledLink_inline-underline__jIAnx"
+                    className="StyledLink_inline-underline__jIAnx"
                     target="_blank"
                     href="https://www.linkedin.com/help/linkedin/answer/62931/manage-advertising-preferences?lang=en"
                   >
@@ -572,17 +576,17 @@ export default function PrivacyPolicy() {
                   page.
                 </li>
               </ul>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Your Rights and Responsibilities</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 You are permitted, and hereby agree, to only provide personal
                 information to Pacaso if such personal information is accurate,
                 reliable, and relevant to our relationship and only to the
                 extent such disclosure will not violate any applicable data
                 protection law, statute, or regulation.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 You may have certain rights under applicable data protection law
                 with respect to personal information about you that is collected
                 through the Sites or when you contact or otherwise engage with
@@ -597,14 +601,14 @@ export default function PrivacyPolicy() {
                 time frames required by law, and we may charge a fee to
                 facilitate your request where permitted by law.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Marketing. You have the right to opt-out of receiving electronic
                 direct marketing communications from us.&nbsp; All electronic
                 direct marketing communications that you may receive from us,
                 such as e-mail messages, will give you an option of not
                 receiving such communications from us in the future.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 California Privacy Rights.&nbsp; California Civil Code Section §
                 1798.83 permits users of the Sites that are California residents
                 to request certain information regarding our disclosure of
@@ -629,7 +633,7 @@ export default function PrivacyPolicy() {
                 you before granting you access or otherwise responding to your
                 request.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Do Not Track. Some web browsers may transmit “do-not-track”
                 signals to the Sites with which the user communicates. Because
                 of differences in how web browsers incorporate and activate this
@@ -638,10 +642,10 @@ export default function PrivacyPolicy() {
                 them. We currently do not take action in response to these
                 signals.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>European Union (EU) Privacy Disclaimer</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Pacaso processes personal information in accordance with the
                 legal bases set forth in the EU General Data Protection
                 Regulation (GDPR) or EU Member State law. For example, our
@@ -667,10 +671,10 @@ export default function PrivacyPolicy() {
                 rights, please contact us in accordance with the instructions
                 provided below.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Nevada Privacy Disclaimer</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 Pursuant to Nevada law, a Nevada “consumer” (as the term is
                 defined therein), may, at any time, submit a verified request
                 through a designated request address to an “operator” directing
@@ -681,30 +685,30 @@ export default function PrivacyPolicy() {
                 to a third party for the third party to license or sell the
                 information to additional persons or parties.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Links to Third Party Websites</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 The Services may contain links to other sites that are not
                 operated by us. If you click on a third-party link, you will be
                 directed to that third party's site. We strongly advise you to
                 review the Privacy Policy of every site you visit.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We have no control over, and assume no responsibility for the
                 content, privacy policies or practices of any third-party sites
                 or services.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 <b>Changes to This Privacy Policy</b>
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 We may occasionally update this Privacy Statement. When we do,
                 we will revise the “last updated” date at the top of the Privacy
                 Statement and take such additional steps as may be required by
                 law.
               </p>
-              <p class="my-3/4">
+              <p className="my-3/4">
                 If you have questions regarding this Privacy Statement, our
                 handling of your personal information, or would like to request
                 more information or exercise a data right, please contact us by

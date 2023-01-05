@@ -40,7 +40,7 @@ export default function AccessCover() {
                 </div>
 
                 <div className="access_button_wrapper">
-                    <Theme_Buttom to={"/signup"} text={"Enroll Now"} />
+                    <Theme_Buttom to={"/sign-up"} text={"Enroll Now"} />
                 </div>
             </div>
 

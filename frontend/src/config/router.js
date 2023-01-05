@@ -29,7 +29,7 @@ function PrivateRoutes({ children }) {
   const role = localStorage.getItem('role')
   const location = useLocation()
 
-  return role === 1 ? (
+  return parseInt(role) === 1 ? (
     children
   ) : (
     <Navigate to="/" replace state={{ path: location.pathname }} />

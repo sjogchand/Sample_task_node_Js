@@ -8,6 +8,7 @@ import heart from '../../assets/images/heart.png'
 import pin from '../../assets/images/pd_pin.png'
 import { useNavigate } from 'react-router-dom'
 import { useEffect, useState } from 'react'
+import ImageSlider from '../slider/listing_page_slider'
 import axios from 'axios'
 
 export default function ListingCard({ city }) {
@@ -32,14 +33,15 @@ export default function ListingCard({ city }) {
             ...item,
             configuration: JSON.parse(item.configuration),
             area: JSON.parse(item.area),
+            // property_image: isJsonString(item.property_image)
+            //   ? JSON.parse(item.property_image)[0]
+            //   : item.property_image,
             property_image: isJsonString(item.property_image)
-              ? JSON.parse(item.property_image)[0]
-              : item.property_image,
+              ? JSON.parse(item.property_image)
+              : [item.property_image],
           }
         })
-
-        console.log(data)
-
+    
         data = data.map((item) => {
           let pricePerSq = item.price / parseInt(item.area.area_of_main_home)
           let aduPrice = 1200 * 350
@@ -97,11 +99,15 @@ export default function ListingCard({ city }) {
             <img src={heart} alt="" />
           </div>
           <div className="property_image">
-            <img
+            <ImageSlider
+              slides={item.property_image}
+              sliderData={item.property_image}
+            />
+            {/* <img
               src={`http://localhost:1055/${item.property_image}`}
               alt=""
               style={{ height: '250px', witdh: '100%' }}
-            />
+            /> */}
           </div>
           <div className="card_sub_wrapper">
             <div>

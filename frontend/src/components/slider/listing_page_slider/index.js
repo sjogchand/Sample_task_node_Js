@@ -20,16 +20,19 @@ const ImageSlider = ({ slides, sliderData }) => {
   }
 
   return (
-    <section className="slider">
+    <section className="slider list_page_slider_section">
       {/* <FaArrowAltCircleLeft className='left-arrow' onClick={prevSlide} />
       <FaArrowAltCircleRight className='right-arrow' onClick={nextSlide} /> */}
-      <div className="PropertyImageCarousel_index-indicator-mediahub__mlO8x navigation">
+      <div className="listing_page_slider PropertyImageCarousel_index-indicator-mediahub__mlO8x navigation">
         <button
           aria-label="Previous Image"
-          className="Button_button__2JA4L Button_icon-button__92EF8 Button_icon-button--white__1MAfl"
+          className="prev_button Button_button__2JA4L Button_icon-button__92EF8 Button_icon-button--white__1MAfl"
           data-id="Previous Image"
           type="button"
-          onClick={prevSlide}
+          onClick={(e) => {
+            e.stopPropagation()
+            prevSlide()
+          }}
         >
           <div className="Button___content__MtnK9">
             <svg
@@ -43,17 +46,16 @@ const ImageSlider = ({ slides, sliderData }) => {
             </svg>
           </div>
         </button>
-        <div className="type-body-sm flex items-center">
-          <span>{current + 1}</span>
-          <span>/</span>
-          <span>{length}</span>
-        </div>
         <button
           aria-label="Next Image"
-          className="Button_button__2JA4L Button_icon-button__92EF8 Button_icon-button--white__1MAfl"
+          className="next_button Button_button__2JA4L Button_icon-button__92EF8 Button_icon-button--white__1MAfl"
           data-id="Next Image"
           type="button"
-          onClick={nextSlide}
+          onClick={(e) => {
+            e.stopPropagation()
+            nextSlide()
+          }}
+          // onClick={nextSlide}
         >
           <div className="Button___content__MtnK9">
             <svg
@@ -78,7 +80,8 @@ const ImageSlider = ({ slides, sliderData }) => {
               <img
                 src={`http://localhost:1055/${slide}`}
                 alt="travel image"
-                className="image_slide"
+                style={{ height: '300px', witdh: '100%' }}
+                className="listing_image_slide"
               />
             )}
           </div>

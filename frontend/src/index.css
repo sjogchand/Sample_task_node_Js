@@ -25,6 +25,16 @@ body {
   padding-left: 30px;
   padding-right: 30px;
 }
+
+.btn:focus {
+  outline: none !important;
+}
+
+.btn-success:focus {
+  box-shadow: none !important;
+}
+
+
 @media screen and (max-width: 768px) {
   .theme_container {
     padding-left: 20px;
