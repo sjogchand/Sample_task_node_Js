@@ -83,7 +83,7 @@ export default function AboutProperty({ propertyDetails }) {
           <h3 class="text-white">3D Virtual Tour</h3>
         </div>
         <iframe
-          src={`https://my.matterport.com/show/?m=${propertyDetails?.iframe}&amp;play=1`}
+          src={`https://my.matterport.com/show/?m=${propertyDetails?.iframe_url}&ts=0&hl=0&guides=0&lp=1&play=1`}
           frameborder="0"
           allowfullscreen=""
           allow="xr-spatial-tracking"
@@ -129,7 +129,7 @@ export default function AboutProperty({ propertyDetails }) {
             </div>
             <iframe
               // ref={modelRef}
-              src="https://my.matterport.com/show/?m=snYJsNLhoKV&amp;play=1"
+              src={`https://my.matterport.com/show/?m=${propertyDetails?.iframe_url}&ts=0&hl=0&guides=0&lp=1&play=1`}
               frameborder="0"
               allowfullscreen=""
               allow="xr-spatial-tracking"

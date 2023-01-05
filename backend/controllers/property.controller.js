@@ -70,6 +70,7 @@ const getPropertyById = async (req, res) => {
         'title',
         'description',
         'property_image',
+        'iframe_url',
         'price',
         'area',
         'configuration',
@@ -77,16 +78,7 @@ const getPropertyById = async (req, res) => {
         'security',
         'kid_safe',
         'parking',
-        'top_amenities',
-        'amenities',
-        'address',
-        'city',
-        'country',
-        'status',
-        [
-          db.Sequelize.fn(
-            'date_format',
-            db.Sequelize.col('properties.created_at'),
+        'top_amenities',gi
             '%m/%d/%Y',
           ),
           'created_at',
