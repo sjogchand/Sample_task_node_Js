@@ -58,6 +58,18 @@
 
 }
 
+.navbar_menu_items span {
+    margin-right: 36px !important;
+}
+
+.sidebar-menu-button {
+    background: transparent;
+    border: none;
+}
+
+.MuiButtonBase-root .sidebar-menu-button svg {
+    width: 20px;
+}
 
 @media screen and (max-width: 1020px) {
     .navbar_menu_items span {

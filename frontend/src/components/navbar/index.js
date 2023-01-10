@@ -9,6 +9,7 @@ import { useSelector } from 'react-redux'
 import { setLoginData } from './../../actions/loginAction'
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import SideBar from '../sidebar'
 
 export default function Navbar() {
   const [click, setClick] = useState(true)
@@ -111,7 +112,7 @@ export default function Navbar() {
             </span>
           )}
           <span className="menu_icon_desktop">
-            <HiMenu />
+            <SideBar />
           </span>
         </div>
       </div>

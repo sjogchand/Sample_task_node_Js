@@ -5,10 +5,10 @@ const maxSize = '50M'
 let storage = multer.diskStorage({
   destination: (req, file, cb) => {
     if (file.fieldname === 'property_video') cb(null, './uploads/videos')
-    else cb(null, './uploads')
+    else cb(null, './uploads/images')
   },
   filename: (req, file, cb) => {
-    cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname.replace(/\s+/g, '-').toLowerCase())
+    cb(null, file.fieldname + '-' + Date.now() + '-' + file.originalname)
   },
 })
 
@@ -32,17 +32,3 @@ module.exports = uploadFileMiddleware
 module.exports = {
   uploadFileMiddleware,
 }
-
-// const multer = require('multer');
-
-// var storage = multer.diskStorage({
-//   destination: function(req, file, cb) {
-//     cb(null, './uploads');
-//   },
-//   filename: function (req, file, cb) {
-//     cb(null, file.fieldname + "-" + Date.now() + "-" + file.originalname);
-//   }
-// });
-// var upload = multer({ storage: storage });
-
-// module.exports = upload;

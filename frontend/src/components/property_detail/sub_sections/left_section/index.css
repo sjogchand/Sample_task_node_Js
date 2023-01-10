@@ -124,7 +124,7 @@
 }
 
 .details_page_video button.button1 {
-    left: 170px;
+    left: 160px;
     position: relative;
 }
 
@@ -133,17 +133,13 @@
     position: relative;
 }
 
-.details_page_video .video .video_div {
-    padding-left: 20px;
-}
-
 .mymodal_2.iframe_modal {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     border: 0px transparent;
-    background: transparent;
+    background: #fff;
     border-radius: 0px;
     outline: none;
     padding: 0 0px;
@@ -153,9 +149,10 @@
     height: 100%;
     overflow: hidden;
 }
-.ReactModal__Body--open{
+
+/* .ReactModal__Body--open {
     overflow: hidden;
-}
+} */
 
 .mymodal_2.iframe_modal .h-navbar {
     background: #281e41;
@@ -181,6 +178,61 @@
     position: relative;
     z-index: 9999;
 }
+
+/* modal css */
+.modal_column {
+    float: left;
+    width: 33.33%;
+}
+
+/* Clear floats after the columns */
+.modal_row {
+    background: rebeccapurple !important;
+}
+
+.modal_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.modal_column.column1 {
+    padding: 20px;
+}
+
+.modal_column.column2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.modal_column.column3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.details_page_video .iframe_modal {
+    padding-right: 20px;
+}
+
+.details_page_video .video {
+    padding-left: 20px;
+}
+
+.pd_video video {
+    width: 100%;
+    border-radius: 0;
+}
+
+.details_page_video .iframe_modal,
+.details_page_video .video {
+    width: 49%;
+
+}
+
 
 @media screen and (max-width: 768px) {
 

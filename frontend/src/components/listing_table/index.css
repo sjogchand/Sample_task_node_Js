@@ -5,3 +5,9 @@
     position: relative;
     margin-top: 120px;
 }
+
+.listing_container.manage_property_div .MuiButtonBase-root svg,
+.edit_modal_button svg,
+.delete_modal_button svg {
+    fill: #6c757d
+}

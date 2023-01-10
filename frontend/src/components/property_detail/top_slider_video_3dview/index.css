@@ -1,0 +1,211 @@
+.mymodal_2.iframe_modal {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 0px transparent;
+    background: #fff;
+    border-radius: 0px;
+    outline: none;
+    padding: 0 0px;
+    padding-bottom: 10px;
+    text-align: left;
+    width: 98%;
+    height: 96%;
+    overflow: hidden;
+}
+
+/* .ReactModal__Body--open {
+    overflow: hidden;
+} */
+
+.mymodal_2.iframe_modal .h-navbar {
+    background: #281e41;
+    height: 12%;
+    text-align: center;
+    vertical-align: middle;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.mymodal_2.iframe_modal .cross_image {
+    left: 35px;
+    top: 20px;
+    background-color: transparent;
+}
+
+.mymodal_2.iframe_modal .stroke-2 {
+    height: 30px;
+    width: 50px;
+    stroke: currentColor;
+    position: relative;
+    z-index: 9999;
+}
+
+/* modal css */
+.parent_div_top .modal_column {
+    width: 100%;
+}
+
+/* Clear floats after the columns */
+.modal_row {
+    background: #281e41 !important;
+}
+
+.modal_row:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.modal_column.column1 {
+    padding: 20px;
+}
+
+.modal_column.column2 {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    justify-content: center;
+    vertical-align: middle;
+    align-items: center;
+}
+
+.modal_column.column3 {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+ul.modal_column.column3,
+.modal_column.column3 ul {
+    list-style: none !important;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal_column.column3 .relative.flex.items-center {
+    width: 30px !important;
+}
+
+.close-button {
+    width: 50px !important;
+}
+
+.MuiButtonBase-root svg {
+    fill: #fff;
+    width: 30px;
+}
+
+.modal_column.column2 .type-h3 {
+    font-size: 1.875rem;
+}
+
+.modal_column.column2 .text-white {
+    display: block;
+    padding-top: 10px;
+}
+
+.MuiTabs-scroller span.MuiTabs-indicator {
+    left: 0px;
+    width: 92.5139px;
+    background: #fff;
+    height: 4px;
+}
+
+#simple-tabpanel-0 .css-19kzrtu,
+#simple-tabpanel-1 .css-19kzrtu,
+#simple-tabpanel-2 .css-19kzrtu {
+    padding: 0px;
+}
+
+.mymodal_2.iframe_modal {
+    background: #000;
+}
+
+#simple-tabpanel-0,
+#simple-tabpanel-1 {
+    text-align: center;
+}
+
+.pd_image_container .image #simple-tabpanel-0 .slider .image_slide {
+    /* text-align: center;
+    width: 100% !important;
+    height: auto !important; */
+    text-align: center;
+    width: 100% !important;
+    height: 58.3vh !important;
+    /* object-fit: contain; */
+}
+
+#simple-tabpanel-2 iframe {
+    width: 100%;
+    height: 83vh;
+}
+
+.pd_image_container .image #simple-tabpanel-0 .slider button {
+    background: transparent;
+    padding: 10px 20px;
+}
+
+.pd_image_container .image #simple-tabpanel-0 .type-body-sm.flex.items-center {
+    background: transparent;
+}
+
+.property_details_container .pd_image_container .image button {
+    background: transparent !important;
+    font-size: 12px !important;
+    padding: 10px 35px;
+}
+
+.property_details_container .pd_image_container .image .MuiTabs-scroller span.MuiTabs-indicator {
+    top: 0;
+}
+
+.modal_row .close-button {
+    width: 40px !important;
+    background: transparent;
+    border: none;
+    padding-top: 20px;
+}
+
+.modal_row svg {
+    fill: #fff
+}
+
+.pd_image_container .image #simple-tabpanel-2,
+.pd_image_container .image #simple-tabpanel-2 .MuiTypography-body1,
+.pd_image_container .image #simple-tabpanel-2 .css-19kzrtu,
+.pd_image_container .image #simple-tabpanel-1,
+.pd_image_container .image #simple-tabpanel-1 .MuiTypography-body1,
+.pd_image_container .image #simple-tabpanel-1 .css-19kzrtu,
+.pd_image_container .image #simple-tabpanel-0,
+.pd_image_container .image #simple-tabpanel-0 .MuiTypography-body1,
+.pd_image_container .image #simple-tabpanel-0 .css-19kzrtu,
+.pd_image_container .image .modal_row
+{
+    margin-bottom: -10px;
+}
+
+.pd_image_container .image .modal_row{
+    position: relative;
+    z-index: 999;
+}
+
+.pd_image_container .image .full-screen button{
+    position: absolute;
+        right: 20px;
+        z-index: 2;
+        background: #707b91 !important;
+        top: 10px !important;
+        padding: 12px 15px !important;
+}
+
+.pd_image_container .image .full-screen svg {
+    width: 22px !important;
+    fill: #fff;
+}
+
+/* modal css */

@@ -18,6 +18,7 @@ import { useEffect, useState } from 'react'
 import axios from 'axios'
 import MapContainer from './sub_sections/map_section'
 import ImageSlider from '../slider'
+import TopSliderModalView from './top_slider_video_3dview'
 
 // import Theme_Buttom from "../general_components/button"
 
@@ -64,6 +65,8 @@ export default function Property_Details() {
   const [ownerShipProps, setOwnerShipProps] = useState('')
   const [ownerShipPropsPrice, setOwnerShipPrice] = useState('')
   const [sliderData, setSliderData] = useState([])
+  const [isOpenModal, setIsOpenModal] = useState(false)
+  const [tabValByTop, setTabValByTop] = useState(0)
 
   const [propertyDetails, setPropertyDetails] = useState({
     title: '',
@@ -165,6 +168,14 @@ export default function Property_Details() {
       })
   }, [])
 
+  useEffect(() => {
+    setIsOpenModal(false)
+  }, [isOpenModal])
+
+  // useEffect(() => {
+  //   setTabValByTop(false)
+  // }, [tabValByTop])
+
   const numberFormat = (value) =>
     new Intl.NumberFormat('en-US', {
       style: 'currency',
@@ -177,12 +188,37 @@ export default function Property_Details() {
         <div className="image">
           {propertyDetails.property_image && (
             <div className="parent_div_top">
-              {/* <img
-                src={`http://localhost:1055/${propertyDetails.property_image}`}
-                style={{ width: '100%', height: '68vh' }}
-                alt=""
-              /> */}
-              <ImageSlider slides={sliderData} sliderData={sliderData} />
+              <div className="full-screen">
+                <button
+                  aria-label="Expand Media Hub"
+                  class="Button_button__2JA4L Button_icon-button__92EF8 Button_icon-button--white__1MAfl MediaHub_expandButton___izXK"
+                  data-id="Expand Media Hub"
+                  type="button"
+                  onClick={() => setIsOpenModal(true)}
+                >
+                  <div class="Button___content__MtnK9">
+                    <svg
+                      class="Icon_icon__DqC9j Icon_icon--sm__4Ul0L Icon_icon--white__jpk-k Button_icon-button__icon__L8eZ-"
+                      data-id="Expand"
+                      viewBox="0 0 24 24"
+                      xmlns="http://www.w3.org/2000/svg"
+                    >
+                      <title>Expand Media Hub</title>
+                      <g>
+                        <path d="M10.92,13.08c-.29-.29-.77-.29-1.06,0l-6.36,6.36v-4.19c0-.41-.34-.75-.75-.75s-.75,.34-.75,.75v6c0,.1,.02,.19,.06,.29,.08,.18,.22,.33,.41,.41,.09,.04,.19,.06,.29,.06h6c.41,0,.75-.34,.75-.75s-.34-.75-.75-.75H4.56l6.36-6.36c.29-.29,.29-.77,0-1.06Z"></path>
+                        <path d="M22,2.73c0-.1-.02-.19-.06-.29-.08-.18-.22-.33-.41-.41-.09-.04-.19-.06-.29-.06h-6c-.41,0-.75,.34-.75,.75s.34,.75,.75,.75h4.19l-6.37,6.37c-.29,.29-.29,.77,0,1.06,.15,.15,.34,.22,.53,.22s.38-.07,.53-.22l6.37-6.37v4.19c0,.41,.34,.75,.75,.75s.75-.34,.75-.75V2.73Z"></path>
+                      </g>
+                    </svg>
+                  </div>
+                </button>
+              </div>
+              <TopSliderModalView
+                propertyDetails={propertyDetails}
+                sliderData={sliderData}
+                tabValue={0}
+                setTabValByTop={setTabValByTop}
+              />
+              {/* <ImageSlider slides={sliderData} sliderData={sliderData} />
               <div className="banner">
                 <ul className="flex items-center flex-1 whitespace-no-wrap overflow-x-auto w-full h-full lg:flex-row lg:w-auto lg:overflow-hidden lg:justify-center MediaHub_tabList__DDi_r">
                   <li className="MediaHub_firstTabItem__v8gIr">
@@ -261,7 +297,7 @@ export default function Property_Details() {
                     </button>
                   </li>
                 </ul>
-              </div>
+              </div> */}
             </div>
           )}
         </div>
@@ -353,7 +389,13 @@ export default function Property_Details() {
                   )
                 })}
               </div>
-              <AboutProperty propertyDetails={propertyDetails} />
+              <AboutProperty
+                sliderData={sliderData}
+                propertyDetails={propertyDetails}
+                isOpenModal={isOpenModal}
+                setIsOpenModal={setIsOpenModal}
+                tabVal={tabValByTop}
+              />
             </div>
           </div>
           <div className="pd_right_columns">

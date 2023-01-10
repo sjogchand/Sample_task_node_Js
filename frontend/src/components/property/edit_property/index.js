@@ -11,6 +11,8 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider'
 import { DatePicker } from '@mui/x-date-pickers/DatePicker'
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs'
 import { useEffect } from 'react'
+import Modal from 'react-modal'
+import img from '../../../assets/images/modal_check.png'
 
 // export default function EditPropertyForm({ pt, pb }) {
 export default function EditPropertyForm({ pt, pb }) {
@@ -23,10 +25,20 @@ export default function EditPropertyForm({ pt, pb }) {
   const queryParams = new URLSearchParams(window.location.search)
   const item_id = queryParams.get('item_id')
 
+  const [videoSrc, setVideoSrc] = useState(null)
+  const [propertyVideo, setPropetyVideo] = useState(null)
+
+  const [isOpen, setIsOpen] = useState(false)
+
+  function toggleModal(state) {
+    setIsOpen(state)
+  }
+
   const initialValues = {
     title: '',
     price: '',
     bed_main_house: '',
+    iframe_url: '',
     bath_main_house: '',
     bed_ADU: '',
     bath_ADU: '',
@@ -47,6 +59,7 @@ export default function EditPropertyForm({ pt, pb }) {
   const defaultState = {
     title: false,
     price: false,
+    iframe_url: false,
     bed_main_house: false,
     bath_main_house: false,
     bed_ADU: false,
@@ -145,6 +158,14 @@ export default function EditPropertyForm({ pt, pb }) {
       country: true,
     })
   }
+
+  const handleFocus20 = (e) => {
+    setTouched({
+      ...touched,
+      iframe_url: true,
+    })
+  }
+
   const enteredTitleIsValid = values.title.trim() !== ''
   const enteredPriceIsValid = values.price.trim() !== ''
   const enteredBedForMainHouseIsValid = values.bed_main_house.trim() !== ''
@@ -158,6 +179,7 @@ export default function EditPropertyForm({ pt, pb }) {
   const enteredAddressIsValid = values.address.trim() !== ''
   const enteredCityIsValid = values.city.trim() !== ''
   const enteredCountyIsValid = values.country.trim() !== ''
+  const enteredIframeUrlIsValid = values.iframe_url.trim() !== ''
 
   const titleInputIsInvalid =
     (!enteredTitleIsValid && touched.title) ||
@@ -173,7 +195,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (!enteredTitleIsValid && touched.yearBuilt) ||
     (!enteredTitleIsValid && touched.address) ||
     (!enteredTitleIsValid && touched.city) ||
-    (!enteredTitleIsValid && touched.country)
+    (!enteredTitleIsValid && touched.country) ||
+    (!enteredTitleIsValid && touched.iframe_url)
 
   const priceInputIsInvalid =
     (!enteredPriceIsValid && touched.price) ||
@@ -188,7 +211,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (!enteredPriceIsValid && touched.yearBuilt) ||
     (!enteredPriceIsValid && touched.address) ||
     (!enteredPriceIsValid && touched.city) ||
-    (!enteredPriceIsValid && touched.country)
+    (!enteredPriceIsValid && touched.country) ||
+    (!enteredPriceIsValid && touched.iframe_url)
 
   const bedForMainHouseInputIsInvalid =
     (!enteredBedForMainHouseIsValid && touched.bed_main_house) ||
@@ -202,7 +226,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (!enteredBedForMainHouseIsValid && touched.yearBuilt) ||
     (!enteredBedForMainHouseIsValid && touched.address) ||
     (!enteredBedForMainHouseIsValid && touched.city) ||
-    (!enteredBedForMainHouseIsValid && touched.country)
+    (!enteredBedForMainHouseIsValid && touched.country) ||
+    (!enteredBedForMainHouseIsValid && touched.iframe_url)
 
   const bathForMainHouseInputIsInvalid =
     (!enteredBathForMainHouseIsValid && touched.bath_main_house) ||
@@ -214,7 +239,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (!enteredBathForMainHouseIsValid && touched.yearBuilt) ||
     (!enteredBathForMainHouseIsValid && touched.address) ||
     (!enteredBathForMainHouseIsValid && touched.city) ||
-    (!enteredBathForMainHouseIsValid && touched.country)
+    (!enteredBathForMainHouseIsValid && touched.country) ||
+    (!enteredBathForMainHouseIsValid && touched.iframe_url)
 
   const bedADUInputIsInvalid =
     (!enteredBedForADUIsValid && touched.bed_ADU) ||
@@ -225,7 +251,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (touched.yearBuilt && !enteredBedForADUIsValid) ||
     (!enteredBedForADUIsValid && touched.address) ||
     (!enteredBedForADUIsValid && touched.city) ||
-    (!enteredBedForADUIsValid && touched.country)
+    (!enteredBedForADUIsValid && touched.country) ||
+    (!enteredBedForADUIsValid && touched.iframe_url)
 
   const bathADUInputIsInvalid =
     (!enteredBathForADUIsValid && touched.bath_ADU) ||
@@ -235,7 +262,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (touched.yearBuilt && !enteredBathForADUIsValid) ||
     (!enteredBathForADUIsValid && touched.address) ||
     (!enteredBathForADUIsValid && touched.city) ||
-    (!enteredBathForADUIsValid && touched.country)
+    (!enteredBathForADUIsValid && touched.country) ||
+    (!enteredBathForADUIsValid && touched.iframe_url)
 
   const areaPropertyInputIsInvalid =
     (!enteredAreaForPropertyIsValid && touched.area_of_property) ||
@@ -244,7 +272,8 @@ export default function EditPropertyForm({ pt, pb }) {
     (!enteredAreaForPropertyIsValid && touched.yearBuilt) ||
     (!enteredAreaForPropertyIsValid && touched.address) ||
     (!enteredAreaForPropertyIsValid && touched.city) ||
-    (!enteredAreaForPropertyIsValid && touched.country)
+    (!enteredAreaForPropertyIsValid && touched.country) ||
+    (!enteredAreaForPropertyIsValid && touched.iframe_url)
 
   const areaMainHoouseInputIsInvalid =
     (!enteredAreaForMainHouseisValid && touched.area_of_main_home) ||
@@ -252,31 +281,40 @@ export default function EditPropertyForm({ pt, pb }) {
     (touched.yearBuilt && !enteredAreaForMainHouseisValid) ||
     (!enteredAreaForMainHouseisValid && touched.address) ||
     (!enteredAreaForMainHouseisValid && touched.city) ||
-    (!enteredAreaForMainHouseisValid && touched.country)
+    (!enteredAreaForMainHouseisValid && touched.country) ||
+    (!enteredAreaForMainHouseisValid && touched.iframe_url)
 
   const areaADUInputIsInvalid =
     (!enteredAreaForADUIsValid && touched.area_of_ADU) ||
     (touched.yearBuilt && !enteredAreaForADUIsValid) ||
     (!enteredAreaForADUIsValid && touched.address) ||
     (!enteredAreaForADUIsValid && touched.city) ||
-    (!enteredAreaForADUIsValid && touched.country)
+    (!enteredAreaForADUIsValid && touched.country) ||
+    (!enteredAreaForADUIsValid && touched.iframe_url)
 
   const yearBuildInputIsInvalid =
     (!enteredBuidYearIsValid && touched.yearBuilt) ||
     (!enteredBuidYearIsValid && touched.address) ||
     (!enteredBuidYearIsValid && touched.city) ||
-    (!enteredBuidYearIsValid && touched.country)
+    (!enteredBuidYearIsValid && touched.country) ||
+    (!enteredBuidYearIsValid && touched.iframe_url)
 
   const addressInputIsInvalid =
     (!enteredAddressIsValid && touched.address) ||
     (!enteredAddressIsValid && touched.city) ||
-    (!enteredAddressIsValid && touched.country)
+    (!enteredAddressIsValid && touched.country) ||
+    (!enteredAddressIsValid && touched.iframe_url)
 
   const cityInputIsInvalid =
     (!enteredCityIsValid && touched.city) ||
-    (!enteredCityIsValid && touched.country)
+    (!enteredCityIsValid && touched.country) ||
+    (!enteredCityIsValid && touched.iframe_url)
 
-  const countryInputIsInvalid = !enteredCountyIsValid && touched.country
+  const countryInputIsInvalid =
+    (!enteredCountyIsValid && touched.country) ||
+    (!enteredCountyIsValid && touched.iframe_url)
+
+  const iFrameUrlInputIsInvalid = !enteredIframeUrlIsValid && touched.iframe_url
 
   const handleinputchange = (e) => {
     setIsError('')
@@ -333,7 +371,8 @@ export default function EditPropertyForm({ pt, pb }) {
             city: details.city,
             country: details.country,
           }
-          // console.log(details, 'sss')
+          // console.log(`http://localhost:1055/${details.video_url}`, 'sss')
+          setVideoSrc(`http://localhost:1055/${details.video_url}`)
           setValues(details)
           console.log(details.property_image)
           setImages(details.property_image)
@@ -346,6 +385,7 @@ export default function EditPropertyForm({ pt, pb }) {
     setTouched({
       title: true,
       price: true,
+      iframe_url: true,
       bed_main_house: true,
       bath_main_house: true,
       bed_ADU: true,
@@ -368,6 +408,7 @@ export default function EditPropertyForm({ pt, pb }) {
     if (
       !enteredTitleIsValid ||
       !enteredPriceIsValid ||
+      !enteredIframeUrlIsValid ||
       !enteredBedForMainHouseIsValid ||
       !enteredBathForMainHouseIsValid ||
       !enteredBedForADUIsValid ||
@@ -410,13 +451,15 @@ export default function EditPropertyForm({ pt, pb }) {
     formData.append('address', values.address)
     formData.append('city', values.city)
     formData.append('country', values.country)
+    formData.append('iframe_url', values.iframe_url)
+    formData.append('property_video', propertyVideo)
 
     if (images.length < 1) {
       setImgErr('please select property image.')
       return false
     } else {
       Array.from(images).forEach((item) => {
-        formData.append('properties_image', item)
+        formData.append('property_images', item)
       })
     }
     const config = { headers: { 'content-type': 'multipart/form-data' } }
@@ -429,6 +472,8 @@ export default function EditPropertyForm({ pt, pb }) {
           setTouched(defaultState)
           setYearBuilt(new Date())
           setImages([])
+          setIsOpen(true)
+          setPropetyVideo(null)
         } else if (response.data.status === 422) {
           setIsError(response.data.message)
           setTouched(defaultState)
@@ -448,270 +493,307 @@ export default function EditPropertyForm({ pt, pb }) {
     })
   }
 
-  return (
-    <div className="theme_container">
-      <div
-        style={{
-          paddingTop: pt,
-          paddingBottom: pb,
-        }}
-        className="get_started_container"
-      >
-        <h2>Add Properties</h2>
-        <h1>Add Properties details</h1>
-        <p>
-          Take the next step to owning more property than you ever thought
-          possible in your current stage of life. We're excited to help you
-          build prosperity and share the wealth. We're here to support you all
-          the way to make it happen.
-        </p>
-        <div className="get_started_inputs">
-          <Typography
-            sx={{
-              fontSize: '0.9rem',
-              textAlign: 'center',
-              color: 'red',
-            }}
-          >
-            {' '}
-            {isError}
-            {imgErr}
-          </Typography>
+  const handleChange = (event) => {
+    const file = event.target.files[0]
+    setPropetyVideo(file)
+    if (!file) return
+    setVideoSrc(URL.createObjectURL(file))
+  }
 
-          <form onSubmit={onSubmitHandler} encType="multipart/form-data">
-            <Box
+  const videoRef = useRef()
+
+  useEffect(() => {
+    videoRef.current?.load()
+  }, [videoSrc])
+
+  return (
+    <>
+      <Modal
+        isOpen={isOpen}
+        onRequestClose={() => toggleModal(false)}
+        contentLabel="My dialog"
+        className="mymodal"
+        overlayClassName="myoverlay"
+        closeTimeoutMS={400}
+      >
+        <div className="green_check_wrapper">
+          <img src={img} alt="" />
+        </div>
+        <h3 className="modal_heading"> Success! </h3>
+        <p className="modal_para">Property Updated Successfully.</p>
+        <button
+          smooth
+          className="modal_btn"
+          onClick={(e) => {
+            setIsOpen(false)
+          }}
+        >
+          OK
+        </button>
+      </Modal>
+      <div className="theme_container">
+        <div
+          style={{
+            paddingTop: pt,
+            paddingBottom: pb,
+          }}
+          className="get_started_container"
+        >
+          <h2>Add Properties</h2>
+          <h1>Add Properties details</h1>
+          <p>
+            Take the next step to owning more property than you ever thought
+            possible in your current stage of life. We're excited to help you
+            build prosperity and share the wealth. We're here to support you all
+            the way to make it happen.
+          </p>
+          <div className="get_started_inputs">
+            <Typography
               sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '43%',
-                },
+                fontSize: '0.9rem',
                 textAlign: 'center',
+                color: 'red',
               }}
             >
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.title}
-                name="title"
-                label="Title"
-                variant="outlined"
-                onBlur={handleFocus}
-                error={titleInputIsInvalid}
-                helperText={
-                  titleInputIsInvalid ? 'Please enter a Property Title' : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.price}
-                name="price"
-                label="Whole Price"
-                variant="outlined"
-                onBlur={handleFocus2}
-                error={priceInputIsInvalid}
-                helperText={
-                  priceInputIsInvalid ? 'Please enter a Property price' : ' '
-                }
-              />
-            </Box>
-            <Box
-              sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '25ch',
-                },
-                textAlign: 'center',
-              }}
-            >
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.bed_main_house}
-                name="bed_main_house"
-                label="Beds for Main House"
-                variant="outlined"
-                onBlur={handleFocus3}
-                error={bedForMainHouseInputIsInvalid}
-                helperText={
-                  bedForMainHouseInputIsInvalid
-                    ? 'Please enter a bed for main house'
-                    : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.bath_main_house}
-                name="bath_main_house"
-                label="Bath for Main House"
-                variant="outlined"
-                onBlur={handleFocus4}
-                error={bathForMainHouseInputIsInvalid}
-                helperText={
-                  bathForMainHouseInputIsInvalid
-                    ? 'Please enter a bath for main house'
-                    : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.bed_ADU}
-                name="bed_ADU"
-                label="Beds for ADU"
-                variant="outlined"
-                onBlur={handleFocus5}
-                error={bedADUInputIsInvalid}
-                helperText={
-                  bedADUInputIsInvalid
-                    ? 'Please enter a bath for main house'
-                    : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.bath_ADU}
-                name="bath_ADU"
-                label="Bath for ADU"
-                variant="outlined"
-                onBlur={handleFocus6}
-                error={bathADUInputIsInvalid}
-                helperText={
-                  bathADUInputIsInvalid
-                    ? 'Please enter a bath for main house'
-                    : ' '
-                }
-              />
-            </Box>
-            <Box
-              sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '25ch',
-                },
-                textAlign: 'center',
-              }}
-            >
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.area_of_property}
-                name="area_of_property"
-                label="Area of property"
-                variant="outlined"
-                onBlur={handleFocus7}
-                error={areaPropertyInputIsInvalid}
-                helperText={
-                  areaPropertyInputIsInvalid
-                    ? 'Please enter property area'
-                    : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.area_of_main_home}
-                name="area_of_main_home"
-                label="Area of Main home"
-                variant="outlined"
-                onBlur={handleFocus8}
-                error={areaMainHoouseInputIsInvalid}
-                helperText={
-                  areaMainHoouseInputIsInvalid
-                    ? 'Please enter property area'
-                    : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                type="number"
-                onChange={handleinputchange}
-                value={values.area_of_ADU}
-                name="area_of_ADU"
-                label="Area of ADU"
-                variant="outlined"
-                onBlur={handleFocus9}
-                error={areaADUInputIsInvalid}
-                helperText={
-                  areaADUInputIsInvalid ? 'Please enter property area' : ' '
-                }
-              />
-              <LocalizationProvider dateAdapter={AdapterDayjs}>
-                <DatePicker
-                  style={{ height: '1.4375em' }}
-                  views={['year']}
-                  label="Year only"
-                  //   value={yearBuilt}
-                  //   onChange={(newValue) => {
-                  //     setYearBuilt(newValue)
-                  //   }}
-                  value={yearBuilt}
-                  onChange={setYearBuilt}
-                  animateYearScrolling
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
-                      onBlur={handleFocus10}
-                      error={yearBuildInputIsInvalid}
-                      helperText={
-                        yearBuildInputIsInvalid
-                          ? 'Please enter year build'
-                          : ' '
-                      }
-                    />
-                  )}
+              {' '}
+              {isError}
+              {imgErr}
+            </Typography>
+
+            <form onSubmit={onSubmitHandler} encType="multipart/form-data">
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '43%',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.title}
+                  name="title"
+                  label="Title"
+                  variant="outlined"
+                  onBlur={handleFocus}
+                  error={titleInputIsInvalid}
+                  helperText={
+                    titleInputIsInvalid ? 'Please enter a Property Title' : ' '
+                  }
                 />
-              </LocalizationProvider>
-            </Box>
-            <Box
-              sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '25ch',
-                },
-                textAlign: 'center',
-              }}
-            >
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.kid_Safe}
-                name="kid_Safe"
-                label="Kid Safe"
-                variant="outlined"
-                //  onBlur={handleFocus11}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.parking}
-                name="parking"
-                label="Parking"
-                variant="outlined"
-                //  onBlur={handleFocus12}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-              {/* <Autocomplete
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.price}
+                  name="price"
+                  label="Whole Price"
+                  variant="outlined"
+                  onBlur={handleFocus2}
+                  error={priceInputIsInvalid}
+                  helperText={
+                    priceInputIsInvalid ? 'Please enter a Property price' : ' '
+                  }
+                />
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '25ch',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.bed_main_house}
+                  name="bed_main_house"
+                  label="Beds for Main House"
+                  variant="outlined"
+                  onBlur={handleFocus3}
+                  error={bedForMainHouseInputIsInvalid}
+                  helperText={
+                    bedForMainHouseInputIsInvalid
+                      ? 'Please enter a bed for main house'
+                      : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.bath_main_house}
+                  name="bath_main_house"
+                  label="Bath for Main House"
+                  variant="outlined"
+                  onBlur={handleFocus4}
+                  error={bathForMainHouseInputIsInvalid}
+                  helperText={
+                    bathForMainHouseInputIsInvalid
+                      ? 'Please enter a bath for main house'
+                      : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.bed_ADU}
+                  name="bed_ADU"
+                  label="Beds for ADU"
+                  variant="outlined"
+                  onBlur={handleFocus5}
+                  error={bedADUInputIsInvalid}
+                  helperText={
+                    bedADUInputIsInvalid
+                      ? 'Please enter a bath for main house'
+                      : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.bath_ADU}
+                  name="bath_ADU"
+                  label="Bath for ADU"
+                  variant="outlined"
+                  onBlur={handleFocus6}
+                  error={bathADUInputIsInvalid}
+                  helperText={
+                    bathADUInputIsInvalid
+                      ? 'Please enter a bath for main house'
+                      : ' '
+                  }
+                />
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '25ch',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.area_of_property}
+                  name="area_of_property"
+                  label="Area of property"
+                  variant="outlined"
+                  onBlur={handleFocus7}
+                  error={areaPropertyInputIsInvalid}
+                  helperText={
+                    areaPropertyInputIsInvalid
+                      ? 'Please enter property area'
+                      : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.area_of_main_home}
+                  name="area_of_main_home"
+                  label="Area of Main home"
+                  variant="outlined"
+                  onBlur={handleFocus8}
+                  error={areaMainHoouseInputIsInvalid}
+                  helperText={
+                    areaMainHoouseInputIsInvalid
+                      ? 'Please enter property area'
+                      : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="number"
+                  onChange={handleinputchange}
+                  value={values.area_of_ADU}
+                  name="area_of_ADU"
+                  label="Area of ADU"
+                  variant="outlined"
+                  onBlur={handleFocus9}
+                  error={areaADUInputIsInvalid}
+                  helperText={
+                    areaADUInputIsInvalid ? 'Please enter property area' : ' '
+                  }
+                />
+                <LocalizationProvider dateAdapter={AdapterDayjs}>
+                  <DatePicker
+                    style={{ height: '1.4375em' }}
+                    views={['year']}
+                    label="Year only"
+                    //   value={yearBuilt}
+                    //   onChange={(newValue) => {
+                    //     setYearBuilt(newValue)
+                    //   }}
+                    value={yearBuilt}
+                    onChange={setYearBuilt}
+                    animateYearScrolling
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        onBlur={handleFocus10}
+                        error={yearBuildInputIsInvalid}
+                        helperText={
+                          yearBuildInputIsInvalid
+                            ? 'Please enter year build'
+                            : ' '
+                        }
+                      />
+                    )}
+                  />
+                </LocalizationProvider>
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '25ch',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.kid_Safe}
+                  name="kid_Safe"
+                  label="Kid Safe"
+                  variant="outlined"
+                  //  onBlur={handleFocus11}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.parking}
+                  name="parking"
+                  label="Parking"
+                  variant="outlined"
+                  //  onBlur={handleFocus12}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+                {/* <Autocomplete
                 className="tag_input"
                 multiple
                 id="tags-filled"
@@ -735,22 +817,22 @@ export default function EditPropertyForm({ pt, pb }) {
                   />
                 )}
               /> */}
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.top_amenities}
-                name="top_amenities"
-                label="Top amenities(comma seperated value)"
-                variant="outlined"
-                //  onBlur={handleFocus13}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-              {/* <Autocomplete
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.top_amenities}
+                  name="top_amenities"
+                  label="Top amenities(comma seperated value)"
+                  variant="outlined"
+                  //  onBlur={handleFocus13}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+                {/* <Autocomplete
                 multiple
                 className="tag_input"
                 id="tags-filled"
@@ -770,108 +852,149 @@ export default function EditPropertyForm({ pt, pb }) {
                   />
                 )}
               /> */}
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.amenities}
-                name="amenities"
-                label="Amenities(comma seperated value)"
-                variant="outlined"
-                //  onBlur={handleFocus14}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-            </Box>
-            <Box
-              sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '100ch',
-                },
-                textAlign: 'center',
-              }}
-            >
-              <TextareaAutosize
-                aria-label="Property Details"
-                onChange={handleinputchange}
-                value={values.description}
-                name="description"
-                placeholder="Property Details"
-                style={{ width: '87.5%', height: '100px' }}
-                //  onBlur={handleFocus15}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-            </Box>
-            <Box
-              sx={{
-                '& > :not(style)': {
-                  m: 1,
-                  width: '25ch',
-                },
-                textAlign: 'center',
-              }}
-            >
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.security}
-                name="security"
-                label="Security"
-                variant="outlined"
-                //  onBlur={handleFocus16}
-                // error={areaPropertyInputIsInvalid}
-                // helperText={
-                //   areaPropertyInputIsInvalid
-                //     ? 'Please enter property area'
-                //     : ' '
-                // }
-              />
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.address}
-                name="address"
-                label="Address"
-                variant="outlined"
-                onBlur={handleFocus17}
-                error={addressInputIsInvalid}
-                helperText={
-                  addressInputIsInvalid ? 'Please enter Address' : ' '
-                }
-              />
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.city}
-                name="city"
-                label="City"
-                variant="outlined"
-                onBlur={handleFocus18}
-                error={cityInputIsInvalid}
-                helperText={cityInputIsInvalid ? 'Please enter city' : ' '}
-              />
-              <TextField
-                id="outlined-basic"
-                onChange={handleinputchange}
-                value={values.country}
-                name="country"
-                label="Country"
-                variant="outlined"
-                onBlur={handleFocus19}
-                error={countryInputIsInvalid}
-                helperText={countryInputIsInvalid ? 'Please enter city' : ' '}
-              />
-            </Box>
-            {/* <Box
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.amenities}
+                  name="amenities"
+                  label="Amenities(comma seperated value)"
+                  variant="outlined"
+                  //  onBlur={handleFocus14}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '100ch',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextareaAutosize
+                  aria-label="Property Details"
+                  onChange={handleinputchange}
+                  value={values.description}
+                  name="description"
+                  placeholder="Property Details"
+                  style={{ width: '87.5%', height: '100px' }}
+                  //  onBlur={handleFocus15}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '25ch',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.security}
+                  name="security"
+                  label="Security"
+                  variant="outlined"
+                  //  onBlur={handleFocus16}
+                  // error={areaPropertyInputIsInvalid}
+                  // helperText={
+                  //   areaPropertyInputIsInvalid
+                  //     ? 'Please enter property area'
+                  //     : ' '
+                  // }
+                />
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.address}
+                  name="address"
+                  label="Address"
+                  variant="outlined"
+                  onBlur={handleFocus17}
+                  error={addressInputIsInvalid}
+                  helperText={
+                    addressInputIsInvalid ? 'Please enter Address' : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.city}
+                  name="city"
+                  label="City"
+                  variant="outlined"
+                  onBlur={handleFocus18}
+                  error={cityInputIsInvalid}
+                  helperText={cityInputIsInvalid ? 'Please enter city' : ' '}
+                />
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.country}
+                  name="country"
+                  label="Country"
+                  variant="outlined"
+                  onBlur={handleFocus19}
+                  error={countryInputIsInvalid}
+                  helperText={countryInputIsInvalid ? 'Please enter city' : ' '}
+                />
+              </Box>
+              <Box
+                sx={{
+                  '& > :not(style)': {
+                    m: 1,
+                    width: '43%',
+                  },
+                  textAlign: 'center',
+                }}
+              >
+                <TextField
+                  id="outlined-basic"
+                  onChange={handleinputchange}
+                  value={values.iframe_url}
+                  name="iframe_url"
+                  label="Iframe Url"
+                  variant="outlined"
+                  onBlur={handleFocus20}
+                  error={iFrameUrlInputIsInvalid}
+                  helperText={
+                    iFrameUrlInputIsInvalid ? 'Please enter Iframe Url' : ' '
+                  }
+                />
+                <TextField
+                  id="outlined-basic"
+                  type="file"
+                  label="Select Video"
+                  className="form-control form-control-sm"
+                  accept="image/*,gif/*,video/mp4,video/x-m4v,video/*"
+                  onChange={(event) => {
+                    handleChange(event)
+                  }}
+                  InputLabelProps={{
+                    shrink: true,
+                  }}
+                  // value={videoSrc}
+                />
+                <video ref={videoRef} width="260" height="150" controls>
+                  <source src={videoSrc} />
+                  Your browser does not support the video tag.
+                </video>
+              </Box>
+              {/* <Box
               sx={{
                 display: 'flex',
                 flexDirection: 'column',
@@ -949,74 +1072,74 @@ export default function EditPropertyForm({ pt, pb }) {
                 </div>
               </section>
             </Box> */}
-            {/* {multipleImages && (
+              {/* {multipleImages && (
               <Button onClick={(e) => removeImage(e)}>Remove</Button>
             )}
             {previewUrl && <img src={previewUrl} height={80} alt="profile" />} */}
-            <Typography
-              sx={{
-                fontSize: '0.9rem',
-                textAlign: 'center',
-                color: 'red',
-              }}
-            >
-              {imgErr}
-            </Typography>
-            <Box
-              className="image_section"
-              sx={{
-                display: 'flex',
-                backgroundColor: '#F1F1F1',
-                p: 2,
-              }}
-            >
-              {Array.from(images).map((image, index) => (
-                <div className="image_parent_div" key={index}>
-                  <div className="image_div">
-                    <Button onClick={(e) => removeImage(image.name)}>
-                      Remove
-                    </Button>
-                    {console.log(image, 'image', checkImage(image))}
-                    <img
-                      className="image"
-                      src={
-                        checkImage(image)
-                          ? `http://localhost:1055/${image}`
-                          : URL.createObjectURL(image)
-                          ? URL.createObjectURL(image)
-                          : null
-                      }
-                      height={80}
-                      alt="profile"
-                      key={image}
-                    />
-                  </div>
-                </div>
-              ))}
-            </Box>
-
-            <Box
-              sx={{
-                display: 'flex',
-                backgroundColor: '#F1F1F1',
-                justifyContent: 'center',
-                p: 2,
-                mt: 1,
-                color: '#A7A7A7',
-                textAlign: 'center',
-              }}
-            >
-              <input
-                onChange={(e) => {
-                  setImages(e.target.files)
+              <Typography
+                sx={{
+                  fontSize: '0.9rem',
+                  textAlign: 'center',
+                  color: 'red',
                 }}
-                type="file"
-                name="file"
-                className="image_input"
-                accept="image/*"
-                multiple
-              />
-              {/* <input
+              >
+                {imgErr}
+              </Typography>
+              <Box
+                className="image_section"
+                sx={{
+                  display: 'flex',
+                  backgroundColor: '#F1F1F1',
+                  p: 2,
+                }}
+              >
+                {Array.from(images).map((image, index) => (
+                  <div className="image_parent_div" key={index}>
+                    <div className="image_div">
+                      <Button onClick={(e) => removeImage(image.name)}>
+                        Remove
+                      </Button>
+                      {/* {console.log(image, 'image', checkImage(image))} */}
+                      <img
+                        className="image"
+                        src={
+                          checkImage(image)
+                            ? `http://localhost:1055/${image}`
+                            : URL.createObjectURL(image)
+                            ? URL.createObjectURL(image)
+                            : null
+                        }
+                        height={80}
+                        alt="profile"
+                        key={image}
+                      />
+                    </div>
+                  </div>
+                ))}
+              </Box>
+
+              <Box
+                sx={{
+                  display: 'flex',
+                  backgroundColor: '#F1F1F1',
+                  justifyContent: 'center',
+                  p: 2,
+                  mt: 1,
+                  color: '#A7A7A7',
+                  textAlign: 'center',
+                }}
+              >
+                <input
+                  onChange={(e) => {
+                    setImages(e.target.files)
+                  }}
+                  type="file"
+                  name="file"
+                  className="image_input"
+                  accept="image/*"
+                  multiple
+                />
+                {/* <input
                 type="file"
                 name="file"
                 className="image_input"
@@ -1025,17 +1148,18 @@ export default function EditPropertyForm({ pt, pb }) {
                 {...register('file', { required: true })}
                 onChange={changeMultipleFiles}
               /> */}
-            </Box>
+              </Box>
 
-            <Box sx={{ mt: 1, color: '#A7A7A7', textAlign: 'center' }}>
-              <Button onClick={onSubmitHandler} variant="contained">
-                Add Property
-              </Button>
-              {success ? <SpecialModal redirect={'manage-property'} /> : null}
-            </Box>
-          </form>
+              <Box sx={{ mt: 1, color: '#A7A7A7', textAlign: 'center' }}>
+                <Button onClick={onSubmitHandler} variant="contained">
+                  Add Property
+                </Button>
+                {success ? <SpecialModal redirect={'manage-property'} /> : null}
+              </Box>
+            </form>
+          </div>
         </div>
       </div>
-    </div>
+    </>
   )
 }

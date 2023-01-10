@@ -2,7 +2,9 @@ const Op = require('sequelize').Op
 const db = require('../models')
 
 const saveProperty = async (req, res) => {
-  var properties_Images = req.files.map((a) => 'uploads/' + a.filename)
+  var properties_Images = req.files.property_images.map(
+    (a) => 'uploads/' + a.filename.replace(/\s+/g, '-').toLowerCase(),
+  )
   const propertyParams = req.body
   const checkProperty = await db.properties
     .findOne({
@@ -25,6 +27,10 @@ const saveProperty = async (req, res) => {
       title: propertyParams.title,
       description: propertyParams.description,
       property_image: JSON.stringify(properties_Images),
+      video_url: `uploads/videos/${req.files.property_video[0].filename
+        .replace(/\s+/g, '-')
+        .toLowerCase()}`,
+      iframe_url: propertyParams.iframe_url,
       price: propertyParams.price,
       area: propertyParams.area,
       configuration: propertyParams.configuration,
@@ -71,6 +77,7 @@ const getPropertyById = async (req, res) => {
         'description',
         'property_image',
         'iframe_url',
+        'video_url',
         'price',
         'area',
         'configuration',
@@ -167,7 +174,9 @@ const listProperty = async (req, res) => {
 }
 
 const updateProperty = async (req, res) => {
-  var properties_Images = req.files.map((a) => 'uploads/' + a.filename)
+  var properties_Images = req.files.property_images.map(
+    (a) => 'uploads/' + a.filename.replace(/\s+/g, '-').toLowerCase(),
+  )
   const propertyParams = req.body
   const PropertyData = await db.properties
     .update(
@@ -175,6 +184,10 @@ const updateProperty = async (req, res) => {
         title: propertyParams.title,
         description: propertyParams.description,
         property_image: JSON.stringify(properties_Images),
+        video_url: `uploads/videos/${req.files.property_video[0].filename
+          .replace(/\s+/g, '-')
+          .toLowerCase()}`,
+        iframe_url: propertyParams.iframe_url,
         price: propertyParams.price,
         area: propertyParams.area,
         configuration: propertyParams.configuration,

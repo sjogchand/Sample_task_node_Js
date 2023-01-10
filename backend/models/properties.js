@@ -24,6 +24,12 @@ module.exports = (sequelize, DataTypes) => {
       property_image: {
         type: DataTypes.STRING,
       },
+      video_url: {
+        type: DataTypes.STRING,
+      },
+      iframe_url: {
+        type: DataTypes.STRING,
+      },
       price: {
         type: DataTypes.STRING,
       },

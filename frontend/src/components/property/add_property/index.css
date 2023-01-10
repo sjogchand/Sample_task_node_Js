@@ -109,6 +109,23 @@
     justify-content: center;
 }
 
+/* success modal */
+.modal_btn {
+    background: #ECEEF7;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 18px;
+    line-height: 19px;
+    text-align: center;
+    color: #363636;
+    padding: 20px 159px;
+    border: none;
+    margin-bottom: 21px;
+    display: inline-block;
+    text-decoration: none;
+}
+/* success modal */
+
 @media screen and (max-width: 768px) {
     .signup_container_bg {
         padding-top: 137px;

@@ -4,16 +4,16 @@
 
 .navigation {
     position: absolute;
-    right: 40px;
+    right: 90px;
     display: flex;
     flex-wrap: wrap;
-    background-color: #6d707ac7;
-      top: 10px;
+    /* background-color: #6d707ac7; */
+    top: 10px;
     border-radius: 28px;
     -webkit-transition: none !important;
-        -moz-transition: none !important;
-        -o-transition: none !important;
-        transition: none !important;
+    -moz-transition: none !important;
+    -o-transition: none !important;
+    transition: none !important;
 }
 
 .navigation svg {
@@ -37,4 +37,28 @@
 
 .slider button {
     background: transparent;
+}
+
+.pd_image_container .image .next-prev, .pd_image_container .image .full-screen {
+    display: flex;
+    flex-wrap: wrap;
+    /* position: absolute; */
+    /* right: 40px; */
+    display: flex;
+    flex-wrap: wrap;
+    background-color: #6d707ac7;
+    top: 10px;
+    border-radius: 28px;
+    transition: none !important;
+}
+
+.pd_image_container .image .full-screen{
+    margin-left: 10px !important;
+}
+.pd_image_container .image .full-screen svg{
+    width: 22px !important;
+}
+
+.pd_image_container .image #simple-tabpanel-0 .full-screen button {
+    padding: 10px 13px !important;
 }

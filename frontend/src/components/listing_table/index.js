@@ -171,6 +171,7 @@ export default function ListingTable() {
       getActions: (params) => [
         <GridActionsCellItem
           icon={<DeleteIcon sx={{ color: '#B7345C' }} />}
+          className="delete_modal_button"
           label="Delete"
           sx={{ color: '#B7345C' }}
           data-bs-toggle="modal"
@@ -183,6 +184,7 @@ export default function ListingTable() {
         />,
         <GridActionsCellItem
           icon={<EditIcon />}
+          className="edit_modal_button"
           label="Edit"
           onClick={(event) => navigate(`/edit-property/?item_id=${params.id}`)}
           showInMenu
